@@ -1,9 +1,10 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v3 — 2026-08-16
+   VERSION: v9 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
-   página > css/styles.css) y NO ves "v3" aquí arriba, el archivo
+   página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
+   v4: tabs ahora son CSS puro (radio+label), ya no dependen de JS.
    ============================================================ */
 
 :root{
@@ -35,9 +36,13 @@ body{
 img,svg{ max-width:100%; display:block; }
 a{ color:inherit; }
 h1,h2,h3{ font-family:var(--font-display); font-weight:600; margin:0 0 .5em; letter-spacing:-0.01em; }
-p{ margin:0 0 1em; line-height:1.65; }
+p{ margin:0 0 1em; line-height:1.65; text-align:justify; text-justify:inter-word; }
 .mono{ font-family:var(--font-mono); }
 button{ font:inherit; }
+/* Elements that should stay left/center-aligned, not justified */
+.eyebrow, .section-tag, blockquote, .fig-label, .panel-label,
+.hero-specs .v, .diff blockquote, .audience-banner p{ text-align:left; }
+.diff .wrap p, .diff blockquote{ text-align:center; }
 
 .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 28px; }
 
@@ -92,9 +97,16 @@ button{ font:inherit; }
   position:relative; overflow:hidden;
   padding:110px 0 100px;
 }
+.hero-wallpaper{
+  position:absolute; top:-60px; right:-60px; bottom:-60px; left:-60px; z-index:0;
+  background-image:url('/assets/Arzen_Wallpaper.png');
+  background-size:cover; background-position:center 25%;
+  filter:blur(7px) brightness(.95) saturate(1.1);
+  opacity:.55;
+}
 .hero-bg{
-  position:absolute; inset:0; z-index:0;
-  background-color:#15171a;
+  position:absolute; top:0; right:0; bottom:0; left:0; z-index:1;
+  background-color:rgba(21,23,26,.20);
   background-image:
     linear-gradient(var(--hairline-dark) 1px, transparent 1px),
     linear-gradient(90deg, var(--hairline-dark) 1px, transparent 1px);
@@ -102,10 +114,10 @@ button{ font:inherit; }
 }
 .hero-bg::after{
   content:"";
-  position:absolute; inset:0;
+  position:absolute; top:0; right:0; bottom:0; left:0;
   background:
     radial-gradient(ellipse 60% 90% at 88% 20%, rgba(242,166,25,.10), transparent 60%),
-    linear-gradient(100deg, rgba(28,30,33,.98) 0%, rgba(28,30,33,.94) 38%, rgba(28,30,33,.72) 100%);
+    linear-gradient(100deg, rgba(28,30,33,.94) 0%, rgba(28,30,33,.82) 42%, rgba(28,30,33,.55) 100%);
 }
 /* Replace with a real facility/machining photo when available:
    background-image:url('/assets/plants/hero-plant.jpg'); background-size:cover; background-position:center; */
@@ -113,7 +125,7 @@ button{ font:inherit; }
 
 .hero-grid{
   display:grid; grid-template-columns:1fr; gap:0;
-  position:relative; z-index:1;
+  position:relative; z-index:2;
 }
 .eyebrow{
   font-family:var(--font-mono); font-size:.76rem; letter-spacing:.16em; text-transform:uppercase;
@@ -159,20 +171,38 @@ section{ padding:104px 0; }
 .section-head h2{ font-size:clamp(1.7rem,2.8vw,2.4rem); color:var(--graphite); }
 .section-head p{ color:var(--steel); max-width:58ch; font-size:1.02rem; }
 
-/* ---------- Tabs (shared: About + Contact) ---------- */
+/* ---------- Tabs (shared: About + Contact) — PURE CSS, no JS required ---------- */
+.tab-radio{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
 .tabs .tab-list{ display:flex; gap:0; border-bottom:1px solid var(--hairline); margin-bottom:44px; flex-wrap:wrap; }
 .tabs.tabs-dark .tab-list{ border-bottom-color:var(--hairline-dark); }
 .tab-btn{
-  background:none; border:none; cursor:pointer; appearance:none; -webkit-appearance:none;
+  display:inline-block; cursor:pointer; user-select:none;
   font-family:var(--font-mono); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;
   padding:15px 0; margin-right:44px; color:var(--cool-gray); position:relative;
 }
 .tab-btn:hover{ color:var(--steel); }
-.tab-btn[aria-selected="true"]{ color:var(--graphite); font-weight:600; }
 .tabs.tabs-dark .tab-btn{ color:#8f96a0; }
-.tabs.tabs-dark .tab-btn[aria-selected="true"]{ color:#fff; }
-.tab-btn[aria-selected="true"]::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--amber); }
-.tab-panel[hidden]{ display:none; }
+.tab-panel{ display:none; }
+
+/* About tabs wiring */
+#tab-who:checked ~ .tab-panels #panel-who,
+#tab-what:checked ~ .tab-panels #panel-what,
+#tab-buyer:checked ~ .tab-panels #panel-buyer,
+#tab-supplier:checked ~ .tab-panels #panel-supplier{ display:block; }
+
+#tab-who:checked ~ .tab-list label[for="tab-who"],
+#tab-what:checked ~ .tab-list label[for="tab-what"],
+#tab-buyer:checked ~ .tab-list label[for="tab-buyer"],
+#tab-supplier:checked ~ .tab-list label[for="tab-supplier"]{ color:var(--graphite); font-weight:600; }
+.tabs.tabs-dark #tab-buyer:checked ~ .tab-list label[for="tab-buyer"],
+.tabs.tabs-dark #tab-supplier:checked ~ .tab-list label[for="tab-supplier"]{ color:#fff; }
+
+#tab-who:checked ~ .tab-list label[for="tab-who"]::after,
+#tab-what:checked ~ .tab-list label[for="tab-what"]::after,
+#tab-buyer:checked ~ .tab-list label[for="tab-buyer"]::after,
+#tab-supplier:checked ~ .tab-list label[for="tab-supplier"]::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--amber);
+}
 
 /* About tabs content */
 .about-grid{ display:grid; grid-template-columns:1.3fr .7fr; gap:64px; align-items:start; }
@@ -197,11 +227,15 @@ section{ padding:104px 0; }
     linear-gradient(var(--hairline-dark) 1px, transparent 1px),
     linear-gradient(90deg, var(--hairline-dark) 1px, transparent 1px);
   background-size:auto, 34px 34px, 34px 34px;
-  background-blend-mode:normal;
   background-repeat:no-repeat, repeat, repeat;
 }
-/* Cuando tengan foto real, sustituir el selector correspondiente con:
-   .plant-photo.p1{ background-image:url('/assets/plants/planta-1.jpg'); background-size:cover; background-position:center; } */
+/* Real photos: just upload files with these exact names to assets/plants/ —
+   nothing else to edit. If a file is missing, the technical pattern above
+   shows through automatically (no broken-image icon). */
+.facility-grid > div:nth-child(1){ background-image:url('/assets/CNC_Machining.png'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(2){ background-image:url('/assets/Dimensional_Inspection.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(3){ background-image:url('/assets/Tooling_Assembly.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(4){ background-image:url('/assets/Finished_Parts.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
 .plant-photo .cap{
   position:absolute; left:18px; bottom:16px; z-index:1;
   font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
@@ -228,7 +262,16 @@ section{ padding:104px 0; }
 .problem-card p{ color:var(--steel); font-size:.92rem; margin:0; }
 
 /* ---------- Industries ---------- */
-.industries{ background:#fff; }
+.industries{ background:#fff; position:relative; overflow:hidden; }
+.section-wallpaper{
+  position:absolute; top:-40px; right:-40px; bottom:-40px; left:-40px; z-index:0;
+  background-image:
+    linear-gradient(rgba(244,245,247,.82), rgba(244,245,247,.82)),
+    url('/assets/Arzen_Wallpaper.png');
+  background-size:cover; background-position:center;
+  filter:blur(10px);
+}
+.industries .wrap{ position:relative; z-index:1; }
 .industries .seam-grid{ grid-template-columns:repeat(4,1fr); border-color:var(--hairline); background:var(--hairline); }
 .industry-card .icon{ width:32px; height:32px; margin-bottom:20px; color:var(--amber); }
 .industry-card .icon svg{ width:32px; height:32px; display:block; }
