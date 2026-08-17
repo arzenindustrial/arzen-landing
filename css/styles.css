@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v21 — 2026-08-16
+   VERSION: v22 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -97,26 +97,47 @@ button{ font:inherit; }
 .nav-cta:hover{ background:#d99411; }
 
 /* ---------- Hero (full-bleed, editorial) ---------- */
+/* ---------- Hero carousel (full-bleed photo slides, fills the screen on mobile) ---------- */
 .hero{
   background:var(--graphite); color:var(--white-cold);
   position:relative; overflow:hidden;
-  padding:110px 0 72px;
+  padding:0;
+  min-height:100vh; min-height:100svh;
+  display:flex;
 }
-.hero-bg{
-  position:absolute; top:0; right:0; bottom:0; left:0; z-index:1;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size:96px 96px;
+.slide-radio{ position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
+.slides{ position:relative; width:100%; min-height:100vh; min-height:100svh; }
+.slide{
+  position:absolute; top:0; right:0; bottom:0; left:0;
+  background-size:cover; background-position:center;
+  display:flex; align-items:center;
+  opacity:0; visibility:hidden; transition:opacity 1s ease;
+  z-index:0;
 }
-.hero-bg::after{
+#slide-1:checked ~ .slides .slide[data-slide="1"],
+#slide-2:checked ~ .slides .slide[data-slide="2"],
+#slide-3:checked ~ .slides .slide[data-slide="3"],
+#slide-4:checked ~ .slides .slide[data-slide="4"]{ opacity:1; visibility:visible; z-index:1; }
+.slide::after{
   content:"";
   position:absolute; top:0; right:0; bottom:0; left:0;
-  background:rgba(21,23,26,.15);
+  background:linear-gradient(100deg, rgba(15,17,19,.92) 0%, rgba(15,17,19,.78) 40%, rgba(15,17,19,.5) 75%, rgba(15,17,19,.62) 100%);
 }
-/* Replace with a real facility/machining photo when available:
-   background-image:url('/assets/plants/hero-plant.jpg'); background-size:cover; background-position:center; */
-.hero-rings{ position:absolute; right:-180px; top:50%; transform:translateY(-50%); width:640px; height:640px; opacity:.5; z-index:0; }
+.slide-content{ position:relative; z-index:1; padding:110px 0 100px; }
+
+.slide-dots{
+  position:absolute; left:0; right:0; bottom:28px; z-index:5;
+  display:flex; justify-content:center; gap:10px;
+}
+.slide-dots label{
+  width:26px; height:3px; background:rgba(244,245,247,.3); cursor:pointer; transition:background .2s ease;
+}
+#slide-1:checked ~ .slide-dots label[for="slide-1"],
+#slide-2:checked ~ .slide-dots label[for="slide-2"],
+#slide-3:checked ~ .slide-dots label[for="slide-3"],
+#slide-4:checked ~ .slide-dots label[for="slide-4"]{ background:var(--amber); }
+
+.hero-rings{ display:none; }
 
 .hero-grid{
   display:grid; grid-template-columns:1fr; gap:0;
@@ -395,6 +416,26 @@ section{ padding:104px 0; }
 .ty-calendly .calendly-shell{ max-width:820px; margin:0 auto; box-shadow:0 20px 60px rgba(0,0,0,.12); }
 
 /* ---------- Footer ---------- */
+/* ---------- Scroll-triggered popup ---------- */
+.scroll-popup{
+  position:fixed; right:20px; bottom:20px; z-index:200; max-width:340px;
+  background:var(--graphite); color:#fff; border:1px solid var(--hairline-dark);
+  border-radius:var(--radius); padding:24px 22px; box-shadow:0 24px 60px rgba(0,0,0,.4);
+  opacity:0; transform:translateY(16px); pointer-events:none; transition:opacity .3s ease, transform .3s ease;
+}
+.scroll-popup.visible{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.scroll-popup .popup-close{
+  position:absolute; top:8px; right:10px; background:none; border:none; color:#8f96a0;
+  font-size:1.3rem; line-height:1; cursor:pointer; padding:6px;
+}
+.scroll-popup .popup-close:hover{ color:#fff; }
+.scroll-popup .popup-eyebrow{
+  font-family:var(--font-mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--amber); margin:0 0 8px;
+}
+.scroll-popup h3{ font-family:var(--font-display); font-size:1.08rem; line-height:1.3; margin:0 0 16px; color:#fff; }
+.scroll-popup .popup-cta{ width:100%; justify-content:center; font-size:.78rem; padding:12px 18px; }
+
 footer{ background:var(--gray-light); border-top:1px solid var(--hairline); }
 footer .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:26px 28px; min-height:64px; }
 footer .f-brand{ display:flex; align-items:center; gap:10px; }
@@ -459,7 +500,8 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .lang-switch{ font-size:.68rem; }
   .audience-switch{ font-size:.6rem; padding:6px 9px; letter-spacing:.02em; }
 
-  .hero{ padding:40px 0 32px; }
+  .hero{ padding:0; }
+  .slide-content{ padding:88px 0 64px; }
   .eyebrow{ font-size:.62rem; line-height:1.5; margin-bottom:14px; letter-spacing:.1em; }
   .hero h1{ font-size:1.62rem; line-height:1.22; max-width:none; letter-spacing:-.005em; }
   .hero .sub{ font-size:.9rem; line-height:1.6; margin:14px 0 22px; }
@@ -501,6 +543,7 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .facility-grid{ grid-template-columns:1fr; }
   .facility-grid .ph-lg{ grid-column:1; height:220px; }
   .facility-grid > div:not(.ph-lg){ height:180px; }
+  .scroll-popup{ left:16px; right:16px; bottom:16px; max-width:none; padding:20px; }
 }
 
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
