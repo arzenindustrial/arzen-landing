@@ -1,15 +1,16 @@
-<!-- VERSION: v3 — 2026-08-16 -->
+<!-- VERSION: v17 — 2026-08-16 -->
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/es/">
+<meta http-equiv="refresh" content="0; url=/en/">
 <title>Arzen Industrial Group</title>
 <meta name="robots" content="noindex">
 <script>
   (function(){
-    var lang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
-    var dest = lang.indexOf('en') === 0 ? '/en/' : '/es/';
+    // Default is English. Only redirect to /es/ if the browser explicitly prefers Spanish.
+    var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    var dest = lang.indexOf('es') === 0 ? '/es/' : '/en/';
     window.location.replace(dest);
   })();
 </script>
