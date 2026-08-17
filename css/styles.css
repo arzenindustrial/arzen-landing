@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v18 — 2026-08-16
+   VERSION: v19 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -16,6 +16,7 @@
   --cool-gray:  #8A8F98;
   --hairline:   rgba(28,30,33,.12);
   --hairline-dark: rgba(244,245,247,.16);
+  --grid-line: rgba(244,245,247,.045);
   --danger:     #B3392C;
   --danger-bg:  #FBF0EE;
   --danger-line: rgba(179,57,44,.18);
@@ -25,6 +26,7 @@
   --font-mono:    'IBM Plex Mono', monospace;
 
   --max-w: 1220px;
+  --radius: 6px;
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
@@ -90,7 +92,7 @@ button{ font:inherit; }
   display:inline-block; font-weight:600; font-size:.8rem;
   text-transform:uppercase; letter-spacing:.04em;
   background:var(--amber); color:var(--graphite); padding:12px 20px;
-  text-decoration:none; white-space:nowrap;
+  text-decoration:none; white-space:nowrap; border-radius:var(--radius);
 }
 .nav-cta:hover{ background:#d99411; }
 
@@ -103,9 +105,9 @@ button{ font:inherit; }
 .hero-bg{
   position:absolute; top:0; right:0; bottom:0; left:0; z-index:1;
   background-image:
-    linear-gradient(var(--hairline-dark) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hairline-dark) 1px, transparent 1px);
-  background-size:64px 64px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size:96px 96px;
 }
 .hero-bg::after{
   content:"";
@@ -131,7 +133,7 @@ button{ font:inherit; }
   display:inline-flex; align-items:center; gap:8px;
   font-weight:600; font-size:.92rem;
   text-transform:uppercase; letter-spacing:.03em;
-  padding:16px 28px; text-decoration:none;
+  padding:16px 28px; text-decoration:none; border-radius:var(--radius);
   border:1px solid transparent; cursor:pointer; transition:background .15s ease, border-color .15s ease;
 }
 .btn-primary{ background:var(--amber); color:var(--graphite); }
@@ -225,7 +227,7 @@ section{ padding:104px 0; }
 .about-grid{ display:grid; grid-template-columns:1.3fr .7fr; gap:64px; align-items:start; }
 .about-copy p{ color:var(--steel); font-size:1.03rem; max-width:60ch; }
 .about-copy h3{ font-family:var(--font-body); font-size:1.04rem; margin:30px 0 10px; color:var(--graphite); }
-.about-figure{ border:1px solid var(--hairline); padding:30px; background:var(--white-cold); }
+.about-figure{ border:1px solid var(--hairline); padding:30px; background:var(--white-cold); border-radius:var(--radius); box-shadow:0 1px 3px rgba(28,30,33,.04); }
 .about-figure .fig-num{ font-family:var(--font-mono); color:var(--amber); font-size:1.7rem; font-weight:600; }
 .about-figure .fig-label{ font-family:var(--font-mono); font-size:.7rem; color:var(--steel); text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
 .about-figure ul{ list-style:none; margin:24px 0 0; padding:20px 0 0; border-top:1px solid var(--hairline); display:flex; flex-direction:column; gap:14px; }
@@ -272,9 +274,11 @@ section{ padding:104px 0; }
   border:1px solid var(--hairline);
   background:var(--hairline);
   gap:1px;
+  border-radius:var(--radius);
+  overflow:hidden;
 }
 .seam-grid > *{ background:#fff; padding:36px 32px; }
-.problem .seam-grid{ border-color:var(--danger-line); background:var(--danger-line); }
+.problem .seam-grid{ border-color:var(--danger-line); background:var(--danger-line); border-radius:var(--radius); overflow:hidden; }
 .problem .seam-grid > *{ background:var(--danger-bg); border-top:3px solid var(--danger); }
 .problem-card .icon{ width:22px; height:22px; color:var(--danger); margin-bottom:14px; }
 .problem-card .figure{ font-family:var(--font-mono); font-size:1.9rem; color:var(--danger); font-weight:600; margin-bottom:10px; }
@@ -322,25 +326,25 @@ section{ padding:104px 0; }
 .contact-copy ul{ list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:13px; }
 .contact-copy li{ font-size:.89rem; color:#C7CBD1; padding-left:18px; position:relative; }
 .contact-copy li::before{ content:""; position:absolute; left:0; top:7px; width:7px; height:7px; background:var(--amber); }
-.calendly-shell{ background:#fff; overflow:hidden; }
+.calendly-shell{ background:#fff; overflow:hidden; border-radius:var(--radius); }
 .calendly-inline-widget{ min-width:280px; height:640px; }
 .calendly-fallback{ padding:56px 24px; text-align:center; color:var(--graphite); }
 .calendly-fallback .btn-primary{ margin-top:18px; }
-.supplier-panel{ background:rgba(244,245,247,.04); border:1px solid var(--hairline-dark); padding:34px; }
+.supplier-panel{ background:rgba(244,245,247,.04); border:1px solid var(--hairline-dark); padding:34px; border-radius:var(--radius); }
 .supplier-panel h3{ font-family:var(--font-body); font-size:1.06rem; color:#fff; margin-bottom:16px; }
 .supplier-panel ol{ margin:0 0 28px; padding-left:20px; color:#C7CBD1; font-size:.89rem; display:flex; flex-direction:column; gap:11px; }
 .supplier-panel ol li::marker{ font-family:var(--font-mono); color:var(--amber); }
 
 /* ---------- Lead form (Contact) ---------- */
-.lead-form{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.lead-form{ display:grid; grid-template-columns:1fr 1fr; gap:22px 20px; }
 .lead-form .field-full{ grid-column:1 / -1; }
-.lead-form label{ display:block; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--cool-gray); margin-bottom:8px; }
+.lead-form label{ display:block; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--cool-gray); margin-bottom:9px; }
 .lead-form input,
 .lead-form select,
 .lead-form textarea{
-  width:100%; background:rgba(244,245,247,.04); border:1px solid var(--hairline-dark);
-  color:#fff; font-family:var(--font-body); font-size:.94rem; padding:12px 14px;
-  border-radius:0; appearance:none; -webkit-appearance:none;
+  width:100%; background:rgba(244,245,247,.055); border:1px solid var(--hairline-dark);
+  color:#fff; font-family:var(--font-body); font-size:.94rem; padding:13px 16px;
+  border-radius:var(--radius); appearance:none; -webkit-appearance:none;
 }
 .lead-form select{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8F98' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -359,7 +363,7 @@ section{ padding:104px 0; }
   display:inline-flex; align-items:center; gap:6px;
   font-family:var(--font-mono); font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
   color:var(--steel); text-decoration:none; border:1px solid var(--hairline); padding:8px 14px;
-  white-space:nowrap;
+  white-space:nowrap; border-radius:var(--radius);
 }
 .audience-switch:hover{ border-color:var(--steel); color:var(--graphite); }
 .audience-switch-dark{ color:#C7CBD1; border-color:var(--hairline-dark); }
@@ -414,7 +418,7 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   /* Typography: the biggest source of "too large" text on phones is the
      clamp() minimums, which don't shrink below their floor on narrow
      viewports. Override the floors directly here. */
-  .wrap{ padding:0 20px; }
+  .wrap{ padding:0 24px; }
   section{ padding:52px 0; }
   .section-head{ margin-bottom:32px; }
   .seam-grid > *{ padding:26px 22px; }
