@@ -1,4 +1,4 @@
-<!-- VERSION: v21 — 2026-08-16 -->
+<!-- VERSION: v22 — 2026-08-16 -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=21">
+<link rel="stylesheet" href="/css/styles.css?v=22">
 
 <!-- CSS crítico inline a propósito: los tabs de Nosotros deben funcionar aunque
      /css/styles.css falle o esté desactualizado. No lo borres. -->
@@ -81,19 +81,73 @@
 
 <main id="main">
 
-  <!-- 1. HERO -->
+  <!-- 1. HERO CAROUSEL -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Para talleres de CNC en Querétaro y Nuevo León</div>
-        <h1>Deja de perseguir compradores de exportación por tu cuenta.</h1>
-        <p class="sub">Te conectamos directamente con compradores aeroespaciales y de defensa en Estados Unidos que ya confían en nuestro proceso de verificación. <b>Sin costo por postularte</b>, sin comisiones ocultas, sin intermediarios que se quedan con el margen.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contacto">Postúlate como proveedor</a>
-          <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+    <input type="radio" name="hero-slide" id="slide-1" class="slide-radio" checked>
+    <input type="radio" name="hero-slide" id="slide-2" class="slide-radio">
+    <input type="radio" name="hero-slide" id="slide-3" class="slide-radio">
+    <input type="radio" name="hero-slide" id="slide-4" class="slide-radio">
+
+    <div class="slides">
+      <div class="slide" data-slide="1" style="background-image:url('/assets/hero-1.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">Para talleres de precisión en Querétaro y Nuevo León</div>
+            <h1>El puente de confianza hacia compradores de EE. UU.</h1>
+            <p class="sub">Conectamos tu taller directamente con compradores aeroespaciales y de defensa verificados, sin comisiones ocultas ni intermediarios que se quedan con el margen.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Postúlate como proveedor</a>
+              <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="slide" data-slide="2" style="background-image:url('/assets/hero-2.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">Una red curada. No un marketplace.</div>
+            <h1>Cada proveedor que presentamos, lo visitamos en persona.</h1>
+            <p class="sub">Nada de directorios genéricos. Solo talleres en los que pondríamos nuestro nombre.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Postúlate como proveedor</a>
+              <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide" data-slide="3" style="background-image:url('/assets/hero-3.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">Sin costo por postularte. Sin compromiso.</div>
+            <h1>Precisión mexicana, reconocida en Estados Unidos.</h1>
+            <p class="sub">De tooling a componentes estructurales, te conectamos con compradores que valoran la verificación tanto como tú.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Postúlate como proveedor</a>
+              <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide" data-slide="4" style="background-image:url('/assets/hero-4.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">Más de 350 empresas ya confían en Arzen</div>
+            <h1>Un portafolio construido con precisión, no promesas.</h1>
+            <p class="sub">Postúlate y forma parte de la red de proveedores detrás de los programas más exigentes de compras en EE. UU.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Postúlate como proveedor</a>
+              <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-dots" aria-hidden="true">
+      <label for="slide-1"></label>
+      <label for="slide-2"></label>
+      <label for="slide-3"></label>
+      <label for="slide-4"></label>
     </div>
   </section>
 
@@ -390,6 +444,14 @@
   </div>
 </footer>
 
+<!-- Popup de scroll, aparece una vez al 25% de scroll -->
+<div id="scroll-popup" class="scroll-popup" hidden>
+  <button type="button" class="popup-close" aria-label="Cerrar">&times;</button>
+  <p class="popup-eyebrow">¿Sigues aquí?</p>
+  <h3>Postúlate y entra a nuestra red verificada.</h3>
+  <a href="#contacto" class="btn btn-primary popup-cta">Postúlate ahora</a>
+</div>
+
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
@@ -404,6 +466,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=21"></script>
+<script src="/js/main.js?v=22"></script>
 </body>
 </html>
