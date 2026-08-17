@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v9 — 2026-08-16
+   VERSION: v12 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -100,13 +100,12 @@ button{ font:inherit; }
 .hero-wallpaper{
   position:absolute; top:-60px; right:-60px; bottom:-60px; left:-60px; z-index:0;
   background-image:url('/assets/Arzen_Wallpaper.png');
-  background-size:cover; background-position:center 25%;
-  filter:blur(7px) brightness(.95) saturate(1.1);
-  opacity:.55;
+  background-size:cover; background-position:center 12%;
+  filter:blur(3px) brightness(1.05) contrast(1.05);
+  opacity:.7;
 }
 .hero-bg{
   position:absolute; top:0; right:0; bottom:0; left:0; z-index:1;
-  background-color:rgba(21,23,26,.20);
   background-image:
     linear-gradient(var(--hairline-dark) 1px, transparent 1px),
     linear-gradient(90deg, var(--hairline-dark) 1px, transparent 1px);
@@ -115,9 +114,7 @@ button{ font:inherit; }
 .hero-bg::after{
   content:"";
   position:absolute; top:0; right:0; bottom:0; left:0;
-  background:
-    radial-gradient(ellipse 60% 90% at 88% 20%, rgba(242,166,25,.10), transparent 60%),
-    linear-gradient(100deg, rgba(28,30,33,.94) 0%, rgba(28,30,33,.82) 42%, rgba(28,30,33,.55) 100%);
+  background:rgba(15,17,20,.62);
 }
 /* Replace with a real facility/machining photo when available:
    background-image:url('/assets/plants/hero-plant.jpg'); background-size:cover; background-position:center; */
@@ -161,8 +158,8 @@ button{ font:inherit; }
 .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); }
 .stat-grid > div{ text-align:center; padding:0 16px; position:relative; }
 .stat-grid > div:not(:last-child)::after{ content:""; position:absolute; right:0; top:8%; bottom:8%; width:1px; background:var(--hairline); }
-.stat-grid .num{ font-family:var(--font-mono); font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--amber); font-weight:600; }
-.stat-grid .label{ font-family:var(--font-mono); font-size:.74rem; color:var(--steel); letter-spacing:.02em; margin-top:6px; }
+.stat-grid .num{ font-family:var(--font-mono); font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--amber); font-weight:600; text-transform:uppercase; }
+.stat-grid .label{ font-family:var(--font-mono); font-size:.74rem; color:var(--steel); letter-spacing:.02em; margin-top:6px; text-transform:uppercase; }
 
 /* ---------- Section shell ---------- */
 section{ padding:104px 0; }
@@ -212,8 +209,8 @@ section{ padding:104px 0; }
 .about-figure .fig-num{ font-family:var(--font-mono); color:var(--amber); font-size:1.7rem; font-weight:600; }
 .about-figure .fig-label{ font-family:var(--font-mono); font-size:.7rem; color:var(--steel); text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
 .about-figure ul{ list-style:none; margin:24px 0 0; padding:20px 0 0; border-top:1px solid var(--hairline); display:flex; flex-direction:column; gap:14px; }
-.about-figure li{ font-size:.87rem; color:var(--steel); display:flex; gap:10px; line-height:1.5; }
-.about-figure li b{ color:var(--graphite); font-weight:600; }
+.about-figure li{ font-size:.87rem; color:var(--steel); display:flex; gap:14px; line-height:1.5; }
+.about-figure li b{ color:var(--graphite); font-weight:600; flex:0 0 128px; }
 
 /* ---------- Facility photos (real-estate for plant photography) ---------- */
 .facility{ background:#fff; padding-bottom:110px; }
@@ -290,7 +287,7 @@ section{ padding:104px 0; }
 /* ---------- Differentiator ---------- */
 .diff{ background:var(--steel); color:#fff; }
 .diff .wrap{ max-width:920px; text-align:center; }
-.diff blockquote{ font-family:var(--font-display); font-size:clamp(1.4rem,2.9vw,2.1rem); line-height:1.4; margin:0 0 26px; font-weight:500; }
+.diff blockquote{ font-family:var(--font-display); font-size:clamp(1.4rem,2.9vw,2.1rem); line-height:1.4; margin:0 0 26px; font-weight:500; text-transform:uppercase; }
 .diff .attribution{ font-family:var(--font-mono); font-size:.74rem; letter-spacing:.1em; color:rgba(255,255,255,.65); text-transform:uppercase; margin-bottom:56px; }
 .compare-strip{ display:flex; border-top:1px solid rgba(255,255,255,.18); text-align:left; }
 .compare-strip > div{ flex:1; padding:26px 28px 4px; border-left:1px solid rgba(255,255,255,.18); }
@@ -299,7 +296,11 @@ section{ padding:104px 0; }
 .compare-strip p{ font-size:.88rem; color:rgba(255,255,255,.82); margin:0; }
 
 /* ---------- Audience banner (join suppliers / find suppliers) ---------- */
-.audience-banner{ background:var(--amber); color:var(--graphite); padding:64px 0; }
+.audience-banner{ background:var(--amber); color:var(--graphite); padding:40px 0; }
+.audience-banner-sticky{
+  position:sticky; top:78px; z-index:60;
+  border-bottom:1px solid rgba(28,30,33,.15);
+}
 .audience-banner .wrap{ display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
 .audience-banner h2{ font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--graphite); max-width:24ch; margin:0; }
 .audience-banner p{ color:rgba(28,30,33,.75); margin:8px 0 0; max-width:46ch; font-size:.98rem; }
