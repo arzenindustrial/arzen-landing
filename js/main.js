@@ -1,33 +1,29 @@
 /* Arzen Industrial Group — shared front-end behavior
-   VERSION: v9 — 2026-08-16
-   IMPORTANT: Tabs (About / Contact) work with pure CSS (radio + label) and
-   do NOT depend on this file loading. If this script fails to load for any
-   reason, the site still functions — only the two enhancements below are lost:
-   1) banner buttons pre-selecting a tab before scrolling
-   2) GA4 event tracking
+   VERSION: v17 — 2026-08-16
+   IMPORTANT: The About tabs (Who we are / What we do) work with pure CSS
+   (radio + label) and do NOT depend on this file loading. If this script
+   fails to load, the site still functions — only GA4 event tracking is lost.
    No frameworks, no build step. */
 
 (function () {
   'use strict';
 
-  /* ---------- Banner buttons: href="#contacto" + data-open-tab="buyer|supplier" ---------- */
-  document.querySelectorAll('[data-open-tab]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      var targetId = link.getAttribute('data-open-tab') === 'supplier' ? 'tab-supplier' : 'tab-buyer';
-      var radio = document.getElementById(targetId);
-      if (radio) radio.checked = true;
-    });
-  });
-
   /* ---------- GA4 event tracking ---------- */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('a.btn, a.nav-cta');
+    var t = e.target.closest('a.btn, a.nav-cta, a.audience-switch');
     if (t && window.gtag) {
       window.gtag('event', 'cta_click', { label: t.textContent.trim(), href: t.getAttribute('href') });
     }
     var label = e.target.closest('.tab-btn');
     if (label && window.gtag) {
       window.gtag('event', 'tab_select', { tab_label: label.textContent.trim() });
+    }
+  });
+
+  document.addEventListener('submit', function (e) {
+    var form = e.target.closest('.lead-form');
+    if (form && window.gtag) {
+      window.gtag('event', 'lead_form_submit', { form_id: form.getAttribute('action') });
     }
   });
 
