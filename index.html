@@ -1,4 +1,4 @@
-<!-- VERSION: v17 — 2026-08-16 -->
+<!-- VERSION: v24 — 2026-08-16 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,10 +8,9 @@
 <meta name="robots" content="noindex">
 <script>
   (function(){
-    // Default is English. Only redirect to /es/ if the browser explicitly prefers Spanish.
-    var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    var dest = lang.indexOf('es') === 0 ? '/es/' : '/en/';
-    window.location.replace(dest);
+    // Always default to English, regardless of browser language.
+    // People can still switch to /es/ manually via the EN/ES toggle on the site.
+    window.location.replace('/en/');
   })();
 </script>
 <style>body{background:#1C1E21;color:#F4F5F7;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}</style>
