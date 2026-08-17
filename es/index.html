@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/styles.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand-mark" href="/es/" aria-label="Arzen Industrial Group — inicio">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
         <polygon points="58,26 20,110 52,110" fill="#1C1E21"/>
         <polygon points="62,26 100,110 68,110" fill="#52606D"/>
         <rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/>
@@ -71,23 +71,22 @@
 
   <!-- 1. HERO -->
   <section class="hero">
-    <div class="corner-marks" aria-hidden="true"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Querétaro / Nuevo León → Estados Unidos, cobertura nacional</div>
-        <h1>Corta tus tiempos de entrega y tu riesgo arancelario — sin salir de Norteamérica.</h1>
-        <p class="sub">Arzen conecta a tu equipo de compras aeroespacial y de defensa con talleres de maquinado CNC, tooling y estructuras en México verificados en persona por nosotros — con entrega a cualquier estado de EE. UU., no solo a la frontera.</p>
+        <h1>Precisión hecha en México. Entregada en cualquier parte de EE. UU.</h1>
+        <p class="sub">Arzen conecta a tu equipo de compras aeroespacial y de defensa con talleres de maquinado CNC, tooling y estructuras en México verificados en persona por nosotros — sin riesgo de China, sin riesgo de proveedor desconocido.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contacto">Agenda 15 minutos</a>
+          <a class="btn btn-primary" href="#contacto" data-open-tab="buyer">Agenda 15 minutos</a>
           <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
         </div>
       </div>
-      <div class="spec-panel">
-        <div class="panel-label">Referencia — por qué eligen Arzen</div>
-        <div class="spec-row"><span class="k">01</span><span class="v">Cada proveedor fue visitado en persona antes de presentarlo — no es un perfil autodeclarado.</span></div>
-        <div class="spec-row"><span class="k">02</span><span class="v">Sourcing calificado bajo USMCA, sin la exposición arancelaria de importar desde Asia.</span></div>
-        <div class="spec-row"><span class="k">03</span><span class="v">Tooling, fixtures y componentes estructurales aeroespaciales — nuestro enfoque, no una categoría secundaria.</span></div>
-        <div class="spec-row"><span class="k">04</span><span class="v">Un solo punto de contacto durante la cotización, la muestra y la primera orden de compra.</span></div>
+      <div class="hero-specs">
+        <div><div class="k">01 — Verificación</div><div class="v">Cada proveedor visitado en persona antes de presentarlo.</div></div>
+        <div><div class="k">02 — Aranceles</div><div class="v">Sourcing calificado bajo USMCA, sin exposición a aranceles de Asia.</div></div>
+        <div><div class="k">03 — Enfoque</div><div class="v">Tooling, fixtures y estructuras aeroespaciales y de defensa.</div></div>
+        <div><div class="k">04 — Contacto</div><div class="v">Un solo punto de contacto en cotización, muestra y primera orden.</div></div>
       </div>
     </div>
   </section>
@@ -113,8 +112,8 @@
 
       <div class="tabs" data-tabs="about">
         <div class="tab-list" role="tablist" aria-label="Sobre Arzen">
-          <button role="tab" id="tab-who" aria-selected="true" aria-controls="panel-who" class="tab-btn">Quiénes somos</button>
-          <button role="tab" id="tab-what" aria-selected="false" tabindex="-1" aria-controls="panel-what" class="tab-btn">Qué hacemos</button>
+          <button type="button" role="tab" id="tab-who" aria-selected="true" aria-controls="panel-who" class="tab-btn">Quiénes somos</button>
+          <button type="button" role="tab" id="tab-what" aria-selected="false" tabindex="-1" aria-controls="panel-what" class="tab-btn">Qué hacemos</button>
         </div>
 
         <div id="panel-who" role="tabpanel" aria-labelledby="tab-who" class="tab-panel">
@@ -161,6 +160,22 @@
     </div>
   </section>
 
+  <!-- FOTOS DE PLANTA — reemplazar los fondos de plant-photo con fotos reales cuando estén listas (ver comentarios en el CSS) -->
+  <section class="facility">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Dentro de los talleres que verificamos</div>
+        <h2>Así es el piso que una pieza tiene que ganarse.</h2>
+      </div>
+      <div class="facility-grid">
+        <div class="plant-photo ph-lg"><span class="placeholder-mark">Foto: piso de maquinado CNC</span><span class="cap">Maquinado CNC de precisión</span></div>
+        <div class="plant-photo"><span class="placeholder-mark">Foto: inspección dimensional</span><span class="cap">Inspección dimensional</span></div>
+        <div class="plant-photo"><span class="placeholder-mark">Foto: ensamble de tooling</span><span class="cap">Ensamble de tooling y fixtures</span></div>
+        <div class="plant-photo"><span class="placeholder-mark">Foto: piezas terminadas</span><span class="cap">Componentes estructurales terminados</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 4. EL PROBLEMA -->
   <section class="problem">
     <div class="wrap">
@@ -198,22 +213,22 @@
       </div>
       <div class="seam-grid">
         <div class="industry-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 3 18 12 28 17 28 20 18 17.5 18 24 22 27 22 29 16 27.5 10 29 10 27 14 24 14 17.5 4 20 4 17 14 12Z"/></svg></div>
+          <div class="icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 3 18 12 28 17 28 20 18 17.5 18 24 22 27 22 29 16 27.5 10 29 10 27 14 24 14 17.5 4 20 4 17 14 12Z"/></svg></div>
           <h3>OEM aeroespacial y Tier 1/2</h3>
           <p>Tooling, fixtures y componentes estructurales secundarios para manufactureros aeroespaciales prime y sub-tier.</p>
         </div>
         <div class="industry-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 3 27 7.5V15.5C27 22.5 22.5 27.5 16 29.5 9.5 27.5 5 22.5 5 15.5V7.5Z"/><path d="M11 16 15 20 22 12"/></svg></div>
+          <div class="icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 3 27 7.5V15.5C27 22.5 22.5 27.5 16 29.5 9.5 27.5 5 22.5 5 15.5V7.5Z"/><path d="M11 16 15 20 22 12"/></svg></div>
           <h3>Defensa y sistemas militares</h3>
           <p>Tooling de precisión y piezas estructurales que apoyan programas de manufactura de defensa.</p>
         </div>
         <div class="industry-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><circle cx="16" cy="16" r="6.5"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4M7 7l2.8 2.8M22.2 22.2 25 25M25 7l-2.8 2.8M9.8 22.2 7 25"/></svg></div>
+          <div class="icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><circle cx="16" cy="16" r="6.5"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4M7 7l2.8 2.8M22.2 22.2 25 25M25 7l-2.8 2.8M9.8 22.2 7 25"/></svg></div>
           <h3>MRO de aviación</h3>
           <p>Tooling de reemplazo y componentes estructurales para operaciones de mantenimiento, reparación y overhaul.</p>
         </div>
         <div class="industry-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><rect x="12" y="12" width="8" height="8"/><line x1="12" y1="14" x2="4" y2="8"/><rect x="1" y="4" width="7" height="9" transform="rotate(-35 4.5 8.5)"/><line x1="20" y1="18" x2="28" y2="24"/><rect x="24" y="19" width="7" height="9" transform="rotate(-35 27.5 23.5)"/><line x1="20" y1="12" x2="25" y2="7"/></svg></div>
+          <div class="icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><rect x="12" y="12" width="8" height="8"/><line x1="12" y1="14" x2="4" y2="8"/><rect x="1" y="4" width="7" height="9" transform="rotate(-35 4.5 8.5)"/><line x1="20" y1="18" x2="28" y2="24"/><rect x="24" y="19" width="7" height="9" transform="rotate(-35 27.5 23.5)"/><line x1="20" y1="12" x2="25" y2="7"/></svg></div>
           <h3>Sistemas espaciales y satelitales</h3>
           <p>Tooling de apoyo en tierra y componentes estructurales para manufactureros de sistemas espaciales y satélites.</p>
         </div>
@@ -250,6 +265,17 @@
     </div>
   </section>
 
+  <!-- BANNER DE AUDIENCIA — orientado a proveedores -->
+  <section class="audience-banner">
+    <div class="wrap">
+      <div>
+        <h2>¿Quieres unirte a nuestra red de proveedores?</h2>
+        <p>Si tienes un taller de CNC, tooling o estructuras en Querétaro o Nuevo León, postúlate — la visita de verificación corre por nuestra cuenta.</p>
+      </div>
+      <a class="btn btn-primary" href="#contacto" data-open-tab="supplier">Postúlate como proveedor</a>
+    </div>
+  </section>
+
   <!-- 8. CONTACTO (tabs: Comprador / Proveedor) -->
   <section class="contact" id="contacto">
     <div class="wrap">
@@ -261,8 +287,8 @@
 
       <div class="tabs tabs-dark" data-tabs="contact">
         <div class="tab-list" role="tablist" aria-label="Tipo de contacto">
-          <button role="tab" id="tab-buyer" aria-selected="true" aria-controls="panel-buyer" class="tab-btn">Soy comprador (EE. UU.)</button>
-          <button role="tab" id="tab-supplier" aria-selected="false" tabindex="-1" aria-controls="panel-supplier" class="tab-btn">Soy proveedor (México)</button>
+          <button type="button" role="tab" id="tab-buyer" aria-selected="true" aria-controls="panel-buyer" class="tab-btn">Soy comprador (EE. UU.)</button>
+          <button type="button" role="tab" id="tab-supplier" aria-selected="false" tabindex="-1" aria-controls="panel-supplier" class="tab-btn">Soy proveedor (México)</button>
         </div>
 
         <div id="panel-buyer" role="tabpanel" aria-labelledby="tab-buyer" class="tab-panel">
@@ -318,7 +344,7 @@
 <footer>
   <div class="wrap">
     <a class="f-brand" href="/es/" aria-label="Arzen Industrial Group">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <polygon points="58,26 20,110 52,110" fill="#1C1E21"/>
         <polygon points="62,26 100,110 68,110" fill="#52606D"/>
         <rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/>
@@ -349,6 +375,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js"></script>
+<script src="/js/main.js?v=3"></script>
 </body>
 </html>
