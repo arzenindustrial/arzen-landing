@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v19 — 2026-08-16
+   VERSION: v21 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -100,7 +100,7 @@ button{ font:inherit; }
 .hero{
   background:var(--graphite); color:var(--white-cold);
   position:relative; overflow:hidden;
-  padding:110px 0 100px;
+  padding:110px 0 72px;
 }
 .hero-bg{
   position:absolute; top:0; right:0; bottom:0; left:0; z-index:1;
@@ -150,6 +150,23 @@ button{ font:inherit; }
 .hero-specs > div:first-child{ border-left:none; padding-left:0; }
 .hero-specs .k{ font-family:var(--font-mono); font-size:.7rem; color:var(--amber); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
 .hero-specs .v{ font-size:.86rem; color:#D6D9DD; line-height:1.5; }
+
+/* ---------- Trust banner (below hero, above specs) ---------- */
+.trust-banner{ background:var(--steel); padding:20px 0; }
+.trust-banner .wrap{ text-align:center; }
+.trust-banner p{
+  margin:0; color:#fff; font-family:var(--font-mono); font-size:.82rem;
+  letter-spacing:.02em; text-align:center;
+}
+
+/* ---------- Specs bar — deliberately NOT the hero's dark background,
+   so the hero visually ends at the CTA buttons and this reads as a
+   new block. ---------- */
+.specs-bar{ background:#fff; padding:52px 0; border-bottom:1px solid var(--hairline); }
+.specs-bar .hero-specs{ margin-top:0; border-top:none; }
+.specs-bar .hero-specs > div{ border-left-color:var(--hairline); }
+.specs-bar .hero-specs .k{ color:var(--amber); }
+.specs-bar .hero-specs .v{ color:var(--steel); }
 
 /* ---------- Stat bar ---------- */
 .stat-bar{ background:var(--gray-light); padding:36px 0; border-bottom:1px solid var(--hairline); }
@@ -415,6 +432,9 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
 }
 
 @media (max-width: 680px){
+  .trust-banner{ padding:16px 0; }
+  .trust-banner p{ font-size:.72rem; line-height:1.5; }
+  .specs-bar{ padding:36px 0; }
   /* Typography: the biggest source of "too large" text on phones is the
      clamp() minimums, which don't shrink below their floor on narrow
      viewports. Override the floors directly here. */
