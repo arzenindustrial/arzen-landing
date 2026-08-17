@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v22 — 2026-08-16
+   VERSION: v23 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -123,7 +123,7 @@ button{ font:inherit; }
   position:absolute; top:0; right:0; bottom:0; left:0;
   background:linear-gradient(100deg, rgba(15,17,19,.92) 0%, rgba(15,17,19,.78) 40%, rgba(15,17,19,.5) 75%, rgba(15,17,19,.62) 100%);
 }
-.slide-content{ position:relative; z-index:1; padding:110px 0 100px; }
+.slide-content{ position:relative; z-index:1; padding-top:110px; padding-bottom:100px; }
 
 .slide-dots{
   position:absolute; left:0; right:0; bottom:28px; z-index:5;
@@ -501,7 +501,7 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .audience-switch{ font-size:.6rem; padding:6px 9px; letter-spacing:.02em; }
 
   .hero{ padding:0; }
-  .slide-content{ padding:88px 0 64px; }
+  .slide-content{ padding-top:88px; padding-bottom:64px; }
   .eyebrow{ font-size:.62rem; line-height:1.5; margin-bottom:14px; letter-spacing:.1em; }
   .hero h1{ font-size:1.62rem; line-height:1.22; max-width:none; letter-spacing:-.005em; }
   .hero .sub{ font-size:.9rem; line-height:1.6; margin:14px 0 22px; }
