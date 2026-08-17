@@ -1,5 +1,5 @@
 /* Arzen Industrial Group — shared front-end behavior
-   VERSION: v17 — 2026-08-16
+   VERSION: v22 — 2026-08-16
    IMPORTANT: The About tabs (Who we are / What we do) work with pure CSS
    (radio + label) and do NOT depend on this file loading. If this script
    fails to load, the site still functions — only GA4 event tracking is lost.
@@ -41,5 +41,49 @@
         if (pct >= m && !fired[m] && window.gtag) { fired[m] = true; window.gtag('event', 'scroll_depth', { percent: m }); }
       });
     }, { passive: true });
+  })();
+
+  /* ---------- Scroll-triggered popup (shows once at 25% scroll) ---------- */
+  (function () {
+    var popup = document.getElementById('scroll-popup');
+    if (!popup) return;
+    var shown = false;
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('arzen_popup_dismissed') === '1'; } catch (e) {}
+
+    function checkScroll() {
+      if (shown || dismissed) return;
+      var docHeight = document.body.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      var pct = (window.scrollY / docHeight) * 100;
+      if (pct >= 25) {
+        popup.hidden = false;
+        requestAnimationFrame(function () { popup.classList.add('visible'); });
+        shown = true;
+        if (window.gtag) window.gtag('event', 'scroll_popup_shown');
+      }
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+
+    function dismiss() {
+      popup.classList.remove('visible');
+      try { sessionStorage.setItem('arzen_popup_dismissed', '1'); } catch (e) {}
+    }
+    var closeBtn = popup.querySelector('.popup-close');
+    if (closeBtn) closeBtn.addEventListener('click', dismiss);
+    var cta = popup.querySelector('.popup-cta');
+    if (cta) cta.addEventListener('click', dismiss);
+  })();
+
+  /* ---------- Hero carousel auto-advance (manual dots always work via pure CSS,
+     this just adds automatic rotation as a progressive enhancement) ---------- */
+  (function () {
+    var radios = document.querySelectorAll('.slide-radio');
+    if (!radios.length) return;
+    var i = 0;
+    setInterval(function () {
+      i = (i + 1) % radios.length;
+      radios[i].checked = true;
+    }, 6000);
   })();
 })();
