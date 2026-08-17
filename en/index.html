@@ -1,4 +1,4 @@
-<!-- VERSION: v21 — 2026-08-16 -->
+<!-- VERSION: v22 — 2026-08-16 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=21">
+<link rel="stylesheet" href="/css/styles.css?v=22">
 
 <!-- Critical tab CSS, inlined on purpose: the About tabs below MUST work even if
      /css/styles.css fails to load or is out of date. Do not remove. -->
@@ -74,26 +74,80 @@
       <nav class="lang-switch" aria-label="Language selector">
         <a href="/en/" aria-current="true">EN</a><span aria-hidden="true">/</span><a href="/es/">ES</a>
       </nav>
-      <a class="nav-cta" href="#contacto">Request access</a>
+      <a class="nav-cta" href="#contacto">Request a Consultation</a>
     </div>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- 1. HERO -->
+  <!-- 1. HERO CAROUSEL -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">For aerospace &amp; defense procurement teams</div>
-        <h1>Stop gambling on unverified CNC suppliers.</h1>
-        <p class="sub">We hand your sourcing team a short list of Mexico-based CNC, tooling and structural suppliers we've <b>already walked the floor of</b>, verified capacity on, and would stake our name on. <b>USMCA-qualifying.</b> No China exposure.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contacto">Request access</a>
-          <a class="btn btn-ghost" href="#como">See how it works</a>
+    <input type="radio" name="hero-slide" id="slide-1" class="slide-radio" checked>
+    <input type="radio" name="hero-slide" id="slide-2" class="slide-radio">
+    <input type="radio" name="hero-slide" id="slide-3" class="slide-radio">
+    <input type="radio" name="hero-slide" id="slide-4" class="slide-radio">
+
+    <div class="slides">
+      <div class="slide" data-slide="1" style="background-image:url('/assets/hero-1.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">For aerospace &amp; defense procurement teams</div>
+            <h1>The trusted bridge to Mexico's best manufacturers.</h1>
+            <p class="sub">We connect U.S. buyers directly with vetted, mid-sized Mexican manufacturers — the same rigor major primes expect, without the twelve-month vetting cycle.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Request a Consultation</a>
+              <a class="btn btn-ghost" href="#como">See how it works</a>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="slide" data-slide="2" style="background-image:url('/assets/hero-2.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">A curated network. Not a marketplace.</div>
+            <h1>Every supplier we recommend, we've walked the floor of.</h1>
+            <p class="sub">No cold directories. No unverified brokers. Just the manufacturing partners we'd stake our name on.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Request a Consultation</a>
+              <a class="btn btn-ghost" href="#como">See how it works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide" data-slide="3" style="background-image:url('/assets/hero-3.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">USMCA-qualifying. Zero China exposure.</div>
+            <h1>Precision sourcing, engineered for certainty.</h1>
+            <p class="sub">From tooling to structural components, sourced, verified and delivered without the tariff risk or lead-time gamble of Asia.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Request a Consultation</a>
+              <a class="btn btn-ghost" href="#como">See how it works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide" data-slide="4" style="background-image:url('/assets/hero-4.jpg')">
+        <div class="wrap hero-grid slide-content">
+          <div>
+            <div class="eyebrow">Trusted by 350+ companies</div>
+            <h1>A portfolio built on precision, not promises.</h1>
+            <p class="sub">Request a consultation and see the verified suppliers behind some of the industry's most demanding procurement teams.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#contacto">Request a Consultation</a>
+              <a class="btn btn-ghost" href="#como">See how it works</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-dots" aria-hidden="true">
+      <label for="slide-1"></label>
+      <label for="slide-2"></label>
+      <label for="slide-3"></label>
+      <label for="slide-4"></label>
     </div>
   </section>
 
@@ -301,7 +355,7 @@
   <section class="contact" id="contacto">
     <div class="wrap">
       <div class="section-head">
-        <div class="section-tag">Request access</div>
+        <div class="section-tag">Request a Consultation</div>
         <h2>Tell us what you're sourcing.</h2>
         <p>Fill this out and we'll follow up with a short list of verified suppliers matched to your spec, or send you straight to a scheduling link if it's a fit. <b>Consulting engagements start at a fixed fee</b>, discussed on the call.</p>
         <p style="margin-top:10px;"><a class="audience-switch audience-switch-dark" href="/es/">Are you a supplier instead? →</a></p>
@@ -397,6 +451,14 @@
   </div>
 </footer>
 
+<!-- Scroll-triggered popup, appears once at 25% scroll -->
+<div id="scroll-popup" class="scroll-popup" hidden>
+  <button type="button" class="popup-close" aria-label="Close">&times;</button>
+  <p class="popup-eyebrow">Still browsing?</p>
+  <h3>See which verified suppliers fit your part.</h3>
+  <a href="#contacto" class="btn btn-primary popup-cta">Request a Consultation</a>
+</div>
+
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
@@ -411,6 +473,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=21"></script>
+<script src="/js/main.js?v=22"></script>
 </body>
 </html>
