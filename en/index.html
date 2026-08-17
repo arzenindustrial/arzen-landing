@@ -1,3 +1,4 @@
+<!-- VERSION: v5 — 2026-08-16 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=3">
+<link rel="stylesheet" href="/css/styles.css?v=5">
 
 <script type="application/ld+json">
 {
@@ -35,7 +36,7 @@
   "logo": "https://arzenindustrial.com/assets/logo-horizontal-color.png",
   "description": "Verified precision CNC, tooling and structural component sourcing between Querétaro/Nuevo León, Mexico and the United States, focused on aerospace and defense manufacturing.",
   "areaServed": ["US", "MX"],
-  "sameAs": ["https://www.linkedin.com/company/arzen-industrial"]
+  "sameAs": ["https://www.linkedin.com/company/arzen-industrial-group/"]
 }
 </script>
 </head>
@@ -71,12 +72,13 @@
 
   <!-- 1. HERO -->
   <section class="hero">
+    <div class="hero-wallpaper" aria-hidden="true"></div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Querétaro / Nuevo León → United States, nationwide</div>
         <h1>Precision sourced in Mexico. Delivered anywhere in the U.S.</h1>
-        <p class="sub">Arzen matches your aerospace and defense sourcing team with precision CNC, tooling and structural suppliers in Mexico that we've personally verified — no China exposure, no cold-call risk.</p>
+        <p class="sub">We hand your sourcing team a short list of CNC, tooling and structural suppliers we've already walked the floor of — so you skip the vetting, not the diligence.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#contacto" data-open-tab="buyer">Book 15 minutes</a>
           <a class="btn btn-ghost" href="#como">See how it works</a>
@@ -111,16 +113,19 @@
       </div>
 
       <div class="tabs" data-tabs="about">
+        <input type="radio" name="about-tabs" id="tab-who" class="tab-radio" checked>
+        <input type="radio" name="about-tabs" id="tab-what" class="tab-radio">
         <div class="tab-list" role="tablist" aria-label="About Arzen">
-          <button type="button" role="tab" id="tab-who" aria-selected="true" aria-controls="panel-who" class="tab-btn">Who we are</button>
-          <button type="button" role="tab" id="tab-what" aria-selected="false" tabindex="-1" aria-controls="panel-what" class="tab-btn">What we do</button>
+          <label for="tab-who" class="tab-btn">Who we are</label>
+          <label for="tab-what" class="tab-btn">What we do</label>
         </div>
 
-        <div id="panel-who" role="tabpanel" aria-labelledby="tab-who" class="tab-panel">
+        <div class="tab-panels">
+        <div id="panel-who" class="tab-panel">
           <div class="about-grid">
             <div class="about-copy">
-              <p>Arzen exists because of a trust gap, not a technology gap. A procurement director in the U.S. can find a hundred CNC shops in a search — what they can't find is certainty that any of them can actually hold the tolerance, hit the date, and answer the phone when something goes wrong.</p>
-              <p>We close that gap by doing the unglamorous work first: walking the shop floor, checking the equipment list against the part, and building a relationship with the owner before we ever put a supplier in front of a buyer. That verification work is the entire business — everything else follows from it.</p>
+              <p>Most sourcing platforms sell you a search engine. Arzen sells you certainty — that the shop on the other end of your part number actually exists, actually has the equipment, and actually answers when you call.</p>
+              <p>We earn that certainty the slow way: walking the floor, checking the machine list against your drawing, and sitting across the table from the owner before we ever put their name in front of a buyer. Everything else — the quote, the sample, the first order — is downstream of that one decision.</p>
             </div>
             <div class="about-figure">
               <div class="fig-num">2</div>
@@ -134,12 +139,12 @@
           </div>
         </div>
 
-        <div id="panel-what" role="tabpanel" aria-labelledby="tab-what" class="tab-panel" hidden>
+        <div id="panel-what" class="tab-panel">
           <div class="about-grid">
             <div class="about-copy">
-              <p>Arzen is a sourcing and verification intermediary — we don't manufacture and we don't hold inventory. We connect your sourcing team directly with pre-verified CNC, tooling and structural suppliers in Querétaro and Nuevo León, and stay in the loop through the first purchase order.</p>
+              <p>Arzen doesn't manufacture and doesn't hold inventory — we're the verification layer between your sourcing team and a directory of pre-vetted CNC, tooling and structural shops in Querétaro and Nuevo León. We stay on the line through the first purchase order, not just the introduction.</p>
               <h3>Sourcing &amp; verification</h3>
-              <p>We match your part spec against our directory of in-person-verified shops and present the ones that actually fit — capacity, tolerance and certifications included.</p>
+              <p>We match your part spec against shops we've already walked — capacity, tolerance and certifications confirmed before you ever see a name.</p>
               <h3>Quoting &amp; sample</h3>
               <p>Formal quoting and a physical sample part before you commit to a production run — no blind orders.</p>
               <h3>First order management</h3>
@@ -156,6 +161,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -165,7 +171,7 @@
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Inside the shops we verify</div>
-        <h2>This is the kind of floor a part has to earn its way onto.</h2>
+        <h2>The floor a part has to earn its way onto.</h2>
       </div>
       <div class="facility-grid">
         <div class="plant-photo ph-lg"><span class="placeholder-mark">Photo: CNC machining floor</span><span class="cap">Precision CNC machining</span></div>
@@ -205,6 +211,7 @@
 
   <!-- 5. INDUSTRIES -->
   <section class="industries" id="industrias">
+    <div class="section-wallpaper" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Industries we work with</div>
@@ -255,7 +262,7 @@
   <!-- 7. DIFFERENTIATOR -->
   <section class="diff">
     <div class="wrap">
-      <blockquote>"Unlike a digital platform, every supplier we present was visited in person."</blockquote>
+      <blockquote>"A supplier profile can say anything. We've walked the floor to find out what's true."</blockquote>
       <div class="attribution">Arzen Industrial Group</div>
       <div class="compare-strip">
         <div><h4>Quoting platforms</h4><p>Self-reported capabilities, instant quotes, no one has seen the shop floor or met the owner.</p></div>
@@ -270,7 +277,7 @@
     <div class="wrap">
       <div>
         <h2>Looking for suppliers?</h2>
-        <p>Skip months of vetting — we've already visited the shops, checked the equipment, and know who can actually hold your tolerance.</p>
+        <p>Skip months of vetting. We've already visited the shops and know exactly who can hold your tolerance.</p>
       </div>
       <a class="btn btn-primary" href="#contacto" data-open-tab="buyer">Find verified suppliers</a>
     </div>
@@ -286,12 +293,15 @@
       </div>
 
       <div class="tabs tabs-dark" data-tabs="contact">
+        <input type="radio" name="contact-tabs" id="tab-buyer" class="tab-radio" checked>
+        <input type="radio" name="contact-tabs" id="tab-supplier" class="tab-radio">
         <div class="tab-list" role="tablist" aria-label="Contact type">
-          <button type="button" role="tab" id="tab-buyer" aria-selected="true" aria-controls="panel-buyer" class="tab-btn">I'm a buyer (U.S.)</button>
-          <button type="button" role="tab" id="tab-supplier" aria-selected="false" tabindex="-1" aria-controls="panel-supplier" class="tab-btn">I'm a supplier (Mexico)</button>
+          <label for="tab-buyer" class="tab-btn">I'm a buyer (U.S.)</label>
+          <label for="tab-supplier" class="tab-btn">I'm a supplier (Mexico)</label>
         </div>
 
-        <div id="panel-buyer" role="tabpanel" aria-labelledby="tab-buyer" class="tab-panel">
+        <div class="tab-panels">
+        <div id="panel-buyer" class="tab-panel">
           <div class="contact-grid">
             <div class="contact-copy">
               <p>One 15-minute call. No sourcing fee to look — you only engage once you see the fit.</p>
@@ -314,7 +324,7 @@
           </div>
         </div>
 
-        <div id="panel-supplier" role="tabpanel" aria-labelledby="tab-supplier" class="tab-panel" hidden>
+        <div id="panel-supplier" class="tab-panel">
           <div class="contact-grid">
             <div class="contact-copy">
               <p>We're building our verified directory of CNC, tooling and structural shops in Querétaro and Nuevo León. If your shop serves aerospace or defense-adjacent work, we want to know about it.</p>
@@ -335,6 +345,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -353,7 +364,7 @@
     </a>
     <div class="f-links">
       <a href="mailto:ac@arzenindustrial.com">ac@arzenindustrial.com</a>
-      <a href="https://www.linkedin.com/company/arzen-industrial" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/company/arzen-industrial-group/about/" target="_blank" rel="noopener">LinkedIn</a>
       <span class="f-lang">EN <a href="/es/">ES</a></span>
     </div>
   </div>
@@ -375,6 +386,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=3"></script>
+<script src="/js/main.js?v=5"></script>
 </body>
 </html>
