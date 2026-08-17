@@ -1,3 +1,4 @@
+<!-- VERSION: v5 — 2026-08-16 -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -24,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=3">
+<link rel="stylesheet" href="/css/styles.css?v=5">
 
 <script type="application/ld+json">
 {
@@ -35,7 +36,7 @@
   "logo": "https://arzenindustrial.com/assets/logo-horizontal-color.png",
   "description": "Sourcing verificado de maquinados CNC de precisión, tooling y componentes estructurales entre Querétaro/Nuevo León, México y Estados Unidos, enfocado en manufactura aeroespacial y de defensa.",
   "areaServed": ["US", "MX"],
-  "sameAs": ["https://www.linkedin.com/company/arzen-industrial"]
+  "sameAs": ["https://www.linkedin.com/company/arzen-industrial-group/"]
 }
 </script>
 </head>
@@ -71,12 +72,13 @@
 
   <!-- 1. HERO -->
   <section class="hero">
+    <div class="hero-wallpaper" aria-hidden="true"></div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow">Querétaro / Nuevo León → Estados Unidos, cobertura nacional</div>
         <h1>Precisión hecha en México. Entregada en cualquier parte de EE. UU.</h1>
-        <p class="sub">Arzen conecta a tu equipo de compras aeroespacial y de defensa con talleres de maquinado CNC, tooling y estructuras en México verificados en persona por nosotros — sin riesgo de China, sin riesgo de proveedor desconocido.</p>
+        <p class="sub">Le damos a tu equipo de compras una lista corta de proveedores de CNC, tooling y estructuras cuyo piso ya pisamos — para que te saltes la verificación, no el rigor.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#contacto" data-open-tab="buyer">Agenda 15 minutos</a>
           <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
@@ -111,16 +113,19 @@
       </div>
 
       <div class="tabs" data-tabs="about">
+        <input type="radio" name="about-tabs" id="tab-who" class="tab-radio" checked>
+        <input type="radio" name="about-tabs" id="tab-what" class="tab-radio">
         <div class="tab-list" role="tablist" aria-label="Sobre Arzen">
-          <button type="button" role="tab" id="tab-who" aria-selected="true" aria-controls="panel-who" class="tab-btn">Quiénes somos</button>
-          <button type="button" role="tab" id="tab-what" aria-selected="false" tabindex="-1" aria-controls="panel-what" class="tab-btn">Qué hacemos</button>
+          <label for="tab-who" class="tab-btn">Quiénes somos</label>
+          <label for="tab-what" class="tab-btn">Qué hacemos</label>
         </div>
 
-        <div id="panel-who" role="tabpanel" aria-labelledby="tab-who" class="tab-panel">
+        <div class="tab-panels">
+        <div id="panel-who" class="tab-panel">
           <div class="about-grid">
             <div class="about-copy">
-              <p>Arzen existe por una brecha de confianza, no de tecnología. Un director de compras en EE. UU. puede encontrar cien talleres de CNC en una búsqueda — lo que no puede encontrar es la certeza de que alguno de ellos realmente sostiene la tolerancia, cumple la fecha y contesta el teléfono cuando algo sale mal.</p>
-              <p>Cerramos esa brecha haciendo primero el trabajo poco vistoso: pisamos el taller, revisamos el equipo contra la pieza, y construimos una relación con el dueño antes de presentar a ese proveedor con un comprador. Ese trabajo de verificación es el negocio completo — todo lo demás se deriva de ahí.</p>
+              <p>La mayoría de las plataformas de sourcing te venden un buscador. Arzen te vende certeza — que el taller detrás de ese número de parte existe de verdad, tiene el equipo y contesta cuando llamas.</p>
+              <p>Ganamos esa certeza por la vía lenta: pisando el piso, revisando la lista de máquinas contra tu plano, y sentándonos con el dueño antes de poner su nombre frente a un comprador. Todo lo demás — la cotización, la muestra, la primera orden — depende de esa decisión.</p>
             </div>
             <div class="about-figure">
               <div class="fig-num">2</div>
@@ -134,12 +139,12 @@
           </div>
         </div>
 
-        <div id="panel-what" role="tabpanel" aria-labelledby="tab-what" class="tab-panel" hidden>
+        <div id="panel-what" class="tab-panel">
           <div class="about-grid">
             <div class="about-copy">
-              <p>Arzen es un intermediario de sourcing y verificación — no fabricamos ni manejamos inventario. Conectamos a tu equipo de compras directamente con talleres de CNC, tooling y estructuras en Querétaro y Nuevo León, ya verificados, y seguimos presentes hasta la primera orden de compra.</p>
+              <p>Arzen no fabrica ni maneja inventario — somos la capa de verificación entre tu equipo de compras y un directorio de talleres de CNC, tooling y estructuras ya verificados en Querétaro y Nuevo León. Seguimos presentes hasta la primera orden de compra, no solo en la presentación.</p>
               <h3>Sourcing y verificación</h3>
-              <p>Comparamos tu especificación contra nuestro directorio de talleres verificados en persona y presentamos los que realmente encajan — capacidad, tolerancia y certificaciones incluidas.</p>
+              <p>Comparamos tu especificación contra talleres que ya pisamos — capacidad, tolerancia y certificaciones confirmadas antes de que veas un nombre.</p>
               <h3>Cotización y muestra</h3>
               <p>Cotización formal y una muestra física antes de comprometerte con una corrida de producción — nunca una orden a ciegas.</p>
               <h3>Gestión de la primera orden</h3>
@@ -156,6 +161,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -165,7 +171,7 @@
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Dentro de los talleres que verificamos</div>
-        <h2>Así es el piso que una pieza tiene que ganarse.</h2>
+        <h2>El piso que una pieza tiene que ganarse.</h2>
       </div>
       <div class="facility-grid">
         <div class="plant-photo ph-lg"><span class="placeholder-mark">Foto: piso de maquinado CNC</span><span class="cap">Maquinado CNC de precisión</span></div>
@@ -205,6 +211,7 @@
 
   <!-- 5. INDUSTRIAS -->
   <section class="industries" id="industrias">
+    <div class="section-wallpaper" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Industrias con las que trabajamos</div>
@@ -255,7 +262,7 @@
   <!-- 7. DIFERENCIADOR -->
   <section class="diff">
     <div class="wrap">
-      <blockquote>"A diferencia de una plataforma digital, cada proveedor que presentamos fue visitado en persona."</blockquote>
+      <blockquote>"Un perfil puede decir lo que sea. Nosotros pisamos el taller para saber qué es cierto."</blockquote>
       <div class="attribution">Arzen Industrial Group</div>
       <div class="compare-strip">
         <div><h4>Plataformas de cotización</h4><p>Capacidades autodeclaradas, cotización instantánea, nadie ha visto el taller ni conocido al dueño.</p></div>
@@ -270,7 +277,7 @@
     <div class="wrap">
       <div>
         <h2>¿Quieres unirte a nuestra red de proveedores?</h2>
-        <p>Si tienes un taller de CNC, tooling o estructuras en Querétaro o Nuevo León, postúlate — la visita de verificación corre por nuestra cuenta.</p>
+        <p>Si tienes un taller de CNC, tooling o estructuras en Querétaro o Nuevo León, postúlate — la visita de verificación corre por nuestra cuenta, no la tuya.</p>
       </div>
       <a class="btn btn-primary" href="#contacto" data-open-tab="supplier">Postúlate como proveedor</a>
     </div>
@@ -286,12 +293,15 @@
       </div>
 
       <div class="tabs tabs-dark" data-tabs="contact">
+        <input type="radio" name="contact-tabs" id="tab-buyer" class="tab-radio" checked>
+        <input type="radio" name="contact-tabs" id="tab-supplier" class="tab-radio">
         <div class="tab-list" role="tablist" aria-label="Tipo de contacto">
-          <button type="button" role="tab" id="tab-buyer" aria-selected="true" aria-controls="panel-buyer" class="tab-btn">Soy comprador (EE. UU.)</button>
-          <button type="button" role="tab" id="tab-supplier" aria-selected="false" tabindex="-1" aria-controls="panel-supplier" class="tab-btn">Soy proveedor (México)</button>
+          <label for="tab-buyer" class="tab-btn">Soy comprador (EE. UU.)</label>
+          <label for="tab-supplier" class="tab-btn">Soy proveedor (México)</label>
         </div>
 
-        <div id="panel-buyer" role="tabpanel" aria-labelledby="tab-buyer" class="tab-panel">
+        <div class="tab-panels">
+        <div id="panel-buyer" class="tab-panel">
           <div class="contact-grid">
             <div class="contact-copy">
               <p>Una llamada de 15 minutos. Sin costo por buscar — solo contratas cuando ves que encaja.</p>
@@ -314,7 +324,7 @@
           </div>
         </div>
 
-        <div id="panel-supplier" role="tabpanel" aria-labelledby="tab-supplier" class="tab-panel" hidden>
+        <div id="panel-supplier" class="tab-panel">
           <div class="contact-grid">
             <div class="contact-copy">
               <p>Estamos construyendo nuestro directorio verificado de talleres de CNC, tooling y estructuras en Querétaro y Nuevo León. Si tu taller atiende trabajo aeroespacial o adyacente a defensa, queremos conocerlo.</p>
@@ -335,6 +345,7 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -353,7 +364,7 @@
     </a>
     <div class="f-links">
       <a href="mailto:ac@arzenindustrial.com">ac@arzenindustrial.com</a>
-      <a href="https://www.linkedin.com/company/arzen-industrial" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/company/arzen-industrial-group/about/" target="_blank" rel="noopener">LinkedIn</a>
       <span class="f-lang"><a href="/en/">EN</a> ES</span>
     </div>
   </div>
@@ -375,6 +386,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=3"></script>
+<script src="/js/main.js?v=5"></script>
 </body>
 </html>
