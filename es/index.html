@@ -1,4 +1,4 @@
-<!-- VERSION: v13 — 2026-08-16 -->
+<!-- VERSION: v15 — 2026-08-16 -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=13">
+<link rel="stylesheet" href="/css/styles.css?v=15">
 
 <!-- CSS crítico inline a propósito: los tabs de abajo deben funcionar aunque
      /css/styles.css falle o esté desactualizado. No lo borres. -->
@@ -84,7 +84,6 @@
 
   <!-- 1. HERO -->
   <section class="hero">
-    <div class="hero-wallpaper" aria-hidden="true"></div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
@@ -214,16 +213,19 @@
       </div>
       <div class="seam-grid">
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">33%</div>
           <h3>Aranceles</h3>
           <p>Exposición arancelaria efectiva en piezas provenientes de China, además del flete y el manejo aduanal.</p>
         </div>
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">14 a 21 días</div>
           <h3>Tiempo</h3>
           <p>Tiempo de entrega típico por mar desde Asia, frente a días por carretera desde un proveedor calificado bajo USMCA.</p>
         </div>
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">?</div>
           <h3>Riesgo</h3>
           <p>Un proveedor sin verificar, encontrado en un marketplace, donde nadie ha pisado el piso del taller.</p>
@@ -234,7 +236,6 @@
 
   <!-- 5. INDUSTRIAS -->
   <section class="industries" id="industrias">
-    <div class="section-wallpaper" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Industrias con las que trabajamos</div>
@@ -307,9 +308,9 @@
       <div class="tabs tabs-dark" data-tabs="contact">
         <input type="radio" name="contact-tabs" id="tab-buyer" class="tab-radio" checked>
         <input type="radio" name="contact-tabs" id="tab-supplier" class="tab-radio">
-        <div class="tab-list" role="tablist" aria-label="Tipo de contacto">
-          <label for="tab-buyer" class="tab-btn">Soy comprador (EE. UU.)</label>
-          <label for="tab-supplier" class="tab-btn">Soy proveedor (México)</label>
+        <div class="tab-list choice-list" role="tablist" aria-label="Tipo de contacto">
+          <label for="tab-buyer" class="tab-btn choice-btn">Soy comprador (EE. UU.) <span aria-hidden="true">→</span></label>
+          <label for="tab-supplier" class="tab-btn choice-btn">Soy proveedor (México) <span aria-hidden="true">→</span></label>
         </div>
 
         <div class="tab-panels">
@@ -398,6 +399,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=13"></script>
+<script src="/js/main.js?v=15"></script>
 </body>
 </html>
