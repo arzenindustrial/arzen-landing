@@ -1,4 +1,4 @@
-<!-- VERSION: v13 — 2026-08-16 -->
+<!-- VERSION: v15 — 2026-08-16 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=13">
+<link rel="stylesheet" href="/css/styles.css?v=15">
 
 <!-- Critical tab CSS, inlined on purpose: the tabs below MUST work even if
      /css/styles.css fails to load or is out of date. Do not remove. -->
@@ -84,7 +84,6 @@
 
   <!-- 1. HERO -->
   <section class="hero">
-    <div class="hero-wallpaper" aria-hidden="true"></div>
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
@@ -214,16 +213,19 @@
       </div>
       <div class="seam-grid">
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">33%</div>
           <h3>Tariffs</h3>
           <p>Effective tariff exposure on parts sourced from China, on top of freight and customs handling.</p>
         </div>
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">14 to 21 days</div>
           <h3>Time</h3>
           <p>Typical lead time by sea from Asia, versus days by truck from a USMCA-qualifying supplier.</p>
         </div>
         <div class="problem-card">
+          <div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 22 20H2Z"/><line x1="12" y1="9.5" x2="12" y2="14"/><circle cx="12" cy="16.8" r=".6" fill="currentColor" stroke="none"/></svg></div>
           <div class="figure mono">?</div>
           <h3>Risk</h3>
           <p>An unverified supplier found on a marketplace, with no one who has walked the shop floor.</p>
@@ -234,7 +236,6 @@
 
   <!-- 5. INDUSTRIES -->
   <section class="industries" id="industrias">
-    <div class="section-wallpaper" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head">
         <div class="section-tag">Industries we work with</div>
@@ -307,9 +308,9 @@
       <div class="tabs tabs-dark" data-tabs="contact">
         <input type="radio" name="contact-tabs" id="tab-buyer" class="tab-radio" checked>
         <input type="radio" name="contact-tabs" id="tab-supplier" class="tab-radio">
-        <div class="tab-list" role="tablist" aria-label="Contact type">
-          <label for="tab-buyer" class="tab-btn">I'm a buyer (U.S.)</label>
-          <label for="tab-supplier" class="tab-btn">I'm a supplier (Mexico)</label>
+        <div class="tab-list choice-list" role="tablist" aria-label="Contact type">
+          <label for="tab-buyer" class="tab-btn choice-btn">I'm a buyer (U.S.) <span aria-hidden="true">→</span></label>
+          <label for="tab-supplier" class="tab-btn choice-btn">I'm a supplier (Mexico) <span aria-hidden="true">→</span></label>
         </div>
 
         <div class="tab-panels">
@@ -398,6 +399,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=13"></script>
+<script src="/js/main.js?v=15"></script>
 </body>
 </html>
