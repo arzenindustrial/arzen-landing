@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v6 — 2026-08-16
+   VERSION: v8 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -99,7 +99,7 @@ button{ font:inherit; }
 }
 .hero-wallpaper{
   position:absolute; top:-60px; right:-60px; bottom:-60px; left:-60px; z-index:0;
-  background-image:url('/assets/Arzen Wallpaper.png');
+  background-image:url('/assets/Arzen_Wallpaper.png');
   background-size:cover; background-position:center 25%;
   filter:blur(7px) brightness(.95) saturate(1.1);
   opacity:.55;
@@ -232,10 +232,10 @@ section{ padding:104px 0; }
 /* Real photos: just upload files with these exact names to assets/plants/ —
    nothing else to edit. If a file is missing, the technical pattern above
    shows through automatically (no broken-image icon). */
-.facility-grid > div:nth-child(1){ background-image:url('/assets/plants/planta-1.jpg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
-.facility-grid > div:nth-child(2){ background-image:url('/assets/plants/planta-2.jpg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
-.facility-grid > div:nth-child(3){ background-image:url('/assets/plants/planta-3.jpg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
-.facility-grid > div:nth-child(4){ background-image:url('/assets/plants/planta-4.jpg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(1){ background-image:url('/assets/plants/CNC_Machining.png'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(2){ background-image:url('/assets/plants/Dimensional_Inspection.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(3){ background-image:url('/assets/plants/Tooling_Assembly.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
+.facility-grid > div:nth-child(4){ background-image:url('/assets/plants/Finished_Parts.jpeg'), linear-gradient(160deg, #2A2E33 0%, #1C1E21 100%); background-size:cover, auto; background-position:center; }
 .plant-photo .cap{
   position:absolute; left:18px; bottom:16px; z-index:1;
   font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
@@ -267,7 +267,7 @@ section{ padding:104px 0; }
   position:absolute; top:-40px; right:-40px; bottom:-40px; left:-40px; z-index:0;
   background-image:
     linear-gradient(rgba(244,245,247,.82), rgba(244,245,247,.82)),
-    url('/assets/Arzen Wallpaper.png');
+    url('/assets/Arzen_Wallpaper.png');
   background-size:cover; background-position:center;
   filter:blur(10px);
 }
