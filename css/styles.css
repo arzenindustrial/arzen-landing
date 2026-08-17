@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v12 — 2026-08-16
+   VERSION: v13 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -101,7 +101,7 @@ button{ font:inherit; }
   position:absolute; top:-60px; right:-60px; bottom:-60px; left:-60px; z-index:0;
   background-image:url('/assets/Arzen_Wallpaper.png');
   background-size:cover; background-position:center 12%;
-  filter:blur(3px) brightness(1.05) contrast(1.05);
+  filter:brightness(.85) contrast(1.02);
   opacity:.7;
 }
 .hero-bg{
@@ -114,7 +114,7 @@ button{ font:inherit; }
 .hero-bg::after{
   content:"";
   position:absolute; top:0; right:0; bottom:0; left:0;
-  background:rgba(15,17,20,.62);
+  background:rgba(15,17,20,.7);
 }
 /* Replace with a real facility/machining photo when available:
    background-image:url('/assets/plants/hero-plant.jpg'); background-size:cover; background-position:center; */
@@ -263,10 +263,9 @@ section{ padding:104px 0; }
 .section-wallpaper{
   position:absolute; top:-40px; right:-40px; bottom:-40px; left:-40px; z-index:0;
   background-image:
-    linear-gradient(rgba(244,245,247,.82), rgba(244,245,247,.82)),
+    linear-gradient(rgba(244,245,247,.87), rgba(244,245,247,.87)),
     url('/assets/Arzen_Wallpaper.png');
   background-size:cover; background-position:center;
-  filter:blur(10px);
 }
 .industries .wrap{ position:relative; z-index:1; }
 .industries .seam-grid{ grid-template-columns:repeat(4,1fr); border-color:var(--hairline); background:var(--hairline); }
@@ -297,15 +296,22 @@ section{ padding:104px 0; }
 
 /* ---------- Audience banner (join suppliers / find suppliers) ---------- */
 .audience-banner{ background:var(--amber); color:var(--graphite); padding:40px 0; }
-.audience-banner-sticky{
-  position:sticky; top:78px; z-index:60;
-  border-bottom:1px solid rgba(28,30,33,.15);
-}
 .audience-banner .wrap{ display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
 .audience-banner h2{ font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--graphite); max-width:24ch; margin:0; }
 .audience-banner p{ color:rgba(28,30,33,.75); margin:8px 0 0; max-width:46ch; font-size:.98rem; }
 .audience-banner .btn-primary{ background:var(--graphite); color:#fff; flex:none; }
 .audience-banner .btn-primary:hover{ background:#000; }
+
+/* Sticky variant: compact single-line bar, no body copy */
+.audience-banner-sticky{
+  position:sticky; top:78px; z-index:60;
+  border-bottom:1px solid rgba(28,30,33,.15);
+  padding:14px 0;
+}
+.audience-banner-sticky .wrap{ flex-wrap:nowrap; gap:16px; }
+.audience-banner-sticky h2{ font-size:1rem; max-width:none; white-space:nowrap; }
+.audience-banner-sticky p{ display:none; }
+.audience-banner-sticky .btn-primary{ padding:10px 18px; font-size:.8rem; }
 
 /* ---------- Contact ---------- */
 .contact{ background:var(--graphite); color:#fff; }
@@ -353,22 +359,67 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .compare-strip{ flex-direction:column; }
   .compare-strip > div{ border-left:none; border-top:1px solid rgba(255,255,255,.18); padding:22px 0; }
   .compare-strip > div:first-child{ border-top:none; }
+  .hero h1{ font-size:clamp(2rem,5vw,3rem); }
   .hero-specs{ grid-template-columns:1fr 1fr; row-gap:28px; }
   .hero-specs > div{ border-left:none; padding-left:0; }
   .facility-grid{ grid-template-columns:1fr; grid-template-rows:auto; height:auto; }
   .facility-grid .ph-lg{ grid-column:1; grid-row:auto; height:280px; }
   .facility-grid > div:not(.ph-lg){ height:200px; }
-  .audience-banner .wrap{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .audience-banner:not(.audience-banner-sticky) .wrap{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
+
+@media (max-width: 680px){
+  /* Typography: the biggest source of "too large" text on phones is the
+     clamp() minimums, which don't shrink below their floor on narrow
+     viewports. Override the floors directly here. */
+  .wrap{ padding:0 20px; }
+  section{ padding:60px 0; }
+  .section-head{ margin-bottom:36px; }
+  .section-head h2{ font-size:1.5rem; }
+  .section-head p{ font-size:.94rem; }
+
+  .site-header .wrap{ height:64px; }
+  .brand-mark svg{ width:24px; height:24px; }
+  .brand-mark .wordmark{ font-size:.9rem; }
+  .brand-mark .wordmark small{ display:none; }
+  .lang-switch{ font-size:.7rem; }
+
+  .hero{ padding:48px 0 40px; }
+  .eyebrow{ font-size:.66rem; line-height:1.5; margin-bottom:16px; }
+  .hero h1{ font-size:1.9rem; line-height:1.18; max-width:none; }
+  .hero .sub{ font-size:.96rem; margin:18px 0 26px; }
+  .hero-ctas{ flex-direction:column; align-items:stretch; gap:12px; }
+  .hero-ctas .btn{ width:100%; justify-content:center; text-align:center; }
+  .hero-specs{ grid-template-columns:1fr; margin-top:40px; row-gap:20px; }
+
+  .btn{ padding:14px 22px; font-size:.86rem; }
+
+  .stat-bar{ padding:28px 0; }
+  .stat-grid .num{ font-size:1.3rem; }
+
+  .tab-btn{ margin-right:24px; font-size:.72rem; }
+  .about-figure{ padding:22px; }
+  .about-figure li{ flex-direction:column; gap:4px; }
+  .about-figure li b{ flex:none; }
+
+  .diff blockquote{ font-size:1.2rem; }
+  .diff .attribution{ margin-bottom:36px; }
+
+  .audience-banner-sticky{ padding:12px 0; }
+  .audience-banner-sticky .wrap{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .audience-banner-sticky h2{ white-space:normal; font-size:.9rem; line-height:1.35; }
+  .audience-banner-sticky .btn-primary{ align-self:stretch; text-align:center; }
+
+  .contact .section-head p{ font-size:.94rem; }
+}
+
 @media (max-width: 560px){
   .seam-grid{ grid-template-columns:1fr !important; }
   .steps{ grid-template-columns:1fr; }
   .nav-cta{ display:none; }
-  section{ padding:72px 0; }
-  .hero{ padding:64px 0 56px; }
-  .tab-btn{ margin-right:26px; font-size:.72rem; }
   .facility-grid{ grid-template-columns:1fr; }
-  .facility-grid .ph-lg{ grid-column:1; height:240px; }
+  .facility-grid .ph-lg{ grid-column:1; height:220px; }
+  .facility-grid > div:not(.ph-lg){ height:180px; }
 }
 
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
