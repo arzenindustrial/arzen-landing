@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v17 — 2026-08-16
+   VERSION: v18 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -44,7 +44,7 @@ p{ margin:0 0 1em; line-height:1.65; text-align:justify; text-justify:inter-word
 button{ font:inherit; }
 /* Elements that should stay left/center-aligned, not justified */
 .eyebrow, .section-tag, blockquote, .fig-label, .panel-label,
-.hero-specs .v, .diff blockquote, .audience-banner p{ text-align:left; }
+.hero-specs .v, .diff blockquote{ text-align:left; }
 .diff .wrap p, .diff blockquote{ text-align:center; }
 
 .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 28px; }
@@ -110,9 +110,7 @@ button{ font:inherit; }
 .hero-bg::after{
   content:"";
   position:absolute; top:0; right:0; bottom:0; left:0;
-  background:
-    radial-gradient(ellipse 60% 90% at 88% 20%, rgba(242,166,25,.10), transparent 60%),
-    linear-gradient(100deg, rgba(28,30,33,.94) 0%, rgba(28,30,33,.82) 42%, rgba(28,30,33,.55) 100%);
+  background:rgba(21,23,26,.15);
 }
 /* Replace with a real facility/machining photo when available:
    background-image:url('/assets/plants/hero-plant.jpg'); background-size:cover; background-position:center; */
@@ -312,23 +310,7 @@ section{ padding:104px 0; }
 .compare-strip p{ font-size:.88rem; color:rgba(255,255,255,.82); margin:0; }
 
 /* ---------- Audience banner (join suppliers / find suppliers) ---------- */
-.audience-banner{ background:var(--amber); color:var(--graphite); padding:40px 0; }
-.audience-banner .wrap{ display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
-.audience-banner h2{ font-size:clamp(1.4rem,2.4vw,1.9rem); color:var(--graphite); max-width:24ch; margin:0; }
-.audience-banner p{ color:rgba(28,30,33,.75); margin:8px 0 0; max-width:46ch; font-size:.98rem; }
-.audience-banner .btn-primary{ background:var(--graphite); color:#fff; flex:none; }
-.audience-banner .btn-primary:hover{ background:#000; }
-
-/* Sticky variant: compact single-line bar, no body copy */
-.audience-banner-sticky{
-  position:sticky; top:78px; z-index:60;
-  border-bottom:1px solid rgba(28,30,33,.15);
-  padding:14px 0;
-}
-.audience-banner-sticky .wrap{ flex-wrap:nowrap; gap:16px; }
-.audience-banner-sticky h2{ font-size:1rem; max-width:none; white-space:nowrap; }
-.audience-banner-sticky p{ display:none; }
-.audience-banner-sticky .btn-primary{ padding:10px 18px; font-size:.8rem; }
+/* audience-banner removed — no longer used */
 
 /* ---------- Contact ---------- */
 .contact{ background:var(--graphite); color:#fff; }
@@ -426,7 +408,6 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .facility-grid{ grid-template-columns:1fr; grid-template-rows:auto; height:auto; }
   .facility-grid .ph-lg{ grid-column:1; grid-row:auto; height:280px; }
   .facility-grid > div:not(.ph-lg){ height:200px; }
-  .audience-banner:not(.audience-banner-sticky) .wrap{ flex-direction:column; align-items:flex-start; text-align:left; }
 }
 
 @media (max-width: 680px){
@@ -434,46 +415,54 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
      clamp() minimums, which don't shrink below their floor on narrow
      viewports. Override the floors directly here. */
   .wrap{ padding:0 20px; }
-  section{ padding:60px 0; }
-  .section-head{ margin-bottom:36px; }
-  .section-head h2{ font-size:1.5rem; }
-  .section-head p{ font-size:.94rem; }
+  section{ padding:52px 0; }
+  .section-head{ margin-bottom:32px; }
+  .seam-grid > *{ padding:26px 22px; }
+  .problem-card .figure{ font-size:1.5rem; }
+  .problem-card h3, .industry-card h3{ font-size:.94rem; }
+  .problem-card p, .industry-card p{ font-size:.86rem; }
+  .step h3{ font-size:.92rem; }
+  .step p{ font-size:.84rem; }
+  .plant-photo .cap{ font-size:.62rem; padding:5px 9px; }
+  .section-head h2{ font-size:1.32rem; line-height:1.28; }
+  .section-head p{ font-size:.9rem; line-height:1.6; }
 
-  .site-header .wrap{ height:64px; }
-  .brand-mark svg{ width:24px; height:24px; }
-  .brand-mark .wordmark{ font-size:.9rem; }
+  .site-header .wrap{ height:60px; }
+  .brand-mark svg{ width:22px; height:22px; }
+  .brand-mark .wordmark{ font-size:.86rem; }
   .brand-mark .wordmark small{ display:none; }
   .header-right{ gap:10px; }
-  .lang-switch{ font-size:.7rem; }
-  .audience-switch{ font-size:.62rem; padding:6px 9px; letter-spacing:.02em; }
+  .lang-switch{ font-size:.68rem; }
+  .audience-switch{ font-size:.6rem; padding:6px 9px; letter-spacing:.02em; }
 
-  .hero{ padding:48px 0 40px; }
-  .eyebrow{ font-size:.66rem; line-height:1.5; margin-bottom:16px; }
-  .hero h1{ font-size:1.9rem; line-height:1.18; max-width:none; }
-  .hero .sub{ font-size:.96rem; margin:18px 0 26px; }
-  .hero-ctas{ flex-direction:column; align-items:stretch; gap:12px; }
+  .hero{ padding:40px 0 32px; }
+  .eyebrow{ font-size:.62rem; line-height:1.5; margin-bottom:14px; letter-spacing:.1em; }
+  .hero h1{ font-size:1.62rem; line-height:1.22; max-width:none; letter-spacing:-.005em; }
+  .hero .sub{ font-size:.9rem; line-height:1.6; margin:14px 0 22px; }
+  .hero-ctas{ flex-direction:column; align-items:stretch; gap:10px; }
   .hero-ctas .btn{ width:100%; justify-content:center; text-align:center; }
-  .hero-specs{ grid-template-columns:1fr; margin-top:40px; row-gap:20px; }
+  .hero-specs{ grid-template-columns:1fr; margin-top:32px; row-gap:16px; }
+  .hero-specs .k{ font-size:.66rem; }
+  .hero-specs .v{ font-size:.82rem; line-height:1.55; }
 
-  .btn{ padding:14px 22px; font-size:.86rem; }
+  .btn{ padding:13px 20px; font-size:.82rem; }
 
-  .stat-bar{ padding:28px 0; }
-  .stat-grid .num{ font-size:1.3rem; }
+  .stat-bar{ padding:24px 0; }
+  .stat-grid .num{ font-size:1.15rem; }
+  .stat-grid .label{ font-size:.66rem; }
 
-  .tab-btn{ margin-right:24px; font-size:.72rem; }
-  .about-figure{ padding:22px; }
+  .tab-btn{ margin-right:22px; font-size:.68rem; }
+  .about-copy p{ font-size:.92rem; line-height:1.6; }
+  .about-figure{ padding:20px; }
   .about-figure li{ flex-direction:column; gap:4px; }
   .about-figure li b{ flex:none; }
+  .about-figure li{ font-size:.84rem; }
 
-  .diff blockquote{ font-size:1.2rem; }
-  .diff .attribution{ margin-bottom:36px; }
+  .diff blockquote{ font-size:1.08rem; line-height:1.45; }
+  .diff .attribution{ margin-bottom:32px; }
+  .compare-strip p{ font-size:.84rem; }
 
-  .audience-banner-sticky{ padding:12px 0; }
-  .audience-banner-sticky .wrap{ flex-direction:column; align-items:flex-start; gap:10px; }
-  .audience-banner-sticky h2{ white-space:normal; font-size:.9rem; line-height:1.35; }
-  .audience-banner-sticky .btn-primary{ align-self:stretch; text-align:center; }
-
-  .contact .section-head p{ font-size:.94rem; }
+  .contact .section-head p{ font-size:.9rem; }
   .choice-list{ grid-template-columns:1fr; }
   .tabs.tabs-dark .tab-btn.choice-btn{ padding:18px 16px; font-size:.94rem; }
   .lead-form{ grid-template-columns:1fr; gap:16px; }
