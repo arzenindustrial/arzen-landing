@@ -1,4 +1,4 @@
-<!-- VERSION: v5 — 2026-08-16 -->
+<!-- VERSION: v6 — 2026-08-16 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +25,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=5">
+<link rel="stylesheet" href="/css/styles.css?v=6">
+
+<!-- Critical tab CSS, inlined on purpose: the tabs below MUST work even if
+     /css/styles.css fails to load or is out of date. Do not remove. -->
+<style>
+  .tab-radio{position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;pointer-events:none!important;margin:0!important;}
+  .tab-panel{display:none!important;}
+  #tab-who:checked ~ .tab-panels #panel-who,
+  #tab-what:checked ~ .tab-panels #panel-what,
+  #tab-buyer:checked ~ .tab-panels #panel-buyer,
+  #tab-supplier:checked ~ .tab-panels #panel-supplier{display:block!important;}
+  .tab-btn{cursor:pointer;}
+</style>
 
 <script type="application/ld+json">
 {
@@ -386,6 +398,6 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
 </script>
-<script src="/js/main.js?v=5"></script>
+<script src="/js/main.js?v=6"></script>
 </body>
 </html>
