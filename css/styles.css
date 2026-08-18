@@ -1,6 +1,6 @@
 /* ============================================================
    ARZEN INDUSTRIAL GROUP — Landing page styles
-   VERSION: v23 — 2026-08-16
+   VERSION: v28 — 2026-08-16
    Si ves este comentario en el navegador (Ver código fuente de la
    página > css/styles.css) y NO ves "v4" aquí arriba, el archivo
    que subiste a GitHub no es este. Vuelve a subirlo.
@@ -364,10 +364,15 @@ section{ padding:104px 0; }
 .contact-copy ul{ list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:13px; }
 .contact-copy li{ font-size:.89rem; color:#C7CBD1; padding-left:18px; position:relative; }
 .contact-copy li::before{ content:""; position:absolute; left:0; top:7px; width:7px; height:7px; background:var(--amber); }
-.calendly-shell{ background:#fff; overflow:hidden; border-radius:var(--radius); }
-.calendly-inline-widget{ min-width:280px; height:640px; }
-.calendly-fallback{ padding:56px 24px; text-align:center; color:var(--graphite); }
-.calendly-fallback .btn-primary{ margin-top:18px; }
+.booking-shell{ background:#fff; overflow:hidden; border-radius:var(--radius); border:1px solid var(--hairline); }
+.booking-shell-header{
+  background:var(--graphite); color:#fff;
+  padding:14px 22px; border-bottom:3px solid var(--amber);
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+}
+.booking-shell iframe{ display:block; }
+.booking-fallback-note{ text-align:center; font-size:.82rem; color:var(--cool-gray); margin-top:18px; }
+.booking-fallback-note a{ color:var(--steel); }
 .supplier-panel{ background:rgba(244,245,247,.04); border:1px solid var(--hairline-dark); padding:34px; border-radius:var(--radius); }
 .supplier-panel h3{ font-family:var(--font-body); font-size:1.06rem; color:#fff; margin-bottom:16px; }
 .supplier-panel ol{ margin:0 0 28px; padding-left:20px; color:#C7CBD1; font-size:.89rem; display:flex; flex-direction:column; gap:11px; }
@@ -412,8 +417,9 @@ section{ padding:104px 0; }
 .ty-hero .check{ width:44px; height:44px; margin:0 auto 24px; color:var(--amber); }
 .ty-hero h1{ color:#fff; font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:20ch; margin:0 auto 16px; }
 .ty-hero p{ color:#C7CBD1; max-width:52ch; margin:0 auto; text-align:center; font-size:1.02rem; }
-.ty-calendly{ padding:70px 0 100px; background:var(--white-cold); }
-.ty-calendly .calendly-shell{ max-width:820px; margin:0 auto; box-shadow:0 20px 60px rgba(0,0,0,.12); }
+.ty-booking{ padding:70px 0 100px; background:var(--white-cold); }
+.ty-booking .booking-shell{ max-width:820px; margin:0 auto; box-shadow:0 20px 60px rgba(0,0,0,.12); }
+.ty-booking .booking-fallback-note{ max-width:820px; margin-left:auto; margin-right:auto; }
 
 /* ---------- Footer ---------- */
 /* ---------- Scroll-triggered popup ---------- */
@@ -533,7 +539,7 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .tabs.tabs-dark .tab-btn.choice-btn{ padding:18px 16px; font-size:.94rem; }
   .lead-form{ grid-template-columns:1fr; gap:16px; }
   .ty-hero{ padding:56px 0 44px; }
-  .ty-calendly{ padding:40px 0 60px; }
+  .ty-booking{ padding:40px 0 60px; }
 }
 
 @media (max-width: 560px){
