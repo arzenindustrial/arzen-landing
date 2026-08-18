@@ -1,4 +1,4 @@
-<!-- VERSION: v26 — 2026-08-16 -->
+<!-- VERSION: v28 — 2026-08-16 -->
 <!doctype html>
 <html lang="es">
 <head>
@@ -9,11 +9,9 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://assets.calendly.com">
-<link rel="preconnect" href="https://calendly.com">
-<link rel="preload" as="script" href="https://assets.calendly.com/assets/external/widget.js">
+<link rel="preconnect" href="https://calendar.google.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=23">
+<link rel="stylesheet" href="/css/styles.css?v=27">
 </head>
 <body>
 <header class="site-header">
@@ -43,18 +41,13 @@
     </div>
   </section>
 
-  <section class="ty-calendly">
+  <section class="ty-booking">
     <div class="wrap">
-      <div class="calendly-shell">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/arzen-industrial/buyers-15min?hide_gdpr_banner=1&primary_color=f2a619&locale=es" style="min-width:280px;height:640px;">
-          <noscript>
-            <div class="calendly-fallback">
-              <p>Activa JavaScript para agendar directamente, o escríbenos para coordinar.</p>
-              <a class="btn btn-primary" href="mailto:ac@arzenindustrial.com?subject=Agendar%20visita">Escribe a ac@arzenindustrial.com</a>
-            </div>
-          </noscript>
-        </div>
+      <div class="booking-shell">
+        <div class="booking-shell-header">Elige un horario</div>
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0PZ4hSWaEFumHMzNyB3mK7Qw9llFrzeaTmFb4MO_r_F7MeeThoKlP64VI4qBPbBb3RzYtQtHRK?gv=true" style="border:0" width="100%" height="640" frameborder="0" loading="lazy" title="Agenda una llamada de 15 minutos"></iframe>
       </div>
+      <p class="booking-fallback-note">¿No carga el calendario? <a href="https://calendar.app.google/JiYuKZUeG1ePscke6" target="_blank" rel="noopener">Abre la página para agendar directamente →</a></p>
     </div>
   </section>
 </main>
@@ -77,6 +70,5 @@
   </div>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
