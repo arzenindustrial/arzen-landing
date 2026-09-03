@@ -1,4 +1,4 @@
-<!-- VERSION: v29 — 2026-08-16 -->
+<!-- VERSION: v31 — 2026-09-02 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,8 +28,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css?v=23">
 
-<!-- Critical tab CSS, inlined on purpose: the About tabs below MUST work even if
-     /css/styles.css fails to load or is out of date. Do not remove. -->
 <style>
   .tab-radio{position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;pointer-events:none!important;margin:0!important;}
   .tab-panel{display:none!important;}
@@ -50,6 +48,9 @@
   "sameAs": ["https://www.linkedin.com/company/arzen-industrial-group/"]
 }
 </script>
+
+<!-- Apollo Website Visitor Tracker -->
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a82bed6118be70013d9ae14"})},document.head.appendChild(o)}initApollo();</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -152,14 +153,12 @@
     </div>
   </section>
 
-  <!-- TRUST BANNER — update copy once there's a real, verifiable number to cite -->
   <section class="trust-banner">
     <div class="wrap">
       <p><b>350+ companies</b> already trust Arzen with their sourcing.</p>
     </div>
   </section>
 
-  <!-- SPECS BAR — separated from hero on purpose, so the hero visually ends at the buttons -->
   <section class="specs-bar">
     <div class="wrap">
       <div class="hero-specs">
@@ -171,7 +170,6 @@
     </div>
   </section>
 
-  <!-- 2. STAT BAR -->
   <section class="stat-bar">
     <div class="wrap">
       <div class="stat-grid">
@@ -182,7 +180,6 @@
     </div>
   </section>
 
-  <!-- 3. ABOUT — Who we are / What we do (tabs) -->
   <section id="nosotros">
     <div class="wrap">
       <div class="section-head">
@@ -244,7 +241,6 @@
     </div>
   </section>
 
-  <!-- FACILITY PHOTOS -->
   <section class="facility">
     <div class="wrap">
       <div class="section-head">
@@ -260,7 +256,6 @@
     </div>
   </section>
 
-  <!-- 4. THE PROBLEM -->
   <section class="problem">
     <div class="wrap">
       <div class="section-head">
@@ -290,7 +285,6 @@
     </div>
   </section>
 
-  <!-- 5. INDUSTRIES -->
   <section class="industries" id="industrias">
     <div class="wrap">
       <div class="section-head">
@@ -323,7 +317,6 @@
     </div>
   </section>
 
-  <!-- 6. HOW IT WORKS -->
   <section class="how" id="como">
     <div class="wrap">
       <div class="section-head">
@@ -339,7 +332,6 @@
     </div>
   </section>
 
-  <!-- 7. DIFFERENTIATOR -->
   <section class="diff">
     <div class="wrap">
       <blockquote>"A supplier profile can say anything. We've walked the floor to find out what's true."</blockquote>
@@ -352,7 +344,6 @@
     </div>
   </section>
 
-  <!-- 8. CONTACT — lead form, gated scheduling -->
   <section class="contact" id="contacto">
     <div class="wrap">
       <div class="section-head">
@@ -448,7 +439,6 @@
   </div>
 </footer>
 
-<!-- Scroll-triggered popup, appears once at 25% scroll -->
 <div id="scroll-popup" class="scroll-popup" hidden>
   <button type="button" class="popup-close" aria-label="Close">&times;</button>
   <p class="popup-eyebrow">Still browsing?</p>
@@ -461,7 +451,6 @@
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 
-<!-- GA4 — replace G-XXXXXXX with the real Measurement ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
