@@ -4,9 +4,13 @@
 
 ## For buyers (English)
 - [Homepage — buyers](https://arzenindustrial.com/en/): verified CNC, tooling and structural suppliers, USMCA-qualifying, matched to aerospace/defense procurement needs. Includes FAQ and a comparison of Asia sourcing vs. Arzen-verified Mexico sourcing.
+- [How to Vet a CNC Supplier in Mexico: A Buyer's Checklist](https://arzenindustrial.com/en/guides/vet-cnc-supplier-mexico/)
+- [USMCA vs. China Sourcing: Real Cost and Lead-Time Numbers](https://arzenindustrial.com/en/guides/usmca-vs-china-sourcing/)
 
 ## For suppliers (Español)
 - [Página principal — proveedores](https://arzenindustrial.com/es/): red verificada de talleres CNC, tooling y estructuras en Querétaro/Nuevo León conectados con compradores de EE. UU. Sin costo por aplicar. Incluye preguntas frecuentes.
+- [Cómo preparar tu taller CNC para exportar a EE. UU.](https://arzenindustrial.com/es/guias/preparar-taller-exportar-eeuu/)
+- [¿Necesitas AS9100 o NADCAP para vender a Estados Unidos?](https://arzenindustrial.com/es/guias/as9100-nadcap-certificaciones/)
 
 ## Key facts
 - Focus: tooling, fixtures and secondary structural components — not flight-critical primes.
