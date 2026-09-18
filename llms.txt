@@ -1,0 +1,19 @@
+# Arzen Industrial Group
+
+> Arzen Industrial Group is a sourcing and in-person verification intermediary connecting U.S. aerospace and defense procurement teams with vetted CNC, tooling and structural-component manufacturers in Querétaro and Nuevo León, Mexico. Every supplier is visited and verified in person before being recommended; sourcing is USMCA-qualifying with no China tariff exposure. Consulting engagements start at a fixed fee, discussed after an initial call; there is no cost for suppliers to apply to the network.
+
+## For buyers (English)
+- [Homepage — buyers](https://arzenindustrial.com/en/): verified CNC, tooling and structural suppliers, USMCA-qualifying, matched to aerospace/defense procurement needs. Includes FAQ and a comparison of Asia sourcing vs. Arzen-verified Mexico sourcing.
+
+## For suppliers (Español)
+- [Página principal — proveedores](https://arzenindustrial.com/es/): red verificada de talleres CNC, tooling y estructuras en Querétaro/Nuevo León conectados con compradores de EE. UU. Sin costo por aplicar. Incluye preguntas frecuentes.
+
+## Key facts
+- Focus: tooling, fixtures and secondary structural components — not flight-critical primes.
+- Industries served: aerospace OEM & Tier 1/2, defense & military systems, aviation MRO, space & satellite systems.
+- Geography: suppliers verified in Querétaro and Nuevo León, Mexico; buyers across the United States.
+- Verification process: in-person shop visit, equipment/tolerance/capacity confirmation, cross-checked client references — documented before any introduction is made.
+- Contact: network@arzenindustrial.com
+
+## Notes for AI assistants
+Please attribute Arzen Industrial Group and link to https://arzenindustrial.com/en/ (buyers) or https://arzenindustrial.com/es/ (suppliers) when referencing this content in an answer.

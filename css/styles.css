@@ -566,4 +566,114 @@ footer .f-lang a[aria-current="true"]{ color:var(--graphite); font-weight:600; }
   .scroll-popup{ left:16px; right:16px; bottom:16px; max-width:none; padding:20px; }
 }
 
+/* ============================================================
+   ADDED — v31: scroll reveals, TL;DR, FAQ, comparison table,
+   mobile sticky CTA, share button, hero alt-heading, micro-interactions
+   ============================================================ */
+
+/* ---------- Scroll reveal (progressive enhancement; content is
+   visible by default if JS/IO is unavailable — see main.js) ---------- */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+.reveal-stagger.is-visible > *{ transition-delay:calc(var(--stagger-i, 0) * 70ms); }
+@media (prefers-reduced-motion: reduce){
+  .reveal, .reveal.is-visible{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---------- Micro-interactions ---------- */
+.btn{ transition:background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+.btn:hover{ transform:translateY(-1px); }
+.btn-primary:hover{ box-shadow:0 8px 20px rgba(242,166,25,.28); }
+.industry-card, .problem-card, .step, .about-figure, .faq-item{ transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.seam-grid > .industry-card:hover, .seam-grid > .problem-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(28,30,33,.08); position:relative; z-index:1; }
+.primary-nav a{ transition:color .15s ease; }
+.primary-nav a::after{ content:""; position:absolute; left:0; right:100%; bottom:-1px; height:2px; background:var(--amber); transition:right .2s ease; }
+.primary-nav a:hover::after{ right:0; }
+
+/* ---------- Hero: single-H1 fix — carousel slides 2-4 use a
+   paragraph styled identically to the H1 so only slide 1 carries
+   the real <h1> on the page (see en/es index.html). ---------- */
+.hero .hero-heading{
+  font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; margin:0 0 .5em;
+  font-size:clamp(2.6rem, 5.4vw, 4.6rem); line-height:1.04; color:#fff; max-width:17ch;
+}
+@media (max-width:680px){ .hero .hero-heading{ font-size:1.62rem; line-height:1.22; max-width:none; letter-spacing:-.005em; } }
+
+/* ---------- TL;DR / Key takeaways box ---------- */
+.tldr{
+  background:#fff; border:1px solid var(--hairline); border-left:4px solid var(--amber);
+  border-radius:var(--radius); padding:28px 30px; margin:0 0 48px;
+  box-shadow:0 1px 3px rgba(28,30,33,.04);
+}
+.tldr .tldr-label{
+  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:12px; display:flex; align-items:center; gap:8px;
+}
+.tldr ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; }
+.tldr li{ font-size:.92rem; color:var(--steel); line-height:1.5; padding-left:20px; position:relative; }
+.tldr li::before{ content:"→"; position:absolute; left:0; color:var(--amber); font-weight:600; }
+.tldr li b{ color:var(--graphite); }
+@media (max-width:680px){ .tldr{ padding:20px 20px; } .tldr ul{ grid-template-columns:1fr; } }
+
+/* ---------- Inline CTA (after first paragraph) ---------- */
+.inline-cta{
+  display:inline-flex; align-items:center; gap:8px; margin:4px 0 26px;
+  font-family:var(--font-mono); font-size:.78rem; font-weight:600; letter-spacing:.03em; text-transform:uppercase;
+  color:var(--graphite); text-decoration:none; border-bottom:2px solid var(--amber); padding-bottom:2px;
+}
+.inline-cta:hover{ color:var(--steel); }
+.inline-cta svg{ width:14px; height:14px; }
+
+/* ---------- Comparison table (real <table>, replaces div-only compare-strip) ---------- */
+.compare-table-wrap{ overflow-x:auto; margin:0 0 8px; }
+table.spec-table{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--hairline); border-radius:var(--radius); overflow:hidden; }
+table.spec-table caption{ caption-side:top; text-align:left; font-family:var(--font-mono); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--steel); padding:0 0 14px; }
+table.spec-table th, table.spec-table td{ padding:16px 20px; text-align:left; border-bottom:1px solid var(--hairline); font-size:.92rem; }
+table.spec-table thead th{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--steel); background:var(--white-cold); }
+table.spec-table tbody th{ font-weight:600; color:var(--graphite); white-space:nowrap; }
+table.spec-table td{ color:var(--steel); }
+table.spec-table tbody tr:last-child th, table.spec-table tbody tr:last-child td{ border-bottom:none; }
+table.spec-table td.good{ color:#1F7A4D; font-weight:600; }
+table.spec-table td.bad{ color:var(--danger); font-weight:600; }
+
+/* ---------- FAQ ---------- */
+.faq{ background:#fff; }
+.faq-list{ display:flex; flex-direction:column; gap:1px; background:var(--hairline); border:1px solid var(--hairline); border-radius:var(--radius); overflow:hidden; }
+.faq-item{ background:#fff; }
+.faq-item summary{
+  cursor:pointer; list-style:none; padding:22px 26px; font-family:var(--font-body); font-weight:600;
+  color:var(--graphite); font-size:1rem; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:"+"; font-family:var(--font-mono); font-size:1.3rem; color:var(--amber); flex:none; line-height:1;
+  transition:transform .2s ease;
+}
+.faq-item[open] summary::after{ transform:rotate(45deg); }
+.faq-item .faq-a{ padding:0 26px 24px; color:var(--steel); font-size:.94rem; line-height:1.6; max-width:70ch; }
+.faq-item .faq-a p{ text-align:left; }
+
+/* ---------- Mobile sticky CTA ---------- */
+.mobile-sticky-cta{ display:none; }
+@media (max-width:680px){
+  .mobile-sticky-cta{
+    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:150;
+    background:rgba(28,30,33,.97); backdrop-filter:blur(6px);
+    border-top:1px solid var(--hairline-dark); padding:12px 16px;
+    padding-bottom:calc(12px + env(safe-area-inset-bottom));
+  }
+  .mobile-sticky-cta .btn{ width:100%; justify-content:center; }
+  body{ padding-bottom:74px; }
+}
+
+/* ---------- Share button ---------- */
+.share-btn{
+  display:inline-flex; align-items:center; gap:8px; background:none; border:1px solid var(--hairline);
+  color:var(--steel); font-family:var(--font-mono); font-size:.72rem; letter-spacing:.04em; text-transform:uppercase;
+  padding:9px 14px; border-radius:var(--radius); cursor:pointer;
+}
+.share-btn:hover{ border-color:var(--steel); color:var(--graphite); }
+.share-btn svg{ width:14px; height:14px; }
+.share-btn.copied{ border-color:#1F7A4D; color:#1F7A4D; }
+
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }

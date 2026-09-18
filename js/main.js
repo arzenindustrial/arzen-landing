@@ -1,8 +1,9 @@
 /* Arzen Industrial Group — shared front-end behavior
-   VERSION: v22 — 2026-08-16
+   VERSION: v23 — 2026-09-18
    IMPORTANT: The About tabs (Who we are / What we do) work with pure CSS
    (radio + label) and do NOT depend on this file loading. If this script
-   fails to load, the site still functions — only GA4 event tracking is lost.
+   fails to load, the site still functions — only GA4 event tracking,
+   scroll reveals and the share button are lost.
    No frameworks, no build step. */
 
 (function () {
@@ -17,6 +18,10 @@
     var label = e.target.closest('.tab-btn');
     if (label && window.gtag) {
       window.gtag('event', 'tab_select', { tab_label: label.textContent.trim() });
+    }
+    var faq = e.target.closest('.faq-item summary');
+    if (faq && window.gtag) {
+      window.gtag('event', 'faq_toggle', { question: faq.textContent.trim() });
     }
   });
 
@@ -85,5 +90,48 @@
       i = (i + 1) % radios.length;
       radios[i].checked = true;
     }, 6000);
+  })();
+
+  /* ---------- Scroll reveal (progressive enhancement). Elements with
+     .reveal are visible by default (see CSS); this only adds the fade-up
+     motion where IntersectionObserver is supported. ---------- */
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    var els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ---------- Share button ---------- */
+  (function () {
+    var btns = document.querySelectorAll('.share-btn');
+    if (!btns.length) return;
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var shareData = { title: document.title, url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function () {});
+          if (window.gtag) window.gtag('event', 'share_click', { method: 'native' });
+          return;
+        }
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(shareData.url).then(function () {
+            var original = btn.dataset.label || btn.textContent;
+            btn.classList.add('copied');
+            btn.textContent = btn.dataset.copiedLabel || 'Link copied';
+            setTimeout(function () { btn.classList.remove('copied'); btn.textContent = original; }, 2200);
+          });
+          if (window.gtag) window.gtag('event', 'share_click', { method: 'copy_link' });
+        }
+      });
+    });
   })();
 })();
