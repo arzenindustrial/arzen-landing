@@ -11,23 +11,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://calendar.google.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css?v=30">
+<link rel="stylesheet" href="/css/styles.css?v=25">
 </head>
 <body>
 <header class="site-header">
   <div class="wrap">
     <a class="brand-mark" href="/es/" aria-label="Arzen Industrial Group, inicio">
-      <svg width="28" height="28" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-        <polygon points="58,26 20,110 52,110" fill="#1C1E21"/>
-        <polygon points="62,26 100,110 68,110" fill="#52606D"/>
-        <rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/>
-      </svg>
+      <svg width="28" height="28" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><polygon points="58,26 20,110 52,110" fill="#1C1E21"/><polygon points="62,26 100,110 68,110" fill="#52606D"/><rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/></svg>
       <span class="wordmark">ARZEN<small>Industrial Group</small></span>
     </a>
+    <nav class="primary-nav" aria-label="Primary"><a href="/es/servicios/">Servicios</a><a href="/es/ubicaciones/">Ubicaciones</a><a href="/es/guias/">Guías</a><a href="/es/nosotros/">Nosotros</a><a href="/es/contacto/">Contacto</a></nav>
     <div class="header-right">
-      <nav class="lang-switch" aria-label="Selector de idioma">
-        <a href="/en/">EN</a><span aria-hidden="true">/</span><a href="/es/" aria-current="true">ES</a>
-      </nav>
+      <a class="audience-switch" href="/en/">I'm a buyer</a>
+      <nav class="lang-switch" aria-label="Language selector"><a href="/en/" hreflang="en" lang="en">EN</a><span aria-hidden="true">/</span><a href="/es/" hreflang="es" lang="es" aria-current="true">ES</a></nav>
+      <a class="nav-cta" href="/es/contacto/">Postúlate como proveedor</a>
+      <details class="mobile-nav"><summary>Menú</summary><nav aria-label="Mobile"><a href="/es/servicios/">Servicios</a><a href="/es/ubicaciones/">Ubicaciones</a><a href="/es/guias/">Guías</a><a href="/es/nosotros/">Nosotros</a><a href="/es/contacto/">Contacto</a><a href="/es/contacto/" class="mobile-cta">Postúlate como proveedor</a></nav></details>
     </div>
   </div>
 </header>
@@ -79,21 +77,23 @@
 </main>
 
 <footer>
-  <div class="wrap">
-    <a class="f-brand" href="/es/" aria-label="Arzen Industrial Group">
-      <svg width="20" height="20" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <polygon points="58,26 20,110 52,110" fill="#1C1E21"/>
-        <polygon points="62,26 100,110 68,110" fill="#52606D"/>
-        <rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/>
-      </svg>
-      <span class="wordmark" style="font-size:.85rem;">ARZEN INDUSTRIAL GROUP</span>
-    </a>
-    <div class="f-links">
-      <a href="mailto:network@arzenindustrial.com">network@arzenindustrial.com</a>
-      <a href="https://www.linkedin.com/company/arzen-industrial-group/about/" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="f-lang"><a href="/en/">EN</a> ES</span>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="f-brand" href="/es/" aria-label="Arzen Industrial Group"><svg width="20" height="20" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"><polygon points="58,26 20,110 52,110" fill="#1C1E21"/><polygon points="62,26 100,110 68,110" fill="#52606D"/><rect x="53" y="14" width="14" height="14" transform="rotate(45 60 21)" fill="#F2A619"/></svg><span class="wordmark" style="font-size:.85rem;">ARZEN INDUSTRIAL GROUP</span></a>
+      <p>Verificación en persona y conexión de talleres de maquinado CNC, tooling y estructuras en Querétaro y Nuevo León con compradores aeroespaciales y de defensa en EE. UU.</p>
+      <p class="foot-nap"><a href="mailto:network@arzenindustrial.com">network@arzenindustrial.com</a><br><a href="https://www.linkedin.com/company/arzen-industrial-group/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p class="foot-area">Zona de servicio: México (Querétaro, Nuevo León) y Estados Unidos. Trabajamos con cita — no hay oficina de atención sin cita.</p>
     </div>
+    <div><h2 class="foot-h">Servicios</h2><ul><li><a href="/es/servicios/unirse-a-la-red-de-proveedores/">Unirte a la red</a></li><li><a href="/es/servicios/verificacion-de-taller/">Verificación de taller</a></li><li><a href="/es/servicios/conexion-con-compradores-de-eeuu/">Conexión con compradores</a></li></ul></div>
+    <div><h2 class="foot-h">Ubicaciones</h2><ul><li><a href="/es/ubicaciones/queretaro/">Querétaro</a></li><li><a href="/es/ubicaciones/nuevo-leon/">Nuevo León</a></li></ul></div>
+    <div><h2 class="foot-h">Guías</h2><ul><li><a href="/es/guias/preparar-taller-exportar-eeuu/">Preparar tu taller para exportar</a></li><li><a href="/es/guias/as9100-nadcap-certificaciones/">¿AS9100 o NADCAP?</a></li><li><a href="/es/guias/visita-de-verificacion-que-esperar/">La visita de verificación</a></li></ul></div>
+    <div><h2 class="foot-h">Empresa</h2><ul>
+      <li><a href="/es/nosotros/">Sobre Arzen</a></li>
+      <li><a href="/es/contacto/">Contacto</a></li>
+      <li><a href="/en/">English (buyers)</a></li>
+    </ul></div>
   </div>
+  <div class="wrap foot-legal"><span>© 2026 Arzen Industrial Group</span></div>
 </footer>
 
 </body>

@@ -1,5 +1,5 @@
 /* Arzen Industrial Group — shared front-end behavior
-   VERSION: v23 — 2026-09-18
+   VERSION: v25 — 2026-10-05
    IMPORTANT: The About tabs (Who we are / What we do) work with pure CSS
    (radio + label) and do NOT depend on this file loading. If this script
    fails to load, the site still functions — only GA4 event tracking,
@@ -8,6 +8,35 @@
 
 (function () {
   'use strict';
+
+  /* ---------- GA4 (single place to set the Measurement ID) ----------
+     Replace the placeholder below with the real ID from
+     analytics.google.com → Admin → Data Streams (looks like G-ABC123DEF4).
+     While it is still the placeholder, nothing is loaded — no failing
+     third-party request, no console errors. */
+  var GA_ID = 'G-XXXXXXX';
+  if (GA_ID && GA_ID.indexOf('XXXX') === -1) {
+    var gs = document.createElement('script');
+    gs.async = true;
+    gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+  }
+
+  /* ---------- Hero slides 2-4: load after the first paint so the first
+     slide (the LCP image) isn't competing with ~600 KB of hidden images ---------- */
+  (function () {
+    function load() {
+      document.querySelectorAll('img.slide-img[data-src]').forEach(function (img) {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+      });
+    }
+    if (document.readyState === 'complete') { load(); } else { window.addEventListener('load', load); }
+  })();
 
   /* ---------- GA4 event tracking ---------- */
   document.addEventListener('click', function (e) {

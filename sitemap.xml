@@ -1,46 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://arzenindustrial.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/"/>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://arzenindustrial.com/es/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/"/>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/supplier-verification/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/cnc-machining-sourcing/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/tooling-and-fixtures-sourcing/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/structural-components-sourcing/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/usmca-nearshoring-sourcing/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/services/quoting-sample-first-order/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/locations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/locations/queretaro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/queretaro/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/queretaro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/queretaro/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/locations/nuevo-leon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/nuevo-leon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/nuevo-leon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/nuevo-leon/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/guides/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/guides/rfq-checklist-cnc-parts-mexico/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/about/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/contact/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/servicios/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/servicios/unirse-a-la-red-de-proveedores/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/servicios/verificacion-de-taller/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/servicios/conexion-con-compradores-de-eeuu/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/ubicaciones/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/ubicaciones/queretaro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/queretaro/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/queretaro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/queretaro/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/ubicaciones/nuevo-leon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/locations/nuevo-leon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/ubicaciones/nuevo-leon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/locations/nuevo-leon/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/guias/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/guias/visita-de-verificacion-que-esperar/</loc>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/nosotros/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/about/"/>
+    <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://arzenindustrial.com/es/contacto/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arzenindustrial.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://arzenindustrial.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arzenindustrial.com/en/contact/"/>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://arzenindustrial.com/en/guides/vet-cnc-supplier-mexico/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://arzenindustrial.com/en/guides/usmca-vs-china-sourcing/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://arzenindustrial.com/es/guias/preparar-taller-exportar-eeuu/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://arzenindustrial.com/es/guias/as9100-nadcap-certificaciones/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
 </urlset>
