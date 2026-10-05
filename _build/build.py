@@ -104,6 +104,49 @@ def apply_desc(h, key):
     return h
 
 
+# Figures Arzen published that could not be verified (transit hours, % tariff, absolute "0%").
+# Rewritten to defensible wording; see CLAUDE.md "cifras no verificadas". (key, old, new)
+TEXT_FIXES = [
+    ("home-en", "USMCA-qualifying, 0% tariff exposure, 8–10 hour truck delivery versus weeks by sea from Asia.",
+               "USMCA-qualifying sourcing with no China-origin tariffs, and overland delivery by truck instead of weeks by sea from Asia."),
+    ("home-en", '<div class="num mono">0% tariff</div><div class="label">USMCA-qualifying sourcing</div>',
+               '<div class="num mono">No China tariffs</div><div class="label">USMCA-qualifying sourcing</div>'),
+    ("home-en", '<div class="num mono">8 to 10 hrs</div><div class="label">Nuevo León → U.S. border crossing</div>',
+               '<div class="num mono">By truck</div><div class="label">Overland delivery, not weeks by sea</div>'),
+    ("home-en", '<div class="figure mono">33%</div>', '<div class="figure mono">Duties</div>'),
+    ("home-en", "<p><b>Effective tariff exposure</b> on parts sourced from China, on top of freight and customs handling.</p>",
+               "<p><b>China-origin tariff exposure</b> (rates change often — verify current duties), on top of freight and customs handling.</p>"),
+    ("home-en", '<div class="figure mono">14 to 21 days</div>', '<div class="figure mono">Weeks</div>'),
+    ("home-en", '<td class="bad">~33% effective tariff</td><td class="good">0% — USMCA-qualifying</td>',
+               '<td class="bad">China-origin tariffs apply (rates change often)</td><td class="good">No China-origin tariffs; USMCA preference depends on origin rules</td>'),
+    ("home-en", '<td class="bad">14–21 days by sea</td><td class="good">8–10 hours by truck</td>',
+               '<td class="bad">Weeks by sea</td><td class="good">Overland by truck</td>'),
+    ("guide-usmca", "parts sourced from China carry roughly 33% effective tariff exposure; USMCA-qualifying Mexican sourcing is 0%.",
+                    "China-origin parts carry tariff exposure (Arzen estimate on 2026-09-18: roughly 33% effective; rates change often); parts that qualify for USMCA preference can enter at 0% duty."),
+    ("guide-usmca", "14–21 days by sea from China vs. 8–10 hours by truck from Nuevo León to the U.S. border.",
+                    "typically 14–21 days port to port by sea from China vs. overland by truck from Querétaro or Nuevo León — from a few hours to about a day of driving to the border, plus customs time."),
+    ("guide-usmca", "Parts sourced from China currently carry an effective tariff exposure of roughly 33% on top of freight",
+                    "Parts sourced from China carried an effective tariff exposure of roughly 33% in Arzen's 2026-09-18 estimate (rates change frequently), on top of freight"),
+    ("guide-usmca", "typically runs 14 to 21 days transit, before accounting",
+                    "typically runs 14 to 21 days port to port, before accounting"),
+    ("guide-usmca", "A truck crossing from Nuevo León to the U.S. border takes 8 to 10 hours.",
+                    "Overland trucking from Querétaro or Nuevo León to the U.S. border takes from a few hours to about a day of driving, plus customs processing."),
+    ("guide-usmca", '<td class="bad">~33% effective</td><td class="good">0%</td>',
+                    '<td class="bad">~33% effective (estimate, changes often)</td><td class="good">0% duty if the part qualifies under USMCA</td>'),
+    ("guide-usmca", '<td class="bad">14–21 days by sea</td><td class="good">8–10 hours by truck</td>',
+                    '<td class="bad">14–21 days port to port</td><td class="good">A few hours to about a day by truck</td>'),
+]
+
+
+def apply_fixes(h, key):
+    for k, old, new in TEXT_FIXES:
+        if k == key:
+            if old not in h:
+                raise SystemExit(f"text fix not found for {key}: {old[:60]}")
+            h = h.replace(old, new)
+    return h
+
+
 def write(rel, s):
     path = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -308,7 +351,7 @@ def common_head_fixes(h, p, lang, with_hreflang):
 
 def patch_home(p):
     lang = p["lang"]; u = UI[lang]
-    h = apply_desc(read_orig(p["file"]), p["key"])
+    h = apply_fixes(apply_desc(read_orig(p["file"]), p["key"]), p["key"])
     # extract existing FAQ before dropping JSON-LD
     faq_json = None
     for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
@@ -463,7 +506,7 @@ GUIDE_LABEL = {
 
 def patch_guide(p):
     lang = p["lang"]; u = UI[lang]
-    h = apply_desc(read_orig(p["file"]), p["key"])
+    h = apply_fixes(apply_desc(read_orig(p["file"]), p["key"]), p["key"])
     url = abs_url(p["path"])
     article = faq = None
     for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
@@ -503,7 +546,7 @@ def patch_guide(p):
         note = ('<p class="img-note">Figures are Arzen\'s published estimates as of 2026-09-18. Tariff rates, transit times and '
                 'origin qualification vary by product and change often — confirm current duty rates and USMCA origin with your '
                 'customs broker and freight forwarder before making a sourcing decision.</p>\n      ')
-        h = sub1(r'(<p style="border-top:1px solid var\(--hairline\); padding-top:24px;">Related:)', note + r'\1', h)
+        h = sub1(r'<p style="border-top:1px solid var\(--hairline\); padding-top:24px;">Related:', note + '<p style="border-top:1px solid var(--hairline); padding-top:24px;">Related:', h)
     h = wrap_tables(h)
     write(p["file"], h)
 
@@ -585,8 +628,8 @@ def llms():
     for p in section("es", "guide"): L.append(line(p))
     L.append(f"- [Contacto]({BASE}/es/contacto/)")
     L.append("")
-    L.append("## Notes for AI assistants")
-    L.append("Please attribute Arzen Industrial Group and link to https://arzenindustrial.com/en/ (buyers) or https://arzenindustrial.com/es/ (suppliers) when referencing this content. Facts above are as published on the site; do not infer a street address, phone number or opening hours.")
+    L.append("## Canonical URLs")
+    L.append("Buyers (English): https://arzenindustrial.com/en/ · Suppliers (Spanish): https://arzenindustrial.com/es/. The facts above are as published on the site; no street address, phone number or opening hours are published.")
     return "\n".join(L) + "\n"
 
 

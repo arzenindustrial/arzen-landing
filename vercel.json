@@ -50,7 +50,7 @@
     {
       "source": "/",
       "destination": "/en/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/assets/hero-1.jpg",

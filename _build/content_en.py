@@ -135,6 +135,7 @@ add(key="svc-cnc", kind="service", path="/en/services/cnc-machining-sourcing/", 
   <li><b>Quotes you can't compare</b> because the RFQ package was incomplete — see the <a href="/en/guides/rfq-checklist-cnc-parts-mexico/">RFQ checklist</a>.</li>
 </ul>
 
+<p><b>Export controls:</b> if your drawings or technical data are export-controlled (for example ITAR or EAR), confirm with your compliance team before sharing them with any supplier outside the United States. Arzen cannot make that determination for you.</p>
 <h2>Is it a fit for your part?</h2>
 <p>We stay deliberately narrow: tooling, fixtures and secondary structural components for aerospace OEMs, Tier 1/2 suppliers, defense programs, aviation MRO and space systems. If your part is flight-critical and needs a 12–24 month certification cycle, tell us on the first call and we will tell you honestly whether it fits. Tell us the certifications your program requires so we match accordingly.</p>
 
@@ -306,6 +307,7 @@ add(key="svc-quoting", kind="service", path="/en/services/quoting-sample-first-o
   <li>No one accountable when the first lot has a problem.</li>
 </ul>
 
+<p><b>Export controls:</b> if your drawings or technical data are export-controlled (for example ITAR or EAR), confirm with your compliance team before sharing them with any supplier outside the United States. Arzen cannot make that determination for you.</p>
 <h2>What we don't do</h2>
 <p>Arzen does not manufacture and does not hold inventory. We coordinate and verify; independent shops make the parts.</p>
 """,
@@ -316,7 +318,7 @@ add(key="svc-quoting", kind="service", path="/en/services/quoting-sample-first-o
     ])
 
 # ---------------------------------------------------------------- LOCATIONS
-add(key="loc-hub", kind="hub", path="/en/locations/", foot=None, order=0, alt="loc-hub-es",
+add(key="loc-hub", kind="hub", path="/en/locations/", foot=None, order=0,
     title="Where We Source: Querétaro & Nuevo León, Mexico | Arzen",
     desc="Arzen verifies CNC, tooling and structural shops in Querétaro and Nuevo León, Mexico, for U.S. aerospace and defense buyers across the United States.",
     h1="Where Arzen works: Querétaro and Nuevo León, Mexico — for buyers across the U.S.", short="All locations",
@@ -356,7 +358,7 @@ add(key="loc-hub", kind="hub", path="/en/locations/", foot=None, order=0, alt="l
         ("Do you serve buyers outside the United States?", "Our focus is U.S. aerospace and defense procurement teams."),
     ])
 
-add(key="loc-queretaro", kind="location", path="/en/locations/queretaro/", foot="location", order=1, alt="loc-queretaro-es",
+add(key="loc-queretaro", kind="location", path="/en/locations/queretaro/", foot="location", order=1,
     title="CNC & Tooling Sourcing in Querétaro, Mexico | Arzen",
     desc="Source CNC machining, tooling and secondary structural components from shops in Querétaro, Mexico, visited and verified in person by Arzen.",
     h1="CNC and tooling sourcing in Querétaro, Mexico", short="Querétaro",
@@ -395,7 +397,7 @@ add(key="loc-queretaro", kind="location", path="/en/locations/queretaro/", foot=
         ("Which services are available for Querétaro suppliers?", "CNC machining sourcing, tooling and fixtures, secondary structural components, in-person verification, and managed quoting and first orders."),
     ])
 
-add(key="loc-nuevo-leon", kind="location", path="/en/locations/nuevo-leon/", foot="location", order=2, alt="loc-nuevo-leon-es",
+add(key="loc-nuevo-leon", kind="location", path="/en/locations/nuevo-leon/", foot="location", order=2,
     title="CNC & Tooling Sourcing in Nuevo León, Mexico | Arzen",
     desc="Source CNC machining and tooling from shops in Nuevo León and the Monterrey area, visited and verified in person by Arzen for U.S. buyers.",
     h1="CNC and tooling sourcing in Nuevo León (Monterrey area), Mexico", short="Nuevo León",
@@ -597,7 +599,7 @@ add(key="contact", kind="contact", path="/en/contact/", foot=None, order=0, alt=
 </ul>
 
 <h2>What to include</h2>
-<p>Your part and drawing, tolerances, material, estimated monthly volume, required certifications and timeline. The <a href="/en/guides/rfq-checklist-cnc-parts-mexico/">RFQ checklist</a> lists the full package.</p>
+<p>Before sharing drawings, confirm their export-control status (ITAR/EAR) with your compliance team. Then send your part and drawing, tolerances, material, estimated monthly volume, required certifications and timeline. The <a href="/en/guides/rfq-checklist-cnc-parts-mexico/">RFQ checklist</a> lists the full package.</p>
 
 <h2>Request a consultation</h2>
 <!--FORM-->

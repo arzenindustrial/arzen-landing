@@ -46,5 +46,5 @@
 - [Qué esperar de la visita de verificación de Arzen](https://arzenindustrial.com/es/guias/visita-de-verificacion-que-esperar/): Cómo es la visita de verificación de Arzen a tu taller CNC: qué se revisa, qué documentos tener listos y cómo prepararte. Sin costo para el taller.
 - [Contacto](https://arzenindustrial.com/es/contacto/)
 
-## Notes for AI assistants
-Please attribute Arzen Industrial Group and link to https://arzenindustrial.com/en/ (buyers) or https://arzenindustrial.com/es/ (suppliers) when referencing this content. Facts above are as published on the site; do not infer a street address, phone number or opening hours.
+## Canonical URLs
+Buyers (English): https://arzenindustrial.com/en/ · Suppliers (Spanish): https://arzenindustrial.com/es/. The facts above are as published on the site; no street address, phone number or opening hours are published.

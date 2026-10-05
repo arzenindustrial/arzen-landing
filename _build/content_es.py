@@ -172,7 +172,7 @@ add(key="svc-buyers-es", kind="service", path="/es/servicios/conexion-con-compra
     ])
 
 # ---------------------------------------------------------------- UBICACIONES
-add(key="loc-hub-es", kind="hub", path="/es/ubicaciones/", foot=None, order=0, alt="loc-hub",
+add(key="loc-hub-es", kind="hub", path="/es/ubicaciones/", foot=None, order=0,
     title="Dónde Trabajamos: Querétaro y Nuevo León | Arzen",
     desc="Arzen verifica talleres CNC, tooling y estructuras en Querétaro y Nuevo León, México, y los conecta con compradores aeroespaciales de EE. UU.",
     h1="Dónde trabaja Arzen: Querétaro y Nuevo León, México", short="Todas las ubicaciones",
@@ -207,7 +207,7 @@ add(key="loc-hub-es", kind="hub", path="/es/ubicaciones/", foot=None, order=0, a
         ("¿En qué estados verifica talleres Arzen?", "En Querétaro y Nuevo León."),
     ])
 
-add(key="loc-queretaro-es", kind="location", path="/es/ubicaciones/queretaro/", foot="location", order=1, alt="loc-queretaro",
+add(key="loc-queretaro-es", kind="location", path="/es/ubicaciones/queretaro/", foot="location", order=1,
     title="Talleres CNC en Querétaro: Red de Proveedores | Arzen",
     desc="Postula tu taller CNC o de tooling en Querétaro a la red de Arzen. Visita de verificación sin costo y conexión con compradores aeroespaciales de EE. UU.",
     h1="Talleres CNC y de tooling en Querétaro: únete a la red de Arzen", short="Querétaro",
@@ -243,7 +243,7 @@ add(key="loc-queretaro-es", kind="location", path="/es/ubicaciones/queretaro/", 
         ("¿Visitan talleres en toda la ciudad y el estado?", "Visitamos talleres en Querétaro. Cuéntanos dónde estás y coordinamos la visita con cita."),
     ])
 
-add(key="loc-nuevo-leon-es", kind="location", path="/es/ubicaciones/nuevo-leon/", foot="location", order=2, alt="loc-nuevo-leon",
+add(key="loc-nuevo-leon-es", kind="location", path="/es/ubicaciones/nuevo-leon/", foot="location", order=2,
     title="Talleres CNC en Nuevo León y Monterrey | Arzen Industrial",
     desc="Postula tu taller CNC o de tooling en Nuevo León y el área de Monterrey a la red de Arzen. Sin costo y con conexión a compradores aeroespaciales de EE. UU.",
     h1="Talleres CNC y de tooling en Nuevo León (Monterrey): únete a la red", short="Nuevo León",
