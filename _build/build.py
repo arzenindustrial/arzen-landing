@@ -290,6 +290,11 @@ def common_head_fixes(h, p, lang, with_hreflang):
              f'<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="{title}">\n'
              f'<meta name="twitter:description" content="{desc}">\n<meta name="twitter:image" content="{BASE}/assets/og-image.png">')
     h = sub1(r'<meta name="twitter:card" content="summary_large_image">', extra, h)
+    # Search Console tag: single source of truth is lib.GSC_CODE (a placeholder tag is useless)
+    h = re.sub(r'<!-- Google Search Console:.*?-->\s*', '', h, flags=re.S)
+    h = re.sub(r'<meta name="google-site-verification"[^>]*>\s*', '', h)
+    if GSC_CODE:
+        h = re.sub(r'(<meta name="robots"[^>]*>)', lambda m: m.group(1) + f'\n<meta name="google-site-verification" content="{GSC_CODE}">', h, count=1)
     # drop old JSON-LD + the explanatory ProfessionalService comment
     h = re.sub(r'<!-- ProfessionalService:.*?-->\s*', '', h, flags=re.S)
     h = re.sub(r'<script type="application/ld\+json">.*?</script>\s*', '', h, flags=re.S)

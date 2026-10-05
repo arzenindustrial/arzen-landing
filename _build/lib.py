@@ -8,6 +8,8 @@ SITE_ID = BASE + "/#website"
 EMAIL = "network@arzenindustrial.com"
 LINKEDIN = "https://www.linkedin.com/company/arzen-industrial-group/"
 LASTMOD = "2026-10-05"
+# Google Search Console HTML-tag verification code (content="..." value only). Empty = no tag emitted.
+GSC_CODE = ""
 CSS_V = "25"
 JS_V = "25"
 
@@ -207,6 +209,7 @@ def head_html(page, alt_pages, extra_graph, lang_ui):
             links.append(f'<link rel="alternate" hreflang="x-default" href="{abs_url(xd[0])}">')
     og_type = "article" if page["kind"] == "guide" else "website"
     img = BASE + "/assets/og-image.png"
+    gsc_meta = f'<meta name="google-site-verification" content="{GSC_CODE}">' if GSC_CODE else ""
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
@@ -217,7 +220,7 @@ def head_html(page, alt_pages, extra_graph, lang_ui):
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 {chr(10).join(links)}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta name="google-site-verification" content="PENDING-PASTE-YOUR-GSC-CODE-HERE">
+{gsc_meta}
 <meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="Arzen Industrial Group">
 <meta property="og:title" content="{esc(title)}">
