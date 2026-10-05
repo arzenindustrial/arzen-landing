@@ -51,6 +51,46 @@
       "source": "/",
       "destination": "/en/",
       "permanent": false
+    },
+    {
+      "source": "/assets/hero-1.jpg",
+      "destination": "/assets/aerospace-fighter-jets-maintenance-hangar.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/hero-2.jpg",
+      "destination": "/assets/commercial-aircraft-final-assembly-line.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/hero-3.jpg",
+      "destination": "/assets/commercial-airliner-night-ramp-operations.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/hero-4.jpg",
+      "destination": "/assets/navy-fighter-jets-formation-sunset.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/CNC_Machining.png",
+      "destination": "/assets/cnc-milling-aluminum-part-sparks.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/Dimensional_Inspection.jpeg",
+      "destination": "/assets/technician-inspecting-machined-parts.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/Tooling_Assembly.jpeg",
+      "destination": "/assets/metalworker-grinding-fabrication-shop.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/assets/Finished_Parts.jpeg",
+      "destination": "/assets/metal-bar-stock-shelving-manufacturing-facility.jpg",
+      "permanent": true
     }
   ]
 }
