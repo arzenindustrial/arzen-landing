@@ -260,16 +260,16 @@ add(key="loc-nuevo-leon-es", kind="location", path="/es/ubicaciones/nuevo-leon/"
 <h2>Por qué Nuevo León</h2>
 <p>Nuevo León, con el área metropolitana de Monterrey como eje, tiene una base industrial amplia y es la más cercana a Texas de las dos regiones donde trabajamos. Para un comprador de EE. UU., esa cercanía importa; igual de importante es saber si tu taller puede mantener su tolerancia. Eso lo verificamos en persona.</p>
 
-<h2>Qué hacemos en Nuevo León</h2>
+<h2>Qué pasa si tu taller está en Nuevo León</h2>
 <ul>
-  <li>Visitamos tu taller y confirmamos equipo, tolerancias y capacidad en sitio.</li>
-  <li>Validamos tu historial con tus clientes actuales.</li>
-  <li>Te <a href="/es/servicios/conexion-con-compradores-de-eeuu/">presentamos con compradores</a> cuyas piezas encajan contigo.</li>
-  <li>Te acompañamos en la cotización y la primera orden.</li>
+  <li><b>Primero conversamos:</b> equipo, tolerancias, tamaños de pieza y clientes actuales, por videollamada o llamada.</li>
+  <li><b>Después vamos a verte:</b> la visita en sitio confirma lo que contaste; sin esa visita no hay perfil verificado.</li>
+  <li><b>Luego buscamos el encaje:</b> cuando un comprador de EE. UU. necesita una pieza parecida a lo que ya haces, <a href="/es/servicios/conexion-con-compradores-de-eeuu/">te presentamos</a>.</li>
+  <li><b>Y seguimos contigo</b> en la cotización y en la primera orden.</li>
 </ul>
 
-<h2>Cómo postularte</h2>
-<p>Empieza en <a href="/es/servicios/unirse-a-la-red-de-proveedores/">unirte a la red</a> o en <a href="/es/contacto/">contacto</a>. Respondemos en 1 día hábil.</p>
+<h2>Para empezar</h2>
+<p>Escríbenos desde <a href="/es/servicios/unirse-a-la-red-de-proveedores/">unirte a la red</a> o <a href="/es/contacto/">contacto</a>. Te contestamos en 1 día hábil; postularte no tiene costo ni compromiso.</p>
 
 <h2>Otra región</h2>
 <p>También verificamos talleres en <a href="/es/ubicaciones/queretaro/">Querétaro</a>.</p>
