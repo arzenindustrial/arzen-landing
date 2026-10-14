@@ -107,32 +107,38 @@ def apply_desc(h, key):
 # Figures Arzen published that could not be verified (transit hours, % tariff, absolute "0%").
 # Rewritten to defensible wording; see CLAUDE.md "cifras no verificadas". (key, old, new)
 TEXT_FIXES = [
+    ("guide-usmca", "Real tariff, freight and lead-time numbers comparing", "Tariff, freight and lead-time factors comparing"),
+    ("home-en", "Yes. Suppliers in our network are located in Querétaro and Nuevo León, Mexico, and sourcing through them avoids the tariff exposure associated with parts sourced from China, while cutting freight time from weeks by sea to hours by truck across the border.",
+                "Not automatically. Whether a part qualifies for USMCA preference depends on its product-specific rules of origin and documentation, not only on where the shop is. Duties depend on the HTS code and current U.S. measures, so confirm with your customs broker. Overland trucking can also cut freight time compared with weeks by sea."),
+    ("home-en", "delivered without the tariff risk or lead-time gamble of Asia.", "delivered overland by truck instead of weeks by sea from Asia."),
+    ("home-en", '<div class="k">02. Tariffs</div><div class="v"><b>USMCA-qualifying</b> sourcing, no exposure to Asia tariffs.</div>',
+                '<div class="k">02. Duties</div><div class="v"><b>USMCA origin rules</b> checked part by part; rates verified by HTS code.</div>'),
     ("home-en", "USMCA-qualifying, 0% tariff exposure, 8–10 hour truck delivery versus weeks by sea from Asia.",
-               "USMCA-qualifying sourcing with no China-origin tariffs, and overland delivery by truck instead of weeks by sea from Asia."),
+               "Overland delivery by truck instead of weeks by sea from Asia, with USMCA origin rules checked part by part."),
     ("home-en", '<div class="num mono">0% tariff</div><div class="label">USMCA-qualifying sourcing</div>',
-               '<div class="num mono">No China tariffs</div><div class="label">USMCA-qualifying sourcing</div>'),
+               '<div class="num mono">USMCA</div><div class="label">Origin rules checked part by part</div>'),
     ("home-en", '<div class="num mono">8 to 10 hrs</div><div class="label">Nuevo León → U.S. border crossing</div>',
                '<div class="num mono">By truck</div><div class="label">Overland delivery, not weeks by sea</div>'),
     ("home-en", '<div class="figure mono">33%</div>', '<div class="figure mono">Duties</div>'),
     ("home-en", "<p><b>Effective tariff exposure</b> on parts sourced from China, on top of freight and customs handling.</p>",
-               "<p><b>China-origin tariff exposure</b> (rates change often — verify current duties), on top of freight and customs handling.</p>"),
+               "<p><b>Duties depend on HTS code and origin</b>, and U.S. measures changed during 2026 — verify the current rate for your part, on top of freight and customs handling.</p>"),
     ("home-en", '<div class="figure mono">14 to 21 days</div>', '<div class="figure mono">Weeks</div>'),
     ("home-en", '<td class="bad">~33% effective tariff</td><td class="good">0% — USMCA-qualifying</td>',
-               '<td class="bad">China-origin tariffs apply (rates change often)</td><td class="good">No China-origin tariffs; USMCA preference depends on origin rules</td>'),
+               '<td class="bad">Depends on HTS code and origin</td><td class="good">Depends on HTS code; USMCA preference only if origin rules are met</td>'),
     ("home-en", '<td class="bad">14–21 days by sea</td><td class="good">8–10 hours by truck</td>',
                '<td class="bad">Weeks by sea</td><td class="good">Overland by truck</td>'),
     ("guide-usmca", "parts sourced from China carry roughly 33% effective tariff exposure; USMCA-qualifying Mexican sourcing is 0%.",
-                    "China-origin parts carry tariff exposure (Arzen estimate on 2026-09-18: roughly 33% effective; rates change often); parts that qualify for USMCA preference can enter at 0% duty."),
+                    "duties on China-origin parts depend on the HTS code and on U.S. measures that changed during 2026; USMCA preference depends on the part meeting origin rules."),
     ("guide-usmca", "14–21 days by sea from China vs. 8–10 hours by truck from Nuevo León to the U.S. border.",
                     "typically 14–21 days port to port by sea from China vs. overland by truck from Querétaro or Nuevo León — from a few hours to about a day of driving to the border, plus customs time."),
     ("guide-usmca", "Parts sourced from China currently carry an effective tariff exposure of roughly 33% on top of freight",
-                    "Parts sourced from China carried an effective tariff exposure of roughly 33% in Arzen's 2026-09-18 estimate (rates change frequently), on top of freight"),
+                    "Duties on China-origin parts depend on the HTS code and on U.S. measures that changed during 2026; check the current rate for your part, on top of freight"),
     ("guide-usmca", "typically runs 14 to 21 days transit, before accounting",
                     "typically runs 14 to 21 days port to port, before accounting"),
     ("guide-usmca", "A truck crossing from Nuevo León to the U.S. border takes 8 to 10 hours.",
                     "Overland trucking from Querétaro or Nuevo León to the U.S. border takes from a few hours to about a day of driving, plus customs processing."),
     ("guide-usmca", '<td class="bad">~33% effective</td><td class="good">0%</td>',
-                    '<td class="bad">~33% effective (estimate, changes often)</td><td class="good">0% duty if the part qualifies under USMCA</td>'),
+                    '<td class="bad">Depends on HTS code and current measures</td><td class="good">Depends on HTS code; USMCA preference only if origin rules are met</td>'),
     ("guide-usmca", '<td class="bad">14–21 days by sea</td><td class="good">8–10 hours by truck</td>',
                     '<td class="bad">14–21 days port to port</td><td class="good">A few hours to about a day by truck</td>'),
 ]
@@ -543,7 +549,7 @@ def patch_guide(p):
     tail = f'<div class="prose">{related_html(lang, rel)}</div>\n      {cta_band(lang)}'
     h = sub1(r'<p><a href="[^"]*" class="btn btn-primary" style="margin:12px 0 60px;">[^<]*</a></p>', tail, h)
     if p["key"] == "guide-usmca":
-        note = ('<p class="img-note">Figures are Arzen\'s published estimates as of 2026-09-18. Tariff rates, transit times and '
+        note = ('<p class="img-note">Tariff rates, transit times and '
                 'origin qualification vary by product and change often — confirm current duty rates and USMCA origin with your '
                 'customs broker and freight forwarder before making a sourcing decision.</p>\n      ')
         h = sub1(r'<p style="border-top:1px solid var\(--hairline\); padding-top:24px;">Related:', note + '<p style="border-top:1px solid var(--hairline); padding-top:24px;">Related:', h)

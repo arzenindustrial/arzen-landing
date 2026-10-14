@@ -36,7 +36,7 @@ add(key="svc-hub", kind="hub", path="/en/services/", foot=None, order=0,
   <thead><tr><th scope="col">The problem</th><th scope="col">Where to start</th></tr></thead>
   <tbody>
     <tr><th scope="row">Supplier capability is self-reported and nobody has seen the shop floor</th><td><a href="/en/services/supplier-verification/">Supplier verification</a> · <a href="/en/guides/vet-cnc-supplier-mexico/">Guide: how to vet a CNC supplier</a></td></tr>
-    <tr><th scope="row">Tariff exposure and long sea freight on parts sourced from Asia</th><td><a href="/en/services/usmca-nearshoring-sourcing/">Nearshoring</a> · <a href="/en/guides/usmca-vs-china-sourcing/">Guide: USMCA vs. China sourcing</a></td></tr>
+    <tr><th scope="row">Long sea freight and lead times on parts sourced from Asia</th><td><a href="/en/services/usmca-nearshoring-sourcing/">Nearshoring</a> · <a href="/en/guides/usmca-vs-china-sourcing/">Guide: USMCA vs. China sourcing</a></td></tr>
     <tr><th scope="row">You need tooling or fixtures without a long supplier-qualification cycle</th><td><a href="/en/services/tooling-and-fixtures-sourcing/">Tooling and fixtures sourcing</a></td></tr>
     <tr><th scope="row">You don't know what to put in an RFQ so quotes are comparable</th><td><a href="/en/guides/rfq-checklist-cnc-parts-mexico/">Guide: RFQ checklist</a> · <a href="/en/services/quoting-sample-first-order/">Quoting and sample</a></td></tr>
     <tr><th scope="row">The first order with a new supplier is the riskiest one</th><td><a href="/en/services/quoting-sample-first-order/">First-order management</a></td></tr>
@@ -131,7 +131,7 @@ add(key="svc-cnc", kind="service", path="/en/services/cnc-machining-sourcing/", 
 <h2>Problems this solves</h2>
 <ul>
   <li><b>Unverified capability:</b> a profile that claims aerospace-grade work with no one having seen the shop.</li>
-  <li><b>Tariff and freight exposure</b> on parts currently sourced from Asia — see <a href="/en/services/usmca-nearshoring-sourcing/">nearshoring</a>.</li>
+  <li><b>Freight time and lead-time exposure</b> on parts currently sourced from Asia — see <a href="/en/services/usmca-nearshoring-sourcing/">nearshoring</a>.</li>
   <li><b>Quotes you can't compare</b> because the RFQ package was incomplete — see the <a href="/en/guides/rfq-checklist-cnc-parts-mexico/">RFQ checklist</a>.</li>
 </ul>
 
@@ -186,7 +186,7 @@ add(key="svc-tooling", kind="service", path="/en/services/tooling-and-fixtures-s
 <ul>
   <li>Long qualification cycles for a supplier on non-critical work.</li>
   <li>Fixtures that arrive late because the shop's real capacity was never confirmed.</li>
-  <li>Tariff exposure and sea-freight lead time on tooling made in Asia — see <a href="/en/guides/usmca-vs-china-sourcing/">USMCA vs. China sourcing</a>.</li>
+  <li>Sea-freight lead time on tooling made in Asia — see <a href="/en/guides/usmca-vs-china-sourcing/">USMCA vs. China sourcing</a>.</li>
 </ul>
 """,
     related=["svc-cnc", "svc-quoting", "loc-nuevo-leon"], faqs=[
@@ -225,7 +225,7 @@ add(key="svc-structural", kind="service", path="/en/services/structural-componen
 <h2>Problems this solves</h2>
 <ul>
   <li>Finding a shop that can hold tolerance on structural geometry without trusting a self-reported listing.</li>
-  <li>Reducing tariff exposure and freight time compared with sourcing from Asia.</li>
+  <li>Reducing freight time compared with sourcing from Asia.</li>
   <li>Having one accountable point of contact through the first purchase order.</li>
 </ul>
 """,
@@ -236,11 +236,11 @@ add(key="svc-structural", kind="service", path="/en/services/structural-componen
 
 add(key="svc-nearshoring", kind="service", path="/en/services/usmca-nearshoring-sourcing/", foot="service", order=5,
     title="Nearshoring Aerospace Sourcing: Asia to Mexico | Arzen",
-    desc="Move CNC, tooling and structural sourcing from Asia to verified shops in Querétaro and Nuevo León, with USMCA and tariff questions raised early.",
+    desc="Move CNC, tooling and structural sourcing from Asia to verified shops in Querétaro and Nuevo León, with USMCA origin and duty questions raised early.",
     h1="Nearshoring aerospace sourcing from Asia to Mexico", short="Nearshoring (USMCA)",
-    lede="If a part is currently made in Asia, Arzen can help you evaluate moving it to a verified Mexican shop — overland by truck instead of weeks by sea, and without China-origin tariff exposure.",
+    lede="If a part is currently made in Asia, Arzen can help you evaluate moving it to a verified Mexican shop, overland by truck instead of weeks by sea.",
     crumbs=[("Services", "/en/services/"), ("Nearshoring", "/en/services/usmca-nearshoring-sourcing/")],
-    tldr=[("What changes:", "tariff exposure, freight time and supplier visibility."),
+    tldr=[("What changes:", "freight time and supplier visibility."),
           ("USMCA:", "preferential treatment depends on the product's rules of origin — raise it early and confirm with your customs broker."),
           ("Numbers:", "see our guide for the cost and lead-time comparison."),
           ("Where:", "Querétaro and Nuevo León.")],
@@ -249,7 +249,7 @@ add(key="svc-nearshoring", kind="service", path="/en/services/usmca-nearshoring-
     body="""
 <h2>Why buyers consider moving production to Mexico</h2>
 <ul>
-  <li><b>Tariff exposure.</b> Parts made in Mexico are not subject to tariffs on China-origin goods.</li>
+  <li><b>Duties.</b> Duty treatment depends on the HTS code, the part’s country of origin and current U.S. measures, which changed during 2026. Check the rate for your part before comparing sources.</li>
   <li><b>Time.</b> Delivery overland by truck replaces weeks by sea.</li>
   <li><b>Visibility.</b> Instead of an unseen supplier overseas, you work with a shop someone has walked.</li>
   <li><b>Communication.</b> Closer time zones and shared business hours make engineering questions faster to resolve.</li>
@@ -273,7 +273,7 @@ add(key="svc-nearshoring", kind="service", path="/en/services/usmca-nearshoring-
 <p>We don't promise that every part can or should move. Parts that need a long certification cycle may not be a fit. We would rather tell you that on the first call.</p>
 """,
     related=["guide-usmca", "svc-verification", "loc-hub"], faqs=[
-        ("Does sourcing from Mexico automatically avoid tariffs?", "Parts made in Mexico by Mexican suppliers are not subject to China-origin tariffs. Whether a part qualifies for USMCA preferential treatment depends on origin rules and documentation, so confirm with your customs broker."),
+        ("Does sourcing from Mexico automatically avoid tariffs?", "No. Duties depend on the HTS code, the part’s country of origin and current U.S. measures, and USMCA preference depends on origin rules and documentation. Confirm with your customs broker."),
         ("Is Mexico faster than Asia?", "Overland transport by truck replaces sea freight, which cuts transit time. Our guide compares the numbers."),
         ("Can every Asian-sourced part move to Mexico?", "No. We focus on tooling, fixtures and secondary structural components. Flight-critical primes with long certification cycles are outside our focus."),
     ])
@@ -559,7 +559,7 @@ add(key="about", kind="about", path="/en/about/", foot=None, order=0, alt="about
 <h2>Problems we solve</h2>
 <ul>
   <li>Supplier capability that is self-reported and unverified.</li>
-  <li>Tariff exposure and long freight times on parts from Asia — see <a href="/en/services/usmca-nearshoring-sourcing/">nearshoring</a>.</li>
+  <li>Long freight times on parts from Asia — see <a href="/en/services/usmca-nearshoring-sourcing/">nearshoring</a>.</li>
   <li>The risk of a first order with an unknown supplier.</li>
 </ul>
 
