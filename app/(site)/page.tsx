@@ -28,7 +28,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="bg-paper">
-        <div className="mx-auto grid max-w-page items-center gap-12 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] md:pb-24 md:pt-20">
+        <div className="mx-auto grid max-w-page items-center gap-12 px-4 pb-16 pt-12 sm:px-6 xl:grid-cols-[1fr_1.05fr] md:pb-24 md:pt-20">
           <div>
             <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-alloy">MTR verification · FAIR · PPAP</p>
             <h1 className="font-display mt-4 text-[clamp(38px,6vw,64px)] font-bold leading-[1.05] text-ink">Stop highlighting. Start shipping.</h1>
