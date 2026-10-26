@@ -39,7 +39,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const p = PAGES[params.slug];
-  return p ? { title: `${p.title} MTR verification`, description: p.lead } : {};
+  return p ? { title: `${p.title} MTR verification`, description: p.lead, alternates: { canonical: `/industries/${params.slug}` } } : {};
 }
 
 export default function IndustryPage({ params }: { params: { slug: string } }) {

@@ -3,6 +3,7 @@ import { PageHero } from "@/components/page-hero";
 import { stagger } from "@/lib/motion";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/limits" },
   title: "What Arzen does not do",
   description: "Arzen checks material certificates against specification limits. It does not release material, replace your quality manager, or handle CAD or export-controlled data.",
 };

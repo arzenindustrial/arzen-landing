@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { stagger } from "@/lib/motion";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/trust" },
   title: "Trust center",
   description: "How Arzen isolates, protects and traces your certificates, which providers process data, and the status of security certifications.",
 };

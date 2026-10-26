@@ -37,7 +37,7 @@ export function SiteFooter() {
         </div>
         <FooterCol title="Product" links={[["/#how-it-works", "How it works"], ["/check", "Free MTR check"], ["/sample-report", "Sample report"], ["/pricing", "Pricing"]]} />
         <FooterCol title="Industries" links={[["/industries/aerospace", "Aerospace & Defense"], ["/industries/medical", "Medical Devices"], ["/industries/oil-gas", "Oil, Gas & Energy"], ["/industries/automotive", "Automotive & EV"]]} />
-        <FooterCol title="Company" links={[["/trust", "Trust center"], ["/limits", "What Arzen does not do"], ["/login", "Sign in"]]} />
+        <FooterCol title="Company" links={[["/trust", "Trust center"], ["/limits", "What Arzen does not do"], ["/contact", "Contact"], ["/login", "Sign in"]]} />
       </div>
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-page flex-col gap-2 px-4 py-5 text-[12.5px] sm:flex-row sm:justify-between sm:px-6">

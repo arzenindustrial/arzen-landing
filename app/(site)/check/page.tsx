@@ -3,6 +3,7 @@ import { FreeCheck } from "./free-check";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/check" },
   title: "Free MTR check",
   description: "Upload one material test report and see which chemical elements are within the specification limits. No account. The file is not stored.",
 };

@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { PlanCalculator } from "@/components/plan-calculator";
 import { PRICING_NOTES, PricingCards } from "@/components/pricing-cards";
+import { SectionHead } from "@/components/home-sections";
+import { isDemo } from "@/lib/demo";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pricing" },
   title: "Pricing",
   description: "Starter $249/month for up to 60 MTRs. Professional $399/month for up to 200 MTRs with AS9102 Form 2, PPAP and email-in.",
 };
@@ -24,9 +28,15 @@ export default function Pricing() {
   return (
     <>
     <PageHero tag="Pricing" title="Two plans. No call needed."
-      lead="Pay by card and start the same day. Compare the monthly price with the hours your team spends checking certificates by hand." />
+      lead={isDemo()
+        ? "Monthly, by card, no implementation project. Accounts are opening in stages: request early access from any plan."
+        : "Pay by card and start the same day. Compare the monthly price with the hours your team spends checking certificates by hand."} />
     <div className="mx-auto max-w-page px-4 py-16 sm:px-6">
       <div data-reveal><PricingCards /></div>
+      <section className="mt-20">
+        <SectionHead tag="Plan calculator" title="Which plan fits your volume?" lead="Move the slider to your monthly certificate count. Overage is priced per certificate, so the math is simple." />
+        <div data-reveal className="mt-8"><PlanCalculator /></div>
+      </section>
       <div data-reveal className="mt-14 overflow-x-auto rounded-md border border-s100">
         <table className="w-full min-w-[520px] border-collapse bg-white text-[14.5px]">
           <caption className="sr-only">Plan comparison</caption>

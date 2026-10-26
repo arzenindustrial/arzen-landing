@@ -3,12 +3,12 @@ import Link from "next/link";
 // Blueprint §3. Límites y precios viven en la tabla `plans` (editable sin deploy); aquí la vista pública.
 export const PLANS = [
   {
-    code: "starter", name: "Starter", price: 249, audience: "Small shops, 5–15 machines",
+    code: "starter", name: "Starter", price: 249, included: 60, overage: 3.5, users: 2, audience: "Small shops, 5–15 machines",
     items: ["Up to 60 MTRs validated per month", "Chemistry and mechanical checks", "2 users",
             "PDF conformance report per certificate", "$3.50 per additional MTR"],
   },
   {
-    code: "professional", name: "Professional", price: 399, audience: "The quality team's plan", featured: true,
+    code: "professional", name: "Professional", price: 399, included: 200, overage: 2.5, users: 5, audience: "The quality team's plan", featured: true,
     items: ["Up to 200 MTRs per month", "AS9102 Form 2 and PPAP material sheets", "Email-in: forward certs to your own address",
             "5 users, priority support", "$2.50 per additional MTR"],
   },

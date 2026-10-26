@@ -5,8 +5,17 @@ import { ResultsTable } from "@/components/results-table";
 import { CountsLine, StatusBadge } from "@/components/status";
 import { demoDocs } from "@/lib/demo";
 import { shortHash } from "@/lib/format";
+import { IconExport } from "@/components/icons";
+import { stagger } from "@/lib/motion";
+
+const SAMPLE_PDFS = [
+  { file: "sample-audit-summary.pdf", title: "MTR audit summary", pages: "2 pages", d: "Every value with its limit, result and page reference. All plans." },
+  { file: "sample-fair-form2.pdf", title: "AS9102 Form 2 layout", pages: "1 page", d: "Material and specification fields filled from the MTR. Field 9 left for your approver. Professional." },
+  { file: "sample-ppap-material.pdf", title: "PPAP material results", pages: "1 page", d: "Chemistry and mechanical results sheet for a PPAP submission. Professional." },
+];
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/sample-report" },
   title: "Sample report",
   description: "A sample Arzen MTR audit summary: every chemical and mechanical value with its limit, result and source, generated from a synthetic certificate.",
 };
@@ -36,6 +45,27 @@ export default function SampleReport() {
           <ul className="mt-2 list-disc space-y-1 pl-5 text-[14.5px] text-alloy">{v.notes.map((n) => <li key={n}>{n}</li>)}</ul>
         </section>
       )}
+      <section data-reveal className="mt-12">
+        <h2 className="font-display text-[24px] font-bold">Download the PDFs</h2>
+        <p className="mt-2 max-w-2xl text-[15px] text-alloy">
+          The files Arzen generates for this certificate, as your customer would receive them. Each one carries the source file&apos;s SHA-256 in the footer. Sample data, draft limits.
+        </p>
+        <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+          {SAMPLE_PDFS.map((p, i) => (
+            <li key={p.file} data-reveal style={stagger(i, 90)}>
+              <a href={`/samples/reports/${p.file}`} download className="card-lift group flex h-full flex-col rounded-md border border-s100 bg-white p-5">
+                <span className="flex items-center justify-between gap-3">
+                  <IconExport size={20} className="text-blue" />
+                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-alloy">PDF · {p.pages}</span>
+                </span>
+                <span className="mt-3 text-[17px] font-semibold">{p.title}</span>
+                <span className="mt-1 flex-1 text-[14px] leading-relaxed text-alloy">{p.d}</span>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-blue">Download <span aria-hidden className="arrow">→</span></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
       <div className="mt-10 flex flex-wrap gap-3">
         <Link href="/check" className="group inline-flex items-center gap-2 rounded bg-blue px-5 py-3 font-medium text-white transition-colors hover:bg-[#1c43bb]">Check your own MTR free <span aria-hidden className="arrow">→</span></Link>
         <Link href="/pricing" className="rounded border border-ink px-5 py-3 font-medium transition-colors hover:bg-ink hover:text-paper">See plans</Link>

@@ -1,12 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Symbol } from "@/components/brand";
 import { AuditChain, Pipeline, ReadVsDecide, SectionHead, SpecMarquee } from "@/components/home-sections";
 import { HeroInspection } from "@/components/hero-inspection";
+import { JsonLd, faqPage, softwareApp } from "@/components/json-ld";
 import { IconAerospace, IconAutomotive, IconEnergy, IconEye, IconChain, IconLock, IconMedical } from "@/components/icons";
 import { FreeCheck } from "./check/free-check";
 import { PRICING_NOTES, PricingCards } from "@/components/pricing-cards";
 import { ProductPreview } from "@/components/product-preview";
-import { demoCatalog } from "@/lib/demo";
+import { demoCatalog, isDemo } from "@/lib/demo";
 import { stagger } from "@/lib/motion";
 import type { Industry } from "@/lib/types";
 
@@ -16,6 +18,8 @@ const INDUSTRIES: { slug: string; sector: Industry; title: string; line: string;
   { slug: "oil-gas", sector: "oil_gas", title: "Oil, Gas & Energy", line: "High-volume MTR review, including hardness limits for sour-service material.", Icon: IconEnergy },
   { slug: "automotive", sector: "automotive", title: "Automotive & EV", line: "PPAP material test results without retyping the cert into a spreadsheet.", Icon: IconAutomotive },
 ];
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const FAQ = [
   ["What happens to my data?", "Certificates you upload with an account are stored in your organization's private space, separated from every other customer by database row-level security. Each one gets a SHA-256 fingerprint and an append-only audit trail. The free check does not store your file."],
@@ -34,6 +38,8 @@ const TRUST = [
 export default function Home() {
   return (
     <>
+      <JsonLd data={softwareApp()} />
+      <JsonLd data={faqPage(FAQ)} />
       {/* Hero: banco de inspección sobre Ink, con retícula de plano */}
       <section className="relative overflow-hidden bg-ink text-paper">
         <div aria-hidden className="bp-grid bp-fade absolute inset-0" />
@@ -139,7 +145,8 @@ export default function Home() {
       {/* Precios */}
       <section className="bg-white">
         <div className="mx-auto max-w-page px-4 py-24 sm:px-6">
-          <SectionHead tag="Pricing" title="Two plans. Start the same day." lead="Sign up, pay by card, upload your first certificate. No call, no contract, no implementation fee." />
+          <SectionHead tag="Pricing" title={isDemo() ? "Two plans. No implementation project." : "Two plans. Start the same day."}
+            lead={isDemo() ? "Monthly, by card. No contract, no implementation fee. Accounts are opening in stages: request early access from either plan." : "Sign up, pay by card, upload your first certificate. No call, no contract, no implementation fee."} />
           <div data-reveal className="mt-12"><PricingCards /></div>
           <ul className="mt-6 space-y-1 text-[13.5px] text-alloy">{PRICING_NOTES.map((n) => <li key={n}>{n}</li>)}</ul>
         </div>

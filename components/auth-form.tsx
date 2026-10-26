@@ -20,7 +20,11 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
       <div className="w-full max-w-md rounded-lg border border-s300 bg-white p-6">
         <h1 className="font-display text-[26px] font-bold">{mode === "login" ? "Sign in" : "Create your account"}</h1>
         <p className="mt-3 text-[15px] text-alloy">Sign-in isn't connected on this site yet.</p>
-        {isDemo() && <Link href="/app" className="mt-5 inline-block rounded bg-blue px-4 py-2.5 font-medium text-white">Open the demo dashboard</Link>}
+        <p className="mt-2 text-[15px] text-alloy">Accounts are opening in stages. Request early access and we&apos;ll write back with next steps.</p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href="/contact" className="inline-block rounded bg-blue px-4 py-2.5 font-medium text-white">Request early access</Link>
+          {isDemo() && <Link href="/app" className="inline-block rounded border border-ink px-4 py-2.5 font-medium">Open the demo dashboard</Link>}
+        </div>
       </div>
     );
   }
