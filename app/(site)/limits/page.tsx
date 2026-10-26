@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PageHero } from "@/components/page-hero";
+import { stagger } from "@/lib/motion";
 
 export const metadata: Metadata = {
   title: "What Arzen does not do",
@@ -17,17 +19,18 @@ const ITEMS: [string, string][] = [
 
 export default function Limits() {
   return (
+    <>
+    <PageHero narrow tag="Limits" title="What Arzen does not do" lead="Knowing the limits of a tool is part of trusting it." />
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-      <h1 className="font-display text-[clamp(34px,5vw,52px)] font-bold leading-tight">What Arzen does not do</h1>
-      <p className="mt-3 text-[17px] text-alloy">Knowing the limits of a tool is part of trusting it.</p>
-      <ol className="mt-10 space-y-6">
+      <ol className="space-y-4">
         {ITEMS.map(([t, d], i) => (
-          <li key={t} className="grid grid-cols-[2.5rem_1fr] gap-2">
-            <span className="num pt-0.5 text-[14px] text-alloy">{String(i + 1).padStart(2, "0")}</span>
+          <li key={t} data-reveal style={stagger(i, 60)} className="grid grid-cols-[3rem_1fr] gap-3 rounded-md border border-s100 bg-white p-5">
+            <span className="num flex h-9 w-9 items-center justify-center rounded-[3px] bg-ink text-[13px] text-paper">{String(i + 1).padStart(2, "0")}</span>
             <div><h2 className="text-[17px] font-semibold">{t}</h2><p className="mt-1.5 text-[15.5px] leading-relaxed text-alloy">{d}</p></div>
           </li>
         ))}
       </ol>
     </div>
+    </>
   );
 }

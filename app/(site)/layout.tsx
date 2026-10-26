@@ -1,3 +1,4 @@
+import { RevealObserver } from "@/components/motion";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -6,6 +7,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <SiteHeader />
       <main id="main">{children}</main>
       <SiteFooter />
+      <RevealObserver />
     </>
   );
 }

@@ -17,23 +17,34 @@ export const PLANS = [
 export function PricingCards() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
-      {PLANS.map((p) => (
-        <div key={p.code} className={`flex flex-col rounded-lg border bg-white p-6 ${p.featured ? "border-ink ring-1 ring-ink" : "border-s300"}`}>
-          <div className="flex items-baseline justify-between">
-            <h3 className="font-display text-[22px] font-bold">{p.name}</h3>
-            {p.featured && <span className="rounded-[3px] bg-ink px-2 py-0.5 font-mono text-[11px] text-paper">RECOMMENDED</span>}
+      {PLANS.map((p) => {
+        const f = p.featured;
+        return (
+          <div key={p.code} className={`card-lift relative flex flex-col overflow-hidden rounded-lg border p-7 ${f ? "border-ink bg-ink text-paper" : "border-s300 bg-white"}`}>
+            {f && <div aria-hidden className="bp-grid pointer-events-none absolute inset-0 opacity-60" />}
+            <div className="relative flex items-baseline justify-between">
+              <h3 className="font-display text-[24px] font-bold">{p.name}</h3>
+              {f && <span className="rounded-[3px] bg-blue px-2 py-0.5 font-mono text-[11px] text-white">RECOMMENDED</span>}
+            </div>
+            <p className={`relative mt-1 text-[14px] ${f ? "text-s300" : "text-alloy"}`}>{p.audience}</p>
+            <p className="relative mt-6 flex items-baseline gap-1"><span className="num text-[48px] font-medium leading-none tracking-tight">${p.price}</span><span className={f ? "text-s300" : "text-alloy"}>/month</span></p>
+            <ul className="relative mt-6 flex-1 space-y-3 text-[15px]">
+              {p.items.map((i) => (
+                <li key={i} className="flex gap-3">
+                  <span aria-hidden className={`mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-[2px] ${f ? "bg-white/10 text-[var(--blue-on-ink)]" : "bg-infobg text-blue"}`}>
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="square"><path d="M2 5.2 4.2 7.4 8 3" /></svg>
+                  </span>
+                  {i}
+                </li>
+              ))}
+            </ul>
+            <Link href={`/signup?plan=${p.code}`}
+              className={`group relative mt-7 inline-flex items-center justify-center gap-2 rounded px-4 py-3 text-center font-medium transition-colors ${f ? "bg-blue text-white hover:bg-[#1c43bb]" : "border border-ink text-ink hover:bg-ink hover:text-paper"}`}>
+              Start {p.name} <span aria-hidden className="arrow">→</span>
+            </Link>
           </div>
-          <p className="mt-1 text-[14px] text-alloy">{p.audience}</p>
-          <p className="mt-5"><span className="num text-[40px] font-medium leading-none">${p.price}</span><span className="text-alloy"> /month</span></p>
-          <ul className="mt-5 flex-1 space-y-2.5 text-[15px]">
-            {p.items.map((i) => <li key={i} className="flex gap-2"><span aria-hidden className="mt-[9px] h-[2px] w-3 shrink-0 bg-ink" />{i}</li>)}
-          </ul>
-          <Link href={`/signup?plan=${p.code}`}
-            className={`mt-6 rounded px-4 py-2.5 text-center font-medium ${p.featured ? "bg-blue text-white hover:bg-[#1c43bb]" : "border border-ink text-ink hover:bg-paper"}`}>
-            Start {p.name}
-          </Link>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

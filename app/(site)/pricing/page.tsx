@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageHero } from "@/components/page-hero";
 import { PRICING_NOTES, PricingCards } from "@/components/pricing-cards";
 
 export const metadata: Metadata = {
@@ -21,22 +22,24 @@ const ROWS: [string, string, string][] = [
 
 export default function Pricing() {
   return (
-    <div className="mx-auto max-w-page px-4 py-14 sm:px-6">
-      <h1 className="font-display text-[clamp(34px,5vw,52px)] font-bold">Pricing</h1>
-      <p className="mt-3 max-w-2xl text-[17px] text-alloy">Two plans. Pay by card, no call needed. Compare the monthly price with the hours your team spends checking certificates by hand.</p>
-      <div className="mt-10"><PricingCards /></div>
-      <div className="mt-12 overflow-x-auto">
+    <>
+    <PageHero tag="Pricing" title="Two plans. No call needed."
+      lead="Pay by card and start the same day. Compare the monthly price with the hours your team spends checking certificates by hand." />
+    <div className="mx-auto max-w-page px-4 py-16 sm:px-6">
+      <div data-reveal><PricingCards /></div>
+      <div data-reveal className="mt-14 overflow-x-auto rounded-md border border-s100">
         <table className="w-full min-w-[520px] border-collapse bg-white text-[14.5px]">
           <caption className="sr-only">Plan comparison</caption>
           <thead><tr className="bg-ink text-paper"><th scope="col" className="px-4 py-2.5 text-left font-medium">Feature</th><th scope="col" className="px-4 py-2.5 text-left font-medium">Starter</th><th scope="col" className="px-4 py-2.5 text-left font-medium">Professional</th></tr></thead>
           <tbody>
             {ROWS.map(([f, a, b]) => (
-              <tr key={f} className="border-t border-s100"><th scope="row" className="px-4 py-2.5 text-left font-normal">{f}</th><td className="num px-4 py-2.5">{a}</td><td className="num px-4 py-2.5">{b}</td></tr>
+              <tr key={f} className="border-t border-s100 transition-colors hover:bg-paper"><th scope="row" className="px-4 py-2.5 text-left font-normal">{f}</th><td className="num px-4 py-2.5">{a}</td><td className="num px-4 py-2.5">{b}</td></tr>
             ))}
           </tbody>
         </table>
       </div>
       <ul className="mt-6 space-y-1 text-[13.5px] text-alloy">{PRICING_NOTES.map((n) => <li key={n}>{n}</li>)}</ul>
     </div>
+    </>
   );
 }

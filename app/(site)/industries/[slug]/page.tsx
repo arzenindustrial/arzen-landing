@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageHero } from "@/components/page-hero";
 import { demoCatalog } from "@/lib/demo";
+import { stagger } from "@/lib/motion";
 import type { Industry } from "@/lib/types";
 
 const PAGES: Record<string, { sector: Industry; title: string; lead: string; pain: string; docs: string[] }> = {
@@ -45,36 +47,37 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
   if (!p) notFound();
   const specs = demoCatalog.filter((s) => s.industry_sector === p.sector);
   return (
-    <div className="mx-auto max-w-page px-4 py-14 sm:px-6">
+    <>
+    <PageHero tag="Industries" title={p.title} lead={p.lead}>
       <nav aria-label="Industries" className="flex flex-wrap gap-2 text-[13.5px]">
         {Object.entries(PAGES).map(([slug, x]) => (
           <Link key={slug} href={`/industries/${slug}`} aria-current={slug === params.slug ? "page" : undefined}
-            className={`rounded-full border px-3 py-1 ${slug === params.slug ? "border-ink bg-ink text-paper" : "border-s300 hover:border-ink"}`}>{x.title}</Link>
+            className={`rounded-full border px-3 py-1 transition-colors ${slug === params.slug ? "border-[var(--blue-on-ink)] bg-blue text-white" : "border-white/20 text-paper/85 hover:border-white/50"}`}>{x.title}</Link>
         ))}
       </nav>
-      <h1 className="font-display mt-8 text-[clamp(34px,5vw,52px)] font-bold leading-tight">{p.title}</h1>
-      <p className="mt-4 max-w-3xl text-[18px] leading-relaxed text-alloy">{p.lead}</p>
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <div className="rounded-md border border-s100 bg-white p-6">
+    </PageHero>
+    <div className="mx-auto max-w-page px-4 py-14 sm:px-6">
+      <div className="grid gap-6 md:grid-cols-2">
+        <div data-reveal className="card-lift rounded-md border border-s100 bg-white p-6">
           <h2 className="text-[17px] font-semibold">Why it matters</h2>
           <p className="mt-2 text-[15.5px] leading-relaxed text-alloy">{p.pain}</p>
         </div>
-        <div className="rounded-md border border-s100 bg-white p-6">
+        <div data-reveal style={stagger(1, 100)} className="card-lift rounded-md border border-s100 bg-white p-6">
           <h2 className="text-[17px] font-semibold">What you get</h2>
           <ul className="mt-2 space-y-2 text-[15.5px]">{p.docs.map((d) => <li key={d} className="flex gap-2"><span aria-hidden className="mt-[10px] h-[2px] w-3 shrink-0 bg-ink" />{d}</li>)}</ul>
         </div>
       </div>
-      <section className="mt-12">
+      <section data-reveal className="mt-14">
         <h2 className="font-display text-[26px] font-bold">Starter catalog for this industry</h2>
         <p className="mt-2 max-w-3xl text-[15px] text-alloy">
           These entries are a draft we are verifying against the licensed edition of each standard. Until an entry is verified, results against it read “needs review”, never “within limits”. You can also load your own or your customer's limits.
         </p>
-        <div className="mt-5 overflow-x-auto">
+        <div className="mt-5 overflow-x-auto rounded-md border border-s100">
           <table className="w-full min-w-[520px] border-collapse bg-white text-[14px]">
             <thead><tr className="bg-ink text-paper"><th scope="col" className="px-3 py-2 text-left font-medium">Specification</th><th scope="col" className="px-3 py-2 text-left font-medium">Material</th><th scope="col" className="px-3 py-2 text-left font-medium">Form</th><th scope="col" className="px-3 py-2 text-left font-medium">Status</th></tr></thead>
             <tbody>
               {specs.map((s) => (
-                <tr key={`${s.spec_code}-${s.alloy_designation}-${s.product_form}`} className="border-t border-s100">
+                <tr key={`${s.spec_code}-${s.alloy_designation}-${s.product_form}`} className="border-t border-s100 transition-colors hover:bg-paper">
                   <td className="num px-3 py-2">{s.spec_code}</td><td className="px-3 py-2">{s.alloy_designation}</td>
                   <td className="px-3 py-2 text-alloy">{s.product_form}</td>
                   <td className="px-3 py-2"><span className="rounded-[3px] bg-warnbg px-2 py-0.5 font-mono text-[11.5px] text-warn">● DRAFT</span></td>
@@ -85,9 +88,10 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
       <div className="mt-12 flex flex-wrap gap-3">
-        <Link href="/check" className="rounded bg-blue px-5 py-3 font-medium text-white">Check an MTR free</Link>
-        <Link href="/sample-report" className="rounded border border-ink px-5 py-3 font-medium">See a sample report</Link>
+        <Link href="/check" className="group inline-flex items-center gap-2 rounded bg-blue px-5 py-3 font-medium text-white transition-colors hover:bg-[#1c43bb]">Check an MTR free <span aria-hidden className="arrow">→</span></Link>
+        <Link href="/sample-report" className="rounded border border-ink px-5 py-3 font-medium transition-colors hover:bg-ink hover:text-paper">See a sample report</Link>
       </div>
     </div>
+    </>
   );
 }

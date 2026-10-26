@@ -1,29 +1,24 @@
 import Link from "next/link";
 import { Logo } from "./brand";
+import { NavLinks } from "./nav-links";
+import { NAV } from "@/lib/site";
 
-const NAV = [
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/industries/aerospace", label: "Industries" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/trust", label: "Trust" },
-];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-s100 bg-paper/95 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-ink/[0.96] text-paper backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-page items-center justify-between px-4 sm:px-6">
-        <Link href="/" aria-label="Arzen home"><Logo /></Link>
-        <nav aria-label="Main" className="hidden items-center gap-7 text-[14.5px] md:flex">
-          {NAV.map((n) => <Link key={n.href} href={n.href} className="text-ink hover:text-blue">{n.label}</Link>)}
-          <Link href="/login" className="text-ink hover:text-blue">Sign in</Link>
-          <Link href="/check" className="rounded bg-blue px-3.5 py-2 font-medium text-white hover:bg-[#1c43bb]">Check an MTR free</Link>
-        </nav>
-        <details className="relative md:hidden">
-          <summary className="cursor-pointer list-none rounded border border-ink px-3 py-1.5 text-[14px] font-medium">Menu</summary>
-          <nav aria-label="Main" className="absolute right-0 mt-2 flex w-56 flex-col rounded-md border border-s100 bg-white p-2 shadow-sm">
-            {NAV.map((n) => <Link key={n.href} href={n.href} className="rounded px-3 py-2 hover:bg-paper">{n.label}</Link>)}
-            <Link href="/login" className="rounded px-3 py-2 hover:bg-paper">Sign in</Link>
-            <Link href="/check" className="mt-1 rounded bg-blue px-3 py-2 text-center font-medium text-white">Check an MTR free</Link>
+        <Link href="/" aria-label="Arzen home" className="rounded-[3px]"><Logo reversed /></Link>
+        <NavLinks />
+        <details className="group relative md:hidden">
+          <summary className="flex cursor-pointer list-none items-center gap-2 rounded-[4px] border border-white/25 px-3 py-1.5 text-[14px] font-medium">
+            <span aria-hidden className="flex w-4 flex-col gap-[3px]"><span className="h-[2px] bg-paper transition-transform group-open:translate-y-[5px] group-open:rotate-45" /><span className="h-[2px] bg-paper transition-opacity group-open:opacity-0" /><span className="h-[2px] bg-paper transition-transform group-open:-translate-y-[5px] group-open:-rotate-45" /></span>
+            Menu
+          </summary>
+          <nav aria-label="Main" className="faq-body absolute right-0 mt-2 flex w-60 flex-col rounded-md border border-white/10 bg-[#16212E] p-2 shadow-[0_20px_40px_-20px_rgba(0,0,0,.8)]">
+            {NAV.map((n) => <Link key={n.href} href={n.href} className="rounded px-3 py-2.5 hover:bg-white/5">{n.label}</Link>)}
+            <Link href="/login" className="rounded px-3 py-2.5 hover:bg-white/5">Sign in</Link>
+            <Link href="/check" className="mt-1 rounded bg-blue px-3 py-2.5 text-center font-medium text-white">Check an MTR free</Link>
           </nav>
         </details>
       </div>
@@ -33,8 +28,9 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-s300">
-      <div className="mx-auto grid max-w-page gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-ink text-s300">
+      <div aria-hidden className="bp-grid absolute inset-0 opacity-50" />
+      <div className="relative mx-auto grid max-w-page gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <Logo reversed descriptor />
           <p className="mt-4 max-w-xs text-[14px] leading-relaxed">Verified before it ships.</p>
@@ -43,7 +39,7 @@ export function SiteFooter() {
         <FooterCol title="Industries" links={[["/industries/aerospace", "Aerospace & Defense"], ["/industries/medical", "Medical Devices"], ["/industries/oil-gas", "Oil, Gas & Energy"], ["/industries/automotive", "Automotive & EV"]]} />
         <FooterCol title="Company" links={[["/trust", "Trust center"], ["/limits", "What Arzen does not do"], ["/login", "Sign in"]]} />
       </div>
-      <div className="border-t border-white/10">
+      <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-page flex-col gap-2 px-4 py-5 text-[12.5px] sm:flex-row sm:justify-between sm:px-6">
           <span>Arzen is a product of Arzen Industrial Group.</span>
           <span>Specification names are trademarks of their owners. Arzen is not affiliated with any standards body.</span>
