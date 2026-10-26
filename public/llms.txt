@@ -1,0 +1,19 @@
+# Arzen
+
+> Arzen is software for machine shops and quality teams. It reads material test reports (MTRs, mill certificates), checks each chemical and mechanical value against the limits of the governing specification with fixed rules, and builds audit-ready PDFs (MTR audit summary, AS9102 Form 2 layout, PPAP material test results). Arzen is a product of Arzen Industrial Group.
+
+Key facts:
+- Plans: Starter USD 249/month (up to 60 MTRs, USD 3.50 per additional MTR, 2 users); Professional USD 399/month (up to 200 MTRs, USD 2.50 per additional, 5 users, Form 2, PPAP, email-in).
+- An extraction model only reads values; pass/fail is decided by deterministic code. Uncertain reads are marked for human review.
+- Arzen does not release or certify material, does not test material, and does not accept drawings, CAD or export-controlled technical data.
+- The starter specification catalog is a draft being verified against licensed standards; results against it read "needs review".
+- Arzen holds no security certification today.
+
+## Pages
+- [Home](/): what Arzen does
+- [Free MTR check](/check): chemistry summary for one certificate, file not stored
+- [Pricing](/pricing)
+- [Sample report](/sample-report): engine output on a synthetic certificate
+- [Trust center](/trust): data handling, subprocessors, certification status
+- [What Arzen does not do](/limits)
+- Industries: [Aerospace & Defense](/industries/aerospace), [Medical Devices](/industries/medical), [Oil, Gas & Energy](/industries/oil-gas), [Automotive & EV](/industries/automotive)

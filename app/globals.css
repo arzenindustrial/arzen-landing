@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue: #2350D9;
+  --pass: #0F7B4B;
+  --dev: #C42B2B;
+  --warn: #9A5B00;
+  --passbg: #E6F3EC;
+  --devbg: #FBE9E9;
+  --warnbg: #FBF0DC;
+  --infobg: #E8EEFD;
+  --bg: #F6F4EF;
+  --surface: #FFFFFF;
+  --surface2: #F6F4EF;
+  --fg: #0E1621;
+  --muted: #4A5868;
+  --line: #E6E8EB;
+  color-scheme: light;
+}
+
+/* Dashboard oscuro (brand book §07 "Neutros y modo oscuro"): solo dentro del producto. */
+@media (prefers-color-scheme: dark) {
+  .app-shell:not([data-theme="light"]) {
+    --blue: #6F93FF;
+    --pass: #3DD598;
+    --dev: #FF7A7A;
+    --warn: #F0B44C;
+    --passbg: #11362A;
+    --devbg: #3B1D22;
+    --warnbg: #3A2C12;
+    --infobg: #1B2A4A;
+    --bg: #0E1621;
+    --surface: #16212E;
+    --surface2: #1F2D3D;
+    --fg: #F6F4EF;
+    --muted: #B9C0C8;
+    --line: #1F2D3D;
+    color-scheme: dark;
+  }
+}
+.app-shell[data-theme="dark"] {
+  --blue: #6F93FF; --pass: #3DD598; --dev: #FF7A7A; --warn: #F0B44C;
+  --passbg: #11362A; --devbg: #3B1D22; --warnbg: #3A2C12; --infobg: #1B2A4A;
+  --bg: #0E1621; --surface: #16212E; --surface2: #1F2D3D; --fg: #F6F4EF; --muted: #B9C0C8; --line: #1F2D3D;
+  color-scheme: dark;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-plex-sans), system-ui, sans-serif; }
+
+.font-display { font-stretch: 115%; letter-spacing: -0.01em; }
+.wordmark { font-family: var(--font-archivo), "Arial Black", sans-serif; font-stretch: 125%; font-weight: 700; letter-spacing: 0.17em; }
+.num { font-family: var(--font-plex-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+/* Foco visible siempre: anillo Cert Blue de 2 px (WCAG 2.2 AA, brand book §17). */
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+
+/* Línea de lectura: barre una vez de izquierda a derecha (≤ 600 ms). */
+@keyframes scan { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.scan-line { transform-origin: left; transform-box: fill-box; animation: scan 600ms ease-out 1 both; }
+@media (prefers-reduced-motion: reduce) {
+  .scan-line { animation: none; }
+  * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}
+
+.skip-link { position: absolute; left: -9999px; top: 8px; }
+.skip-link:focus { left: 8px; z-index: 50; background: #fff; color: #0E1621; padding: 8px 12px; }
