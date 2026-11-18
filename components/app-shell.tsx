@@ -13,6 +13,7 @@ export const useMe = () => useContext(MeCtx);
 const NAV = [
   { href: "/app", label: "Dashboard" },
   { href: "/app/certificates", label: "Certificates" },
+  { href: "/app/insights", label: "Insights" },
   { href: "/app/specs", label: "Specifications" },
   { href: "/app/settings", label: "Settings" },
 ];
@@ -75,7 +76,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </button>
           </div>
           <nav aria-label="Product" className="flex gap-1 overflow-x-auto px-3 pb-3 md:flex-col md:pb-0">
-            {NAV.map((n) => {
+            {[...NAV, ...(me?.staff ? [{ href: "/app/admin", label: "Arzen ops" }] : [])].map((n) => {
               const active = n.href === "/app" ? path === "/app" : path.startsWith(n.href);
               return (
                 <Link key={n.href} href={n.href} aria-current={active ? "page" : undefined}
@@ -103,6 +104,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           )}
         </aside>
         <main id="main" className="min-w-0 flex-1 px-4 py-6 sm:px-8 sm:py-8">
+          {org && ["past_due", "unpaid"].includes(org.subscription_status) && (
+            <p role="alert" className="mb-5 rounded border-l-4 border-dev bg-devbg px-4 py-3 text-[14.5px] text-dev">
+              Your last payment didn&apos;t go through. Your records are safe. <Link href="/app/settings#billing" className="font-semibold underline underline-offset-2">Update your card</Link> to keep processing certificates.
+            </p>
+          )}
+          {usage && usage.included > 0 && pct >= 80 && !["past_due", "unpaid"].includes(org!.subscription_status) && (
+            <p role="status" className="mb-5 rounded border-l-4 border-warn bg-warnbg px-4 py-3 text-[14.5px]">
+              {usage.used >= usage.included
+                ? <>You&apos;ve used all {usage.included} certificates in your plan this month. Additional ones are billed per certificate. </>
+                : <>You&apos;ve used {usage.used} of {usage.included} certificates this month. </>}
+              <Link href="/app/settings#billing" className="font-semibold underline underline-offset-2">See plans</Link>
+            </p>
+          )}
           {err ? <p role="alert" className="rounded border-l-4 border-dev bg-devbg px-4 py-3 text-dev">{err}</p> : (
             <MeCtx.Provider value={{ me, reload }}>{me ? children : <p className="text-muted">Loading…</p>}</MeCtx.Provider>
           )}

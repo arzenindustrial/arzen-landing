@@ -9,7 +9,11 @@ export class ApiError extends Error {
   }
 }
 
+/** Solo desarrollo: token fijo contra una API local (sin Supabase). Nunca se honra fuera de localhost. */
+export const DEV_TOKEN = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(API_URL) ? process.env.NEXT_PUBLIC_DEV_TOKEN || "" : "";
+
 async function authHeader(): Promise<Record<string, string>> {
+  if (DEV_TOKEN) return { Authorization: `Bearer ${DEV_TOKEN}` };
   if (!supabaseConfigured()) return {};
   const { data } = await supabase().auth.getSession();
   const token = data.session?.access_token;

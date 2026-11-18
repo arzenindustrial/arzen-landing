@@ -1,8 +1,8 @@
 "use client";
 // Acceso a datos del dashboard. En modo demo responde con resultados reales del motor sobre MTR sintéticos.
 import { api, download } from "./api";
-import { demoCatalog, demoDocs, demoMe, demoSummaries, isDemo } from "./demo";
-import type { CertDocument, DocSummary, Me, Plan, Spec } from "./types";
+import { demoCatalog, demoDocs, demoInsights, demoMe, demoSummaries, isDemo } from "./demo";
+import type { CertDocument, DocSummary, Insights, Lead, Me, OpsAccount, OpsHealth, OpsMetrics, Plan, Prospect, Spec } from "./types";
 
 const wait = (ms = 250) => new Promise((r) => setTimeout(r, ms));
 let demoState = demoDocs.map((d) => structuredClone(d));
@@ -146,6 +146,40 @@ export const client = {
   async deleteCertificate(id: string): Promise<void> {
     if (isDemo()) throw new Error("Demo mode: deleting needs the Arzen API.");
     await api(`/v1/certificates/${id}`, { method: "DELETE" });
+  },
+  async insights(months = 6): Promise<Insights> {
+    if (isDemo()) { await wait(120); return demoInsights(months); }
+    return api(`/v1/insights?months=${months}`);
+  },
+  /** Carpeta de auditoría: un PDF con portada, índice y el resumen de cada certificado elegido. */
+  async binder(ids: string[], info: { title?: string; customer?: string; po_number?: string; part_number?: string }): Promise<void> {
+    const name = `arzen-audit-binder-${info.po_number || new Date().toISOString().slice(0, 10)}.pdf`;
+    if (isDemo()) {
+      const a = document.createElement("a");
+      a.href = "/samples/reports/sample-audit-binder.pdf";
+      a.download = "arzen-sample-audit-binder.pdf";
+      a.click();
+      return;
+    }
+    const blob = await api<Blob>("/v1/binders", { method: "POST", body: JSON.stringify({ document_ids: ids, ...Object.fromEntries(Object.entries(info).filter(([, v]) => v)) }) });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  },
+  // Operación interna de Arzen (la API solo responde a usuarios de staff).
+  ops: {
+    metrics: (): Promise<OpsMetrics> => api("/v1/ops/metrics"),
+    health: (): Promise<OpsHealth> => api("/v1/ops/health"),
+    accounts: (): Promise<OpsAccount[]> => api("/v1/ops/accounts"),
+    leads: (status = ""): Promise<{ total: number; items: Lead[] }> => api(`/v1/ops/leads${status ? `?status=${status}` : ""}`),
+    patchLead: (id: string, body: { status?: string; notes?: string }): Promise<void> => api(`/v1/ops/leads/${id}`, { method: "PATCH", body: JSON.stringify(body) }),
+    prospects: (minScore = 0, contactable = false): Promise<{ total: number; items: Prospect[] }> =>
+      api(`/v1/ops/prospects?min_score=${minScore}&contactable=${contactable}&limit=100`),
+    patchProspect: (id: string, body: { status?: string; notes?: string; do_not_contact?: boolean }): Promise<void> =>
+      api(`/v1/ops/prospects/${id}`, { method: "PATCH", body: JSON.stringify(body) }),
   },
   async audit(id: string): Promise<any[]> {
     if (isDemo()) {

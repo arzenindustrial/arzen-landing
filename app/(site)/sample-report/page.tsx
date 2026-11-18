@@ -12,6 +12,7 @@ const SAMPLE_PDFS = [
   { file: "sample-audit-summary.pdf", title: "MTR audit summary", pages: "2 pages", d: "Every value with its limit, result and page reference. All plans." },
   { file: "sample-fair-form2.pdf", title: "AS9102 Form 2 layout", pages: "1 page", d: "Material and specification fields filled from the MTR. Field 9 left for your approver. Professional." },
   { file: "sample-ppap-material.pdf", title: "PPAP material results", pages: "1 page", d: "Chemistry and mechanical results sheet for a PPAP submission. Professional." },
+  { file: "sample-audit-binder.pdf", title: "Audit binder", pages: "7 pages", d: "Several certificates in one PDF: cover, index and each audit summary, with a fingerprint of the set. All plans." },
 ];
 
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ export default function SampleReport() {
         <p className="mt-2 max-w-2xl text-[15px] text-alloy">
           The files Arzen generates for this certificate, as your customer would receive them. Each one carries the source file&apos;s SHA-256 in the footer. Sample data, draft limits.
         </p>
-        <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+        <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SAMPLE_PDFS.map((p, i) => (
             <li key={p.file} data-reveal style={stagger(i, 90)}>
               <a href={`/samples/reports/${p.file}`} download className="card-lift group flex h-full flex-col rounded-md border border-s100 bg-white p-5">

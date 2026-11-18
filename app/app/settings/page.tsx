@@ -5,6 +5,15 @@ import { PLANS } from "@/components/pricing-cards";
 import { client } from "@/lib/client";
 import { isoDate } from "@/lib/format";
 
+const NOTICES: [string, string, string][] = [
+  ["deviation", "A certificate is out of specification", "As soon as a deviation is found."],
+  ["review", "A certificate needs review", "When a value could not be decided without a person."],
+  ["email_ingest", "Result of every certificate sent by email", "Whoever forwards a certificate does not see the screen."],
+  ["usage", "Plan usage at 80% and 100%", "Before additional certificates start to be billed."],
+  ["weekly_digest", "Weekly summary", "Mondays, only if there was activity."],
+  ["billing", "Payment problems", "If a charge fails."],
+];
+
 export default function Settings() {
   const { me, reload } = useMe();
   const org = me!.organization!;
@@ -22,6 +31,10 @@ export default function Settings() {
   const [retention, setRetention] = useState<number>(org.retention_days ?? 0);
   const [withFiles, setWithFiles] = useState(false);
   const [threshold, setThreshold] = useState(org.low_confidence_threshold);
+  const [prefs, setPrefs] = useState<Record<string, boolean>>(org.notify_prefs || {});
+  const [extra, setExtra] = useState((org.notify_emails || []).join(", "));
+  const [melt, setMelt] = useState((org.melt_countries || []).join(", "));
+  const list = (v: string) => v.split(/[,;\n]/).map((x) => x.trim()).filter(Boolean);
   const run = async (fn: () => Promise<unknown>) => { setMsg(null); try { await fn(); } catch (e: any) { setMsg(e.message); } };
 
   useEffect(() => {
@@ -98,6 +111,42 @@ export default function Settings() {
             <button className="rounded border border-fg px-3 py-1.5 text-[14px]">Invite</button>
           </form>
         )}
+      </section>
+
+      <section className={section} aria-labelledby="h-notify">
+        <h2 id="h-notify" className="text-[17px] font-semibold">Email notifications</h2>
+        <p className="mt-1 text-[14px] text-muted">Sent to your organization&apos;s admins, plus any address you add here. Each notice links to the certificate; it never replaces opening the result.</p>
+        <ul className="mt-3 space-y-2 text-[14px]">
+          {NOTICES.map(([key, label, hint]) => (
+            <li key={key}>
+              <label className="flex items-start gap-3">
+                <input type="checkbox" className="mt-1 h-4 w-4 accent-[var(--blue)]" disabled={!admin} checked={!!prefs[key]} onChange={(e) => setPrefs({ ...prefs, [key]: e.target.checked })} />
+                <span><span className="font-medium">{label}</span><br /><span className="text-[13px] text-muted">{hint}</span></span>
+              </label>
+            </li>
+          ))}
+        </ul>
+        <label className="mt-4 block text-[14px]">
+          <span className="font-medium">Also send to</span>
+          <input value={extra} onChange={(e) => setExtra(e.target.value)} disabled={!admin} placeholder="receiving@yourshop.com, quality@yourshop.com"
+            className="mt-1 w-full rounded border border-line bg-surface px-3 py-1.5" />
+          <span className="mt-1 block text-[12.5px] text-muted">Up to 10 addresses, separated by commas.</span>
+        </label>
+        {admin && <button onClick={() => run(async () => { await client.patchOrg({ notify_prefs: prefs, notify_emails: list(extra) }); await reload(); setMsg("Notifications saved."); })}
+          className="mt-3 rounded border border-fg px-3 py-1.5 text-[14px]">Save</button>}
+      </section>
+
+      <section className={section} aria-labelledby="h-melt">
+        <h2 id="h-melt" className="text-[17px] font-semibold">Country of melt</h2>
+        <p className="mt-1 text-[14px] text-muted">
+          If a contract limits where material may be melted, list the countries you accept. Certificates showing another country, or none, are marked REVIEW.
+          Arzen compares against your list; it does not decide which countries satisfy DFARS, Buy America or any other rule.
+        </p>
+        <input value={melt} onChange={(e) => setMelt(e.target.value)} disabled={!admin} aria-label="Accepted countries of melt" placeholder="United States, Mexico, Germany"
+          className="mt-3 w-full rounded border border-line bg-surface px-3 py-1.5" />
+        <p className="mt-1 text-[12.5px] text-muted">Leave empty to record the country without checking it.</p>
+        {admin && <button onClick={() => run(async () => { await client.patchOrg({ melt_countries: list(melt) }); await reload(); setMsg("Country-of-melt list saved. It applies to certificates processed from now on."); })}
+          className="mt-3 rounded border border-fg px-3 py-1.5 text-[14px]">Save</button>}
       </section>
 
       <section className={section} aria-labelledby="h-retention">

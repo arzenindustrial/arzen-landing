@@ -3,7 +3,9 @@ import type { DocSummary } from "@/lib/types";
 import { INDUSTRY_LABEL, isoDate } from "@/lib/format";
 import { CountsLine, StatusBadge } from "./status";
 
-export function CertTable({ items, highlight }: { items: DocSummary[]; highlight?: string }) {
+export function CertTable({ items, highlight, selected, onToggle }: {
+  items: DocSummary[]; highlight?: string; selected?: Set<string>; onToggle?: (id: string) => void;
+}) {
   if (!items.length) {
     return <p className="rounded-md border border-line bg-surface px-4 py-8 text-center text-muted">No certificates yet. Upload your first MTR.</p>;
   }
@@ -18,6 +20,7 @@ export function CertTable({ items, highlight }: { items: DocSummary[]; highlight
       <table className="w-full min-w-[760px] border-collapse bg-surface text-[13.5px]">
         <thead>
           <tr className="border-b border-line text-left text-muted">
+            {onToggle && <th scope="col" className="w-9 px-3 py-2"><span className="sr-only">Select for binder</span></th>}
             <th scope="col" className="px-3 py-2 font-medium">Status</th>
             <th scope="col" className="px-3 py-2 font-medium">Heat</th>
             <th scope="col" className="px-3 py-2 font-medium">Specification</th>
@@ -28,7 +31,13 @@ export function CertTable({ items, highlight }: { items: DocSummary[]; highlight
         </thead>
         <tbody>
           {items.map((d) => (
-            <tr key={d.id} className="border-t border-line hover:bg-surface2">
+            <tr key={d.id} className={`border-t border-line hover:bg-surface2 ${selected?.has(d.id) ? "bg-infobg/50" : ""}`}>
+              {onToggle && (
+                <td className="px-3 py-2.5">
+                  <input type="checkbox" checked={!!selected?.has(d.id)} onChange={() => onToggle(d.id)}
+                    aria-label={`Select heat ${d.heat_number} for the binder`} className="h-4 w-4 accent-[var(--blue)]" />
+                </td>
+              )}
               <td className="px-3 py-2.5"><StatusBadge status={d.validation_status} /></td>
               <td className="num px-3 py-2.5">
                 <Link href={`/app/certificates/${d.id}`} className="font-medium underline-offset-2 hover:underline">{mark(d.heat_number)}</Link>

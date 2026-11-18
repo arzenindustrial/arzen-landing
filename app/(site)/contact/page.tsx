@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { IconLock, IconMail } from "@/components/icons";
+import { LeadForm } from "@/components/lead-form";
 import { isDemo } from "@/lib/demo";
 import { stagger } from "@/lib/motion";
 import { CONTACT_EMAIL, mailto } from "@/lib/site";
@@ -21,6 +22,9 @@ const EARLY_ACCESS_BODY = [
   "",
   "(Please don't attach certificates or drawings to this email.)",
 ].join("\n");
+
+// El formulario guarda datos personales: se enciende solo con la API conectada y el aviso de privacidad publicado.
+const LEAD_FORM = process.env.NEXT_PUBLIC_LEAD_FORM === "1" && !!process.env.NEXT_PUBLIC_API_URL;
 
 export default function Contact() {
   const cards = [
@@ -42,6 +46,7 @@ export default function Contact() {
         ? "Accounts are opening in stages. Until yours is ready, the free check and the dashboard on this site run on labeled sample data."
         : "Questions about plans, data handling or a certificate that didn't read well. Write to us."} />
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      {LEAD_FORM && <div data-reveal className="mb-8"><LeadForm /></div>}
       <ul className="grid gap-5 sm:grid-cols-2">
         {cards.map(({ Icon, tag, title, d, href, cta }, i) => (
           <li key={tag} data-reveal style={stagger(i, 100)}>
