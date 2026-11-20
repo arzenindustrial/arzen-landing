@@ -1,11 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL as site } from "@/lib/site";
 
-const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
-const plexSans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans", display: "swap" });
-const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap" });
+// Fuentes servidas desde el propio sitio (app/fonts, licencia OFL): el build ya no depende de Google Fonts.
+const archivo = localFont({
+  src: "./fonts/archivo-latin-wdth-normal.woff2", weight: "100 900", style: "normal",
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }], variable: "--font-archivo", display: "swap",
+});
+// next/font se resuelve al compilar: las opciones deben ser literales (sin .map ni plantillas).
+const plexSans = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-sans-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-sans-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-sans-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-plex-sans", display: "swap",
+});
+const plexMono = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-plex-mono", display: "swap",
+});
 
 
 export const metadata: Metadata = {
